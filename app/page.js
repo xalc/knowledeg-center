@@ -1,35 +1,78 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import { theme, Button, Breadcrumb, Alert, Image } from 'antd';
 
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 export default function Page() {
+    const {
+        token: { colorBgContainer },
+    } = theme.useToken();
     const route = useRouter();
-    return <Box sx={{flexGrow: 1}}>
-        <AppBar position="static">
-            <Toolbar>
-            <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-            >
-                <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                News
-            </Typography>
-            <Button color="inherit" onClick={()=> route.push('/login')}>Login</Button>
-            </Toolbar>
-        </AppBar>
-    <h1>Hello, Next.js!</h1>
+    const [image, setImage] = useState(null);
+    const [imageLoading, setImageLoading] = useState(false);
+    const [error, setError] = useState(null)
 
-    
-    </Box>
-  }
+    useEffect(() => {
+        const fetchBingImage = async () => {
+            setImageLoading(true);
+            try {
+                // reference https://zhuanlan.zhihu.com/p/602020789
+                const bingImageUrl = 'https://api.cyrilstudio.top/bing/image.php'
+                const url = 'https://swapi.dev/api/films/';
+                const response = await fetch('/api');
+                if (!response.ok) {
+                    throw new Error('Something went wrong!');
+                }
+                // const imageObj = await JSON.parse(response);
+
+                setImage({});
+                setError(null);
+            } catch (error) {
+                setError(error);
+            } finally {
+                setImageLoading(false)
+            }
+
+        }
+        fetchBingImage();
+    }, []);
+    return (
+        <>
+
+            <Breadcrumb
+                items={[{
+                    title: <Link href="/"> Home</Link>,
+                }, {
+                    title: <Link href="/login"> Login</Link>,
+
+                }, {
+                    title: "items"
+                }]}
+            >
+
+            </Breadcrumb>
+            <div
+                className="site-layout-content"
+                style={{
+                    background: colorBgContainer,
+                }}
+            >
+                <h1>Hello, Next.js!</h1>
+
+
+                {!imageLoading && image && <Image alt={image.title} src={'https://api.cyrilstudio.top/bing/image.php'} />}
+                {!imageLoading && error && <Alert
+                    message="Error"
+                    description={error.message}
+                    type="error"
+                    showIcon
+                />}
+            </div>
+
+
+
+
+        </>
+    );
+}

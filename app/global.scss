@@ -22,6 +22,20 @@ body {
   margin: 3rem auto;
 }
 
+.layout {
+  justify-content: space-between;
+  height: 100vh;
 
+  .header {
+    display: 'flex';
+    align-items: 'center';
+  }
 
+  .content {
+    padding: 50px;
+  }
 
+  .footer {
+    text-align: center;
+  }
+}
