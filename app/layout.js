@@ -24,15 +24,6 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <StyledComponentsRegistry>
           <MyLayout>
-            {/* <Header
-              className={"header"}
-            >
-              <div className="demo-logo" />
-            </Header> */}
-            {/* <Content>{children}</Content> */}
-            {/* <Footer className={"footer"}>
-              Ant Design ©2023 Created by Ant UED
-            </Footer> */}
             {children}
           </MyLayout>
         </StyledComponentsRegistry>

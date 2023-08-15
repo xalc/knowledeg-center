@@ -2,7 +2,7 @@
 import React from 'react';
 import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
 import { useRouter } from 'next/navigation'
-import LoginButton from '../login/login';
+import LoginButton from '../headerLoginCopm/loginComp';
 import styles from './layout.module.css'
 const { Header, Content, Footer } = Layout;
 export default function MyLayout(props) {
@@ -15,6 +15,15 @@ export default function MyLayout(props) {
         <div className="demo-logo" />
         <Menu
           theme="dark"
+          onClick={({ item, key, keyPath, domEvent }) => {
+            if (key === '1') {
+              router.push('/')
+            }
+            if (key === '2') {
+              router.push('/list')
+            }
+            console.log(`click ${key}`)
+          }}
           mode="horizontal"
           defaultSelectedKeys={['1']}
           items={new Array(5).fill(null).map((_, index) => {
