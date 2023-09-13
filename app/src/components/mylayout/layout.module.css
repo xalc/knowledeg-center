@@ -22,3 +22,35 @@
         text-align: center;
     }
 }
+
+.uiLayout {
+    display: grid;
+    grid-template-rows: 64px auto 64px;
+    grid-template-columns: auto;
+    height: 100vh;
+    place-content: stretch;
+
+    .header {
+        background-color: beige;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+
+
+    }
+
+    .header div {
+        width: 64px;
+        text-align: center;
+    }
+
+    .content {
+        background-color: aquamarine;
+    }
+
+    .footer {
+        align-self: center;
+        justify-self: center;
+    }
+}

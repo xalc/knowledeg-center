@@ -53,14 +53,8 @@ export default function Page() {
 
             </Breadcrumb>
             <div
-                className="site-layout-content"
-                style={{
-                    background: colorBgContainer,
-                }}
-            >
+                className="site-layout-content">
                 <h1>Hello, Next.js!</h1>
-
-
                 {!imageLoading && image && <Image alt={image.title} src={'https://api.cyrilstudio.top/bing/image.php'} />}
                 {!imageLoading && error && <Alert
                     message="Error"
@@ -69,10 +63,6 @@ export default function Page() {
                     showIcon
                 />}
             </div>
-
-
-
-
         </>
     );
 }
