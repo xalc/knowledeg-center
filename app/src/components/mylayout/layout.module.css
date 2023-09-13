@@ -13,8 +13,9 @@
     }
 
     .content {
-        padding: 50px;
-        background-color: $colorBgContainer
+        padding: 16px;
+        height: calc(100vh - 132px);
+        background-color: #ffffff;
     }
 
     .footer {

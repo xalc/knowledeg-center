@@ -17,11 +17,13 @@ export default function MyLayout(props) {
           theme="dark"
           onClick={({ item, key, keyPath, domEvent }) => {
             if (key === '1') {
-              router.push('/')
+              router.push('/');
             }
             if (key === '2') {
-              router.push('/list')
+              router.push('/list');
+              return;
             }
+            router.push('/');
             console.log(`click ${key}`)
           }}
           mode="horizontal"
