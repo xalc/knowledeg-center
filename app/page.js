@@ -38,31 +38,15 @@ export default function Page() {
         fetchBingImage();
     }, []);
     return (
-        <>
-
-            <Breadcrumb
-                items={[{
-                    title: <Link href="/"> Home</Link>,
-                }, {
-                    title: <Link href="/login"> Login</Link>,
-
-                }, {
-                    title: "items"
-                }]}
-            >
-
-            </Breadcrumb>
-            <div
-                className="site-layout-content">
-                <h1>Hello, Next.js!</h1>
-                {!imageLoading && image && <Image alt={image.title} src={'https://api.cyrilstudio.top/bing/image.php'} />}
-                {!imageLoading && error && <Alert
-                    message="Error"
-                    description={error.message}
-                    type="error"
-                    showIcon
-                />}
-            </div>
-        </>
+        <div>
+            <h1>Hello, Next.js!</h1>
+            {!imageLoading && image && <Image alt={image.title} src={'https://api.cyrilstudio.top/bing/image.php'} />}
+            {!imageLoading && error && <Alert
+                message="Error"
+                description={error.message}
+                type="error"
+                showIcon
+            />}
+        </div>
     );
 }

@@ -21,7 +21,7 @@ const User = () => {
 export function GET(request) {
     try {
         const Users = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 100; i++) {
             const user = User();
             user.index = i;
             Users.push(user)

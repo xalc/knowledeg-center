@@ -1,6 +1,6 @@
 'use client'
 import User from '../src/components/user';
-import styles from './styles.module.scss';
+import pageStyle from './page.module.scss';
 
 import { useState, useEffect } from 'react'
 const VirtualList = () => {
@@ -15,7 +15,7 @@ const VirtualList = () => {
 
     return (<>
         <h2>All lists in dom</h2>
-        <div className={styles.container}>
+        <div className={pageStyle.container}>
             {
                 userList.map((oneUser) => (<User key={oneUser.id} user={oneUser} />))
             }

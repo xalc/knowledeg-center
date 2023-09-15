@@ -8,7 +8,7 @@ const VirtualList = () => {
     const [userList, setUserList] = useState([]);
     // const [renderedUser, setRenderUser] = useState([]);
     const [scrollerOffset, setScrollOffset] = useState(0);
-    const [userCount, setUserCount] = useState(2000);
+
 
     const scrollHandler = (event) => {
         const { scrollTop } = event.currentTarget;
@@ -28,7 +28,7 @@ const VirtualList = () => {
     }, []);
 
 
-    const totalHeight = userCount * ROW_HEIGHT;
+    const totalHeight = userList.length * ROW_HEIGHT;
     const renderUserList = () => {
         let startIndex = Math.floor(scrollerOffset / ROW_HEIGHT);
         const endIndex = startIndex + 20;

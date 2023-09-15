@@ -2,16 +2,18 @@
 import React from 'react';
 import styles from './layout.module.css'
 
-import Link from 'next/link'
+
+import { useRouter } from 'next/navigation';
+import { Button } from 'antd';
 export default function UILayout({ children }) {
 
-
+    const router = useRouter()
     return (
         <div className={styles.uiLayout}>
             <div className={styles.header}>
-                <div ><Link href='/'>Home</Link></div>
-                <div ><Link href='/list'>List</Link></div>
-                <div ><Link href='/login'>Login</Link></div>
+                <Button type="link" onClick={() => router.push('/')}>Home</Button>
+                <Button type="link" onClick={() => router.push('/list')}>List</Button>
+                <Button type="link" onClick={() => router.push('/login')}>Login</Button>
             </div>
             <div className={styles.content}>
                 {children}
