@@ -7,16 +7,16 @@ import UILayout from './src/components/mylayout/uilayout';
 const inter = Inter({ subsets: ['latin'] });
 
 import './global.scss'
-import { Metadata } from "next"
-const { Content, Header, Footer } = Layout;
+
 export const metadata = {
   title: "Next js get started",
-  description: "next js knowledge and learning",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  description: "next js knowledge and learning"
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({ children }) {

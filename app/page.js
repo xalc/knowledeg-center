@@ -1,8 +1,7 @@
 'use client'
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { theme, Button, Breadcrumb, Alert, Image } from 'antd';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 export default function Page() {
     const {
@@ -17,16 +16,13 @@ export default function Page() {
         const fetchBingImage = async () => {
             setImageLoading(true);
             try {
-                // reference https://zhuanlan.zhihu.com/p/602020789
-                const bingImageUrl = 'https://api.cyrilstudio.top/bing/image.php'
-                const url = 'https://swapi.dev/api/films/';
                 const response = await fetch('/api');
                 if (!response.ok) {
                     throw new Error('Something went wrong!');
                 }
-                // const imageObj = await JSON.parse(response);
+                const imageObj = await response.json();
 
-                setImage({});
+                setImage(imageObj);
                 setError(null);
             } catch (error) {
                 setError(error);
@@ -40,7 +36,7 @@ export default function Page() {
     return (
         <div>
             <h1>Hello, Next.js!</h1>
-            {!imageLoading && image && <Image alt={image.title} src={'https://api.cyrilstudio.top/bing/image.php'} />}
+            {!imageLoading && image && <Image alt={image.title} src={image.url} />}
             {!imageLoading && error && <Alert
                 message="Error"
                 description={error.message}
