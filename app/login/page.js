@@ -1,8 +1,9 @@
-'use client'
+
 import Link from "next/link";
 import './login.scss';
 
 const LoginLayout = ({ children }) => {
+  debugger;
   return (
 
     <main>

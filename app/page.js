@@ -1,13 +1,12 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import { theme, Button, Breadcrumb, Alert, Image } from 'antd';
+import { theme, Alert, Image } from 'antd';
 
 import { useEffect, useState } from 'react';
 export default function Page() {
     const {
         token: { colorBgContainer },
     } = theme.useToken();
-    const route = useRouter();
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
     const [error, setError] = useState(null)
