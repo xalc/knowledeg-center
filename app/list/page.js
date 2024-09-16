@@ -3,7 +3,7 @@ import User from '../src/components/user';
 import pageStyle from './page.module.scss';
 
 import { useState, useEffect } from 'react'
-const VirtualList = () => {
+const AllList = () => {
     const [userList, setUserList] = useState([]);
     useEffect(() => {
 
@@ -23,4 +23,4 @@ const VirtualList = () => {
 
     </>);
 }
-export default VirtualList;
+export default AllList;

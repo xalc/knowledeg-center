@@ -1,8 +1,7 @@
 
 import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from './src/lib/AntdRegistry';
-import { Layout, Menu } from 'antd';
-import MyLayout from './src/components/mylayout/layout';
+
 import UILayout from './src/components/mylayout/uilayout';
 const inter = Inter({ subsets: ['latin'] });
 

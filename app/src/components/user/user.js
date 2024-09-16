@@ -6,10 +6,8 @@ const User = ({ user }) => {
     return (
         <div className={style.container}>
             <div className={style.avatar}>
-                <Avator url={avatar} id={index}></Avator>
-                {/* <img src={avatar}
-                    onError={(event) => event.target.src = '/images/profile.jpg'}
-                /> */}
+                {/* <Avator url={avatar} id={index}></Avator> */}
+
             </div>
             <div className={style.content}>
                 <div className={style.name}>{fisrtName} {lastName}</div>

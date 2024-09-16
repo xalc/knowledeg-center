@@ -1,6 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import { theme, Alert, Image } from 'antd';
+import { theme, Alert, Image, Flex, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import { useEffect, useState } from 'react';
 export default function Page() {
@@ -35,6 +36,9 @@ export default function Page() {
     return (
         <div>
             <h1>Hello, Next.js!</h1>
+            {imageLoading && <Flex align="center" gap="middle">
+                <Spin indicator={<LoadingOutlined spin />} size="large" />
+            </Flex>}
             {!imageLoading && image && <Image alt={image.title} src={image.url} />}
             {!imageLoading && error && <Alert
                 message="Error"
