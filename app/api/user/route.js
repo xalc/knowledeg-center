@@ -1,15 +1,15 @@
-import { MongoClient } from 'mongodb'
 
+import client from '../libs/db'
 // Database Name
-const dbName = 'knowledge';
-const url = 'mongodb://hunter:123654@localhost:27017';
-const client = new MongoClient(url);
+const dbName = process.env.MONGO_DATABASE;
+const tableName = 'users'
+// const client = new MongoClient(url);
 const checkValidUserHandler = async (user, password) => {
-    console.log("user" + user);
+    console.log("user **** " + user);
     await client.connect();
     console.log('Connected successfully to server');
     const db = client.db(dbName);
-    const collection = db.collection('users');
+    const collection = db.collection(tableName);
     const filteredUser = await collection.find({ name: user }).toArray();
     console.log(`filteredUser : ${JSON.stringify(filteredUser)}`)
     console.log(`password ${password}`);
@@ -23,7 +23,7 @@ const checkValidUserHandler = async (user, password) => {
 }
 
 import { NextResponse } from 'next/server'
-import { redirect } from 'next/navigation'
+
 export async function POST(request) {
 
     const { user, password } = await request.json();

@@ -52,9 +52,9 @@
         overflow: hidden;
         align-items: flex-start;
         justify-content: flex-start;
-        height: 100%;
-        margin-left: 24px;
-        margin-top: 24px;
+        height: calc(100vh - 160px);
+        margin: 24px;
+        margin-right: 0px;
     }
 
     .footer {

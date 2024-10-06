@@ -2,6 +2,7 @@
 import createMDX from '@next/mdx'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: false,
     async headers() {
         return [
             {
@@ -15,6 +16,12 @@ const nextConfig = {
                 ]
             }
         ]
+    },
+    async rewrites() {
+        return [{
+            source: '/about',
+            destination: '/hunter.html'
+        }]
     },
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 }
