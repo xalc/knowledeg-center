@@ -1,0 +1,1614 @@
+{
+  "path": "",
+  "files": [
+    {
+      "name": "index",
+      "extension": ".mdx"
+    }
+  ],
+  "folders": [
+    {
+      "path": "01-getting-started",
+      "files": [
+        {
+          "name": "01-installation",
+          "extension": ".mdx"
+        },
+        {
+          "name": "02-project-structure",
+          "extension": ".mdx"
+        },
+        {
+          "name": "index",
+          "extension": ".mdx"
+        }
+      ],
+      "folders": []
+    },
+    {
+      "path": "02-app",
+      "files": [
+        {
+          "name": "index",
+          "extension": ".mdx"
+        }
+      ],
+      "folders": [
+        {
+          "path": "02-app/01-building-your-application",
+          "files": [
+            {
+              "name": "index",
+              "extension": ".mdx"
+            }
+          ],
+          "folders": [
+            {
+              "path": "02-app/01-building-your-application/01-routing",
+              "files": [
+                {
+                  "name": "01-defining-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-pages",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-layouts-and-templates",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-linking-and-navigating",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-error-handling",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-loading-ui-and-streaming",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-redirecting",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-route-groups",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "09-colocation",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-dynamic-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-parallel-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "12-intercepting-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "13-route-handlers",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "14-middleware",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "15-internationalization",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/02-data-fetching",
+              "files": [
+                {
+                  "name": "01-fetching",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-server-actions-and-mutations",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-incremental-static-regeneration",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/03-rendering",
+              "files": [
+                {
+                  "name": "01-server-components",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-client-components",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-composition-patterns",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-partial-prerendering",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-edge-and-nodejs-runtimes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/04-caching",
+              "files": [
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/05-styling",
+              "files": [
+                {
+                  "name": "01-css",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-tailwind-css",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-sass",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-css-in-js",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/06-optimizing",
+              "files": [
+                {
+                  "name": "01-images",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-videos",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-fonts",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-metadata",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-scripts",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-package-bundling",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-lazy-loading",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-analytics",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "09-instrumentation",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-open-telemetry",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-static-assets",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "12-third-party-libraries",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "13-memory-usage",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/07-configuring",
+              "files": [
+                {
+                  "name": "01-typescript",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-eslint",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-environment-variables",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-absolute-imports-and-module-aliases",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-mdx",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-src-directory",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-custom-server",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-draft-mode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "15-content-security-policy",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "16-debugging",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "16-progressive-web-apps",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/08-testing",
+              "files": [
+                {
+                  "name": "01-vitest",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-jest",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-playwright",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-cypress",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/09-authentication",
+              "files": [
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/10-deploying",
+              "files": [
+                {
+                  "name": "01-production-checklist",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-static-exports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-multi-zones",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/11-upgrading",
+              "files": [
+                {
+                  "name": "01-codemods",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-version-15",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-version-14",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-app-router-migration",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-from-create-react-app",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-from-vite",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/01-building-your-application/12-examples",
+              "files": [
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            }
+          ]
+        },
+        {
+          "path": "02-app/02-api-reference",
+          "files": [
+            {
+              "name": "07-edge",
+              "extension": ".mdx"
+            },
+            {
+              "name": "index",
+              "extension": ".mdx"
+            }
+          ],
+          "folders": [
+            {
+              "path": "02-app/02-api-reference/01-components",
+              "files": [
+                {
+                  "name": "font",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "form",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "image",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "link",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "script",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/02-api-reference/02-file-conventions",
+              "files": [
+                {
+                  "name": "default",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "error",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "instrumentation",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "layout",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "loading",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "mdx-components",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "middleware",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "not-found",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "page",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "route-segment-config",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "route",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "template",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": [
+                {
+                  "path": "02-app/02-api-reference/02-file-conventions/01-metadata",
+                  "files": [
+                    {
+                      "name": "app-icons",
+                      "extension": ".mdx"
+                    },
+                    {
+                      "name": "index",
+                      "extension": ".mdx"
+                    },
+                    {
+                      "name": "manifest",
+                      "extension": ".mdx"
+                    },
+                    {
+                      "name": "opengraph-image",
+                      "extension": ".mdx"
+                    },
+                    {
+                      "name": "robots",
+                      "extension": ".mdx"
+                    },
+                    {
+                      "name": "sitemap",
+                      "extension": ".mdx"
+                    }
+                  ],
+                  "folders": []
+                }
+              ]
+            },
+            {
+              "path": "02-app/02-api-reference/04-functions",
+              "files": [
+                {
+                  "name": "cookies",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "draft-mode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "fetch",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generate-image-metadata",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generate-metadata",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generate-sitemaps",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generate-static-params",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generate-viewport",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "headers",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "image-response",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next-request",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next-response",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "not-found",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "permanentRedirect",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "redirect",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "revalidatePath",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "revalidateTag",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "unstable_after",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "unstable_cache",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "unstable_noStore",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "unstable_rethrow",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-params",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-pathname",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-report-web-vitals",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-router",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-search-params",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-selected-layout-segment",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-selected-layout-segments",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "userAgent",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/02-api-reference/05-next-config-js",
+              "files": [
+                {
+                  "name": "appDir",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "assetPrefix",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "basePath",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "compress",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "crossOrigin",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "cssChunking",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "devIndicators",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "distDir",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "env",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "eslint",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "exportPathMap",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generateBuildId",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generateEtags",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "headers",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "httpAgentOptions",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "images",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "incrementalCacheHandlerPath",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "instrumentationHook",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "logging",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "mdxRs",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "onDemandEntries",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "optimizePackageImports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "output",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "pageExtensions",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "poweredByHeader",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "ppr",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "productionBrowserSourceMaps",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "reactCompiler",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "reactMaxHeadersLength",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "reactStrictMode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "redirects",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "rewrites",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "serverActions",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "serverComponentsHmrCache",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "serverExternalPackages",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "staleTimes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "swrDelta",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "trailingSlash",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "transpilePackages",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "turbo",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "typedRoutes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "typescript",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "urlImports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "useLightningcss",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "webVitalsAttribution",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "webpack",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "02-app/02-api-reference/06-cli",
+              "files": [
+                {
+                  "name": "create-next-app",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "03-pages",
+      "files": [
+        {
+          "name": "index",
+          "extension": ".mdx"
+        }
+      ],
+      "folders": [
+        {
+          "path": "03-pages/01-building-your-application",
+          "files": [
+            {
+              "name": "index",
+              "extension": ".mdx"
+            }
+          ],
+          "folders": [
+            {
+              "path": "03-pages/01-building-your-application/01-routing",
+              "files": [
+                {
+                  "name": "01-pages-and-layouts",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-dynamic-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-linking-and-navigating",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-redirecting",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-custom-app",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-custom-document",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-api-routes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-custom-error",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-internationalization",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-middleware",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/02-rendering",
+              "files": [
+                {
+                  "name": "01-server-side-rendering",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-static-site-generation",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-automatic-static-optimization",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-client-side-rendering",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-edge-and-nodejs-runtimes",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/03-data-fetching",
+              "files": [
+                {
+                  "name": "01-get-static-props",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-get-static-paths",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-forms-and-mutations",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-get-server-side-props",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-incremental-static-regeneration",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-client-side",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/04-styling",
+              "files": [
+                {
+                  "name": "01-css-modules",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-tailwind-css",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-css-in-js",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-sass",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/05-optimizing",
+              "files": [
+                {
+                  "name": "01-images",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-fonts",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-scripts",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-static-assets",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-package-bundling",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-analytics",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-lazy-loading",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "09-instrumentation",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-open-telemetry",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-third-party-libraries",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/06-configuring",
+              "files": [
+                {
+                  "name": "01-typescript",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-eslint",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-environment-variables",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-absolute-imports-and-module-aliases",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-src-directory",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-mdx",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-amp",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-babel",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "09-post-css",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-custom-server",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "11-draft-mode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "12-error-handling",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "13-preview-mode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "14-content-security-policy",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "16-debugging",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/07-testing",
+              "files": [
+                {
+                  "name": "01-vitest",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-jest",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-playwright",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-cypress",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/08-authentication",
+              "files": [
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/09-deploying",
+              "files": [
+                {
+                  "name": "01-production-checklist",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-static-exports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-multi-zones",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-ci-build-caching",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/01-building-your-application/10-upgrading",
+              "files": [
+                {
+                  "name": "01-codemods",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "02-app-router-migration",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "03-from-vite",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "04-from-create-react-app",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "05-version-14",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "06-version-13",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "07-version-12",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "08-version-11",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "09-version-10",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "10-version-9",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            }
+          ]
+        },
+        {
+          "path": "03-pages/02-api-reference",
+          "files": [
+            {
+              "name": "05-edge",
+              "extension": ".mdx"
+            },
+            {
+              "name": "index",
+              "extension": ".mdx"
+            }
+          ],
+          "folders": [
+            {
+              "path": "03-pages/02-api-reference/01-components",
+              "files": [
+                {
+                  "name": "font",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "head",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "image-legacy",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "image",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "link",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "script",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/02-api-reference/02-file-conventions",
+              "files": [
+                {
+                  "name": "instrumentation",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/02-api-reference/03-functions",
+              "files": [
+                {
+                  "name": "get-initial-props",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "get-server-side-props",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "get-static-paths",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "get-static-props",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next-request",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next-response",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-amp",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-report-web-vitals",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "use-router",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "userAgent",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/02-api-reference/04-next-config-js",
+              "files": [
+                {
+                  "name": "assetPrefix",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "basePath",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "bundlePagesRouterDependencies",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "compress",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "crossOrigin",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "devIndicators",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "distDir",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "env",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "eslint",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "exportPathMap",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generateBuildId",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "generateEtags",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "headers",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "httpAgentOptions",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "images",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "instrumentationHook",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "onDemandEntries",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "optimizePackageImports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "output",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "pageExtensions",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "poweredByHeader",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "productionBrowserSourceMaps",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "reactStrictMode",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "redirects",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "rewrites",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "runtime-configuration",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "serverExternalPackages",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "trailingSlash",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "transpilePackages",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "turbo",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "typescript",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "urlImports",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "useLightningcss",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "webVitalsAttribution",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "webpack",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            },
+            {
+              "path": "03-pages/02-api-reference/06-cli",
+              "files": [
+                {
+                  "name": "create-next-app",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "index",
+                  "extension": ".mdx"
+                },
+                {
+                  "name": "next",
+                  "extension": ".mdx"
+                }
+              ],
+              "folders": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "04-architecture",
+      "files": [
+        {
+          "name": "accessibility",
+          "extension": ".mdx"
+        },
+        {
+          "name": "fast-refresh",
+          "extension": ".mdx"
+        },
+        {
+          "name": "index",
+          "extension": ".mdx"
+        },
+        {
+          "name": "nextjs-compiler",
+          "extension": ".mdx"
+        },
+        {
+          "name": "supported-browsers",
+          "extension": ".mdx"
+        },
+        {
+          "name": "turbopack",
+          "extension": ".mdx"
+        }
+      ],
+      "folders": []
+    },
+    {
+      "path": "05-community",
+      "files": [
+        {
+          "name": "01-contribution-guide",
+          "extension": ".mdx"
+        },
+        {
+          "name": "index",
+          "extension": ".mdx"
+        }
+      ],
+      "folders": []
+    }
+  ]
+}
