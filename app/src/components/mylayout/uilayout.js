@@ -16,7 +16,8 @@ export default function UILayout({ children }) {
                 <Button type="link" onClick={() => router.push('/list')}>List</Button>
                 <Button type="link" onClick={() => router.push('/tech')}>Tech</Button>
                 <Button type="link" onClick={() => router.push('/docs')}>Docs</Button>
-                <Button type="link" onClick={() => router.push('/login')}>Login</Button>
+                <Button type="link" onClick={() => router.push('/about')}>About me</Button>
+                {/* <Button type="link" onClick={() => router.push('/login')}>Login</Button> */}
                 {/* <LoginButton /> */}
             </div>
             <div className={styles.content}>
