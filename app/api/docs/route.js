@@ -1,4 +1,4 @@
-import path from 'path'
+
 import traversDir from '../libs/mdxparser';
 import traversTree from '../libs/antdTreeData';
 import { NextResponse } from 'next/server'

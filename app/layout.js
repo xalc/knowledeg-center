@@ -2,7 +2,7 @@
 
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 
-import UILayout from './src/components/mylayout/uilayout';
+import UILayout from './src/components/uilayout';
 
 
 import './global.scss'

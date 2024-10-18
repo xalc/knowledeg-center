@@ -32,10 +32,8 @@ const useStyles = createStyles(({ token, css }) => {
     );
 });
 const Badge = ({ badge }) => {
-
     const { styles } = useStyles();
     const { badge_template, issuer } = badge;
-
     return <div className={styles.container}>
         <Flex gap='small' align='center' >
             <div>
@@ -48,7 +46,6 @@ const Badge = ({ badge }) => {
                     expandable: 'collapsible',
                     rows: 4,
                     defaultExpanded: false
-
                 }}>
                     {badge_template?.description}
                 </Paragraph>

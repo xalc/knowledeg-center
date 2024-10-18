@@ -1,16 +1,15 @@
 'use client'
-import React from 'react';
-
-import NavTree from '../src/components/navTree';
-import styles from './styles.module.scss';
-import { useState } from 'react';
 import { Splitter } from 'antd';
-import MdxComponent from '../src/components/mdxComp';
-import MdxWrap from '../src/components/mdxComp/mdxWrap';
-const DocsPage = () => {
-    const [key, setKey] = useState('index.mdx')
+import { useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import styles from '../styles.module.scss';
+import NavTree from '../../src/components/navTree';
+export default function DocsLayout({ children }) {
+
+    const router = useRouter();
+    const pathname = usePathname()
     const onClickTreeItem = (node) => {
-        setKey(node.key)
+        router.push(`${pathname}?page=${node.key}`);
     }
     return (
         <Splitter
@@ -23,9 +22,8 @@ const DocsPage = () => {
             </Splitter.Panel>
             <Splitter.Panel>
                 <div className={styles.content}>
-                    <MdxComponent params={key} />
+                    {children}
                 </div>
             </Splitter.Panel>
         </Splitter>);
 }
-export default DocsPage;
