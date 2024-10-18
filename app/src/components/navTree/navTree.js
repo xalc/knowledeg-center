@@ -1,30 +1,22 @@
 'use client'
 import { Tree } from 'antd';
+import { useRouter } from 'next/navigation';
 const { DirectoryTree } = Tree;
-import { useEffect, useState } from 'react';
 
-const NavTree = ({ onClickTreeItem }) => {
-    const [treeData, setTreeData] = useState([]);
-    useEffect(() => {
-        fetch('/api/docs')
-            .then(resp => resp.json())
-            .then(data => setTreeData(data));
-    }, [])
+const NavTree = ({ treeData }) => {
+
+    const router = useRouter();
     const onSelect = (keys, info) => {
         console.log('Trigger Select', keys, info);
-        onClickTreeItem(info.node);
+        router.push(`/docs?page=${info.node.key}`)
     };
-    const onExpand = (keys, info) => {
-        // console.log('Trigger Expand', keys, info);
-    };
+
     return (
         <DirectoryTree
+            rootStyle={{ minHeight: '100%' }}
             multiple
-            defaultExpandAll
             onSelect={onSelect}
-            onExpand={onExpand}
             treeData={treeData}
-
         />
     );
 };
