@@ -5,6 +5,7 @@ const traversTree = (docsTree, level = 0) => {
         const node = {
             title: folder.path,
             key: folder.absPath,
+            isLeaf: false,
         }
         node.children = traversTree(folder, level + 1)
         antdTree.push(node)

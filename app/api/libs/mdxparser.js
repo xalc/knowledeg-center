@@ -4,9 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 const getRootPath = () => {
     const absPath = process.cwd();
-    const docsPrefix = 'app/api/docs/nextdocs/';
+    const docsPrefix = 'public/notes';
     return path.resolve(absPath, docsPrefix);
 }
+const publicFolder = path.resolve(process.cwd(), 'public');
 async function listFiles(dir, relPath) {
     const topics = {
         path: '',
@@ -21,7 +22,7 @@ async function listFiles(dir, relPath) {
             if (entry.isFile()) {
                 const pathObj = path.parse(entry.name);
                 if (pathObj.ext === '.md' || pathObj.ext === '.mdx') {
-                    const prefix = path.relative(getRootPath(), dir);
+                    const prefix = path.relative(publicFolder, dir);
                     const absPath = prefix === ''
                         ? (pathObj.name + pathObj.ext)
                         : (prefix + path.sep + pathObj.name + pathObj.ext)
@@ -35,7 +36,10 @@ async function listFiles(dir, relPath) {
             }
             if (entry.isDirectory()) {
                 const subTopic = await listFiles(path.resolve(dir, entry.name), dir);
-                foldersArray.push(subTopic)
+                if (subTopic.files.length !== 0) {
+                    foldersArray.push(subTopic)
+                }
+
             }
         }
         topics.files = filesArray;
@@ -69,13 +73,13 @@ const traversDir = async () => {
 
 
 export const getMDXContent = async (route) => {
-    const absRoute = path.resolve(getRootPath(), route);
-    console.log('fetch data path: ' + absRoute);
+    //TODO parse the error to front end
+    const absRoute = path.resolve(publicFolder, route);
     let mdxContent = '';
     try {
         mdxContent = await fs.readFile(absRoute, 'utf-8');
     } catch (err) {
-        console.error('Error reading file');
+        console.error('Error reading file' + err);
     }
     return mdxContent;
 }

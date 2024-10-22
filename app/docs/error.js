@@ -25,7 +25,7 @@ export default function Error({ error, reset }) {
                         router.push('/docs');
                         //TODO why is not working ???
                         // router.push('/docs/srender');
-                        // reset();
+                        reset();
                     }
                 }
             >

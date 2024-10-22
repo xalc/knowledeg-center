@@ -18,7 +18,7 @@ const useStyles = createStyles(({ token }) => ({
         height: '100%'
     },
     badgeContainer: {
-        height: '600px',
+        height: '80%',
         overflow: 'auto'
     },
     avatar: {
