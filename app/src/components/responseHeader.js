@@ -55,11 +55,17 @@ const ResponseHeader = () => {
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };
+    const redirectToPage = (target) => {
 
+
+        router.push(target);
+
+        toggleCollapsed();
+
+    }
     if (smallDevice) {
         return <Header className={styles.smallDevice}>
             <div className={styles.menuIcon}>
-
                 <Button color="default" icon={<MenuOutlined />} onClick={toggleCollapsed}></Button>
             </div >
             {
@@ -67,41 +73,26 @@ const ResponseHeader = () => {
 
                     <Flex vertical className={styles.menu}>
                         <Button
-                            onClick={() => {
-                                router.push('/');
-                                toggleCollapsed();
-                            }}
+                            onClick={() => redirectToPage('/')}
                             className={styles.navBtn}
                             block
                             color="default"
                             variant="text">
                             主页</Button>
                         <Button
-                            onClick={() => {
-                                router.push('/list');
-                                toggleCollapsed();
-                            }}
+                            onClick={() => redirectToPage('/list')}
                             className={styles.navBtn}
                             block color="default" variant="text">List</Button>
                         <Button
-                            onClick={() => {
-                                router.push('/tech');
-                                toggleCollapsed();
-                            }}
+                            onClick={() => redirectToPage('/tech')}
                             className={styles.navBtn}
                             block color="default" variant="text">Tech</Button>
                         <Button
-                            onClick={() => {
-                                router.push('/docs');
-                                toggleCollapsed();
-                            }}
+                            onClick={() => redirectToPage('/docs')}
                             className={styles.navBtn}
                             block color="default" variant="text">笔记</Button>
                         <Button
-                            onClick={() => {
-                                router.push('/about');
-                                toggleCollapsed();
-                            }}
+                            onClick={() => { redirectToPage('/about') }}
                             className={styles.navBtn}
                             block color="default"
                             variant="text">

@@ -7,6 +7,7 @@ const useNarrowScreen = () => {
     const [narrowScreen, setNarrowScreen] = useState(false);
     useEffect(() => {
         const mql = window.matchMedia(`(max-width: ${WIDTH_CONSTANT}px)`);
+        setNarrowScreen(mql.matches);
         const handleResize = (event) => {
             console.log('media query changed')
             if (event.matches) {
@@ -16,6 +17,7 @@ const useNarrowScreen = () => {
             }
         }
         mql.addEventListener("change", handleResize);
+
         return () => mql.removeEventListener('change', handleResize);
     }, []);
 
