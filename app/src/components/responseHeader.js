@@ -1,6 +1,5 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import {
     MenuOutlined
 } from '@ant-design/icons';
@@ -41,7 +40,7 @@ const useStyles = createStyles(({ css, token }) => {
             height: 64px;
         `
     }
-})
+});
 const ResponseHeader = () => {
     const router = useRouter();
     const { styles, cx } = useStyles();
@@ -99,8 +98,6 @@ const ResponseHeader = () => {
                     痕迹
                 </Button>
             </Flex>
-
-
         }
     </Header>
 
