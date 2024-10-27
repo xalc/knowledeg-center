@@ -7,6 +7,7 @@ import { createStyles } from 'antd-style';
 import Icon from '@ant-design/icons';
 import Image from "next/image";
 import Badge from "./badge";
+import Profile from "./profile";
 const useStyles = createStyles(({ token }) => ({
     profile: {
         background: token.colorBgContainer,
@@ -31,21 +32,7 @@ const CredlyPage = ({ content, badges }) => {
 
     return (
         <div className={styles.container}>
-            <Flex
-                gap='large'
-                justify='center'
-            >
-                {/* <Icon size={128} component={() => (<Image src={content.photo_url} alt="Credly Icon" />)} /> */}
-                {/* <img className={styles.avatar} src={content.photo_url} width='128' height='128' alt='' /> */}
-                <Avatar src={content.photo_url} size={128} />
-                <Typography>
-                    <Title level={2}>{`${content.first_name} ${content.last_name}`}</Title>
-                    <Text strong>{content.current_position_name} | </Text>
-                    <Text strong>{content.city}</Text>
-                    <Paragraph>{content.bio}</Paragraph>
-                </Typography>
-
-            </Flex>
+            <Profile content={content} />
             <Flex
                 className={styles.badgeContainer}
                 justify="space-around"

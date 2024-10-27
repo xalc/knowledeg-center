@@ -4,7 +4,7 @@ import { Image, Alert } from 'antd';
 export default async function Page() {
 
     const bingURL = 'https://bing.biturl.top/';
-    const response = await fetch(bingURL);
+    const response = await fetch(bingURL, { next: { revalidate: 3600 } });
     if (response.ok) {
         const image = await response.json();
         return (

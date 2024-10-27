@@ -8,6 +8,7 @@
 // Only nodejs example
 
 import { MongoClient } from 'mongodb'
+import WRAPI from './wereader-api.js';
 const url = 'mongodb://hunter:123654@localhost:27017';
 const dbName = 'knowledge';
 const client = new MongoClient(url);
@@ -29,4 +30,18 @@ const checkValidUserHandler = async (user, password) => {
 
     return false;
 }
-console.log(await checkValidUserHandler('xalc', '123456'));
+
+const writeSheltDatatoDb = async () => {
+    const data = await WRAPI.getShelt();
+    await client.connect();
+    const db = client.db(dbName);
+    const booksCollection = db.collection('books');
+    const bookProgress = db.collection('bookProgress');
+    const booksInsertResult = await booksCollection.insertMany(data.books);
+    console.log(`books is acknowledged: ${booksInsertResult.acknowledged}. insert count: ${booksInsertResult.insertedCount}`);
+
+    const bookprogressResult = await bookProgress.insertMany(data.bookProgress);
+    console.log(`book progress is acknowledged: ${bookprogressResult.acknowledged}. insert count: ${bookprogressResult.insertedCount}`);
+    client.close();
+}
+writeSheltDatatoDb();

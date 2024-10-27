@@ -4,8 +4,8 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import { Suspense } from 'react'
 import { getMDXContent } from '@/api/libs/mdxparser';
-import CustomLink from '@/src/components/CustomLink';
-import CustomImage from '@/src/components/CustomImage';
+import CustomLink from '@/src/components/customLink';
+import CustomImage from '@/src/components/customImage';
 const components = {
     a: CustomLink,
     img: CustomImage
