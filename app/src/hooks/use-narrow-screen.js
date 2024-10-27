@@ -1,7 +1,7 @@
 'use client'
 // the replacement for useDevice by mediaquery
 import { useEffect, useState } from "react";
-const WIDTH_CONSTANT = 400;
+const WIDTH_CONSTANT = 500;
 
 const useNarrowScreen = () => {
     const [narrowScreen, setNarrowScreen] = useState(false);

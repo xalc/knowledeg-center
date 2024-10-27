@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-const WIDTH_CONSTANT = 400;
+const WIDTH_CONSTANT = 500;
 const useDevice = () => {
     const [width, setWidth] = useState(false);
     useEffect(() => {

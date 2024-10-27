@@ -44,7 +44,7 @@ const useStyles = createStyles(({ css, token }) => {
 })
 const ResponseHeader = () => {
     const router = useRouter();
-    const { styles } = useStyles();
+    const { styles, cx } = useStyles();
     const [collapsed, setCollapsed] = useState(true);
     // both hook below implements same features 
     // using mediaquery or window.innerHeight
@@ -56,66 +56,56 @@ const ResponseHeader = () => {
         setCollapsed(!collapsed);
     };
     const redirectToPage = (target) => {
-
-
         router.push(target);
-
-        toggleCollapsed();
-
-    }
-    if (smallDevice) {
-        return <Header className={styles.smallDevice}>
-            <div className={styles.menuIcon}>
-                <Button color="default" icon={<MenuOutlined />} onClick={toggleCollapsed}></Button>
-            </div >
-            {
-                collapsed ? '' :
-
-                    <Flex vertical className={styles.menu}>
-                        <Button
-                            onClick={() => redirectToPage('/')}
-                            className={styles.navBtn}
-                            block
-                            color="default"
-                            variant="text">
-                            主页</Button>
-                        <Button
-                            onClick={() => redirectToPage('/list')}
-                            className={styles.navBtn}
-                            block color="default" variant="text">List</Button>
-                        <Button
-                            onClick={() => redirectToPage('/tech')}
-                            className={styles.navBtn}
-                            block color="default" variant="text">Tech</Button>
-                        <Button
-                            onClick={() => redirectToPage('/docs')}
-                            className={styles.navBtn}
-                            block color="default" variant="text">笔记</Button>
-                        <Button
-                            onClick={() => { redirectToPage('/about') }}
-                            className={styles.navBtn}
-                            block color="default"
-                            variant="text">
-                            About me
-                        </Button>
-                    </Flex>
-
-
-            }
-        </Header>
+        setCollapsed(true);
     }
 
-    return (
-        <Header className={styles.header}>
-            <Flex >
-                <Link href='/'><Button color="default" variant="text">主页</Button></Link>
-                <Link href='/list'><Button color="default" variant="text">List</Button></Link>
-                <Link href='/tech'><Button color="default" variant="text">Tech</Button></Link>
-                <Link href='/docs'><Button color="default" variant="text">笔记</Button></Link>
-                <Link href='/about'><Button color="default" variant="text">About me</Button></Link>
+    return <Header className={cx(smallDevice ? styles.smallDevice : styles.header)}>
+        {smallDevice && <div className={styles.menuIcon}>
+            <Button color="default" icon={<MenuOutlined />} onClick={toggleCollapsed}></Button>
+        </div >}
+        {
+            (!smallDevice || !collapsed) &&
+            <Flex vertical={smallDevice}
+                className={cx({ [styles.menu]: smallDevice })}>
+                <Button
+                    onClick={() => redirectToPage('/')}
+                    className={styles.navBtn}
+                    block={smallDevice}
+                    color="default"
+                    variant="text">
+                    主页</Button>
+                <Button
+                    onClick={() => redirectToPage('/list')}
+                    className={styles.navBtn}
+                    block={smallDevice}
+                    color="default" variant="text">List</Button>
+                <Button
+                    onClick={() => redirectToPage('/tech')}
+                    className={styles.navBtn}
+                    block={smallDevice}
+                    color="default" variant="text">技术</Button>
+                <Button
+                    onClick={() => redirectToPage('/docs')}
+                    className={styles.navBtn}
+                    block={smallDevice}
+                    color="default" variant="text">笔记</Button>
+                <Button
+                    onClick={() => { redirectToPage('/about') }}
+                    className={styles.navBtn}
+                    block={smallDevice}
+                    color="default"
+                    variant="text">
+                    痕迹
+                </Button>
             </Flex>
-        </Header>
-    )
+
+
+        }
+    </Header>
+
+
+
 
 }
 
