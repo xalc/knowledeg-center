@@ -1,0 +1,50 @@
+import ControlledComp from './controlledComp.js'
+import SaveValue from './saveValue.js'
+import FRef from './forwardRefTest.js'
+
+
+
+# Using react ref note
+ 
+
+
+## Let's focus on the controlled component
+The very simple example, click the button to focus on input 
+
+<ControlledComp />
+***Attention***
+
+On the next renders, useRef will return the same object.
+
+
+1. 可以改变 `ref.current`的值，但如果current是一个对象的话最好不要改变。
+2. 改变 `ref.current`时候不会触发渲染，因为挂载在下面的是一个复杂对象。
+3. 最好不要在初始化之外的地方更改`ref.current`的值，这会导致组件状态不可控。
+
+
+## 使用ref可以用来临时存储变量
+<SaveValue />
+
+## Avoiding recreating the ref contents 
+```jsx
+
+function Video() {
+    // 避免下面写法
+    // const playerRef = useRef(new VideoPlayer());
+    // 使用如下写法
+    const playerRef = useRef(null);
+    if (playerRef.current === null) {
+        playerRef.current = new VideoPlayer();
+    }
+  ...
+}
+```
+
+
+## 使用forwardRef 转发ref
+<FRef />
+```jsx
+const MyInput = forwardRef((props, ref) => {
+    return <input {...props} ref={ref}></input>
+})
+```

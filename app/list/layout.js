@@ -2,7 +2,7 @@
 'use client'
 
 import { Menu } from 'antd';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { createStyles } from 'antd-style';
@@ -20,6 +20,9 @@ const useStyles = createStyles(({ css, token }) => {
         content: css`
             order: 1;
             flex-grow: 4;
+            height: inherit;
+            overflow: auto;
+            padding: ${token.paddingMD}px
 
         `
     }
@@ -29,11 +32,7 @@ export default function ListLayout({ children }) {
     const router = useRouter()
     const items = [
 
-        {
-            label: 'Home',
-            key: 'home',
-            icon: <LaptopOutlined />,
-        },
+
         {
             label: 'List',
             key: 'list',
@@ -44,23 +43,30 @@ export default function ListLayout({ children }) {
             key: 'virtual',
             icon: <UserOutlined />,
         },
+        {
+            label: 'ref examples',
+            key: 'ref',
+            icon: <ArrowRightOutlined />,
+        },
 
     ]
 
     const menuClickHandler = ({ item, key, keyPath, domEvent }) => {
-        if (key === 'home') {
-            router.push('/');
-        }
+
         if (key === 'list') {
             router.push('/list');
         }
         if (key === 'virtual') {
             router.push('/list/virtual');
         }
+        if (key === 'ref') {
+            router.push('/list/ref');
+        }
     };
     return <div className={styles.container}>
         <div className={styles.nav}>
             <Menu
+                style={{ height: '100%' }}
                 items={items}
                 mode="vertical"
                 onClick={menuClickHandler}

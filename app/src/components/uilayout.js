@@ -9,15 +9,15 @@ const useStyles = createStyles(({ css }) => {
     return {
         layout: css`
             height: 100vh;
+            display: flex;
+            flex-direction: column;
+   
         `,
         header: css`
             background-color: inherit;
         `,
-        headerSide: css`
-             background-color: inherit;
-        `,
         content: css`
-
+        height: calc(100vh - 130px)
         `,
         footer: css`
             display: flex;

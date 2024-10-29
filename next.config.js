@@ -17,12 +17,6 @@ const nextConfig = {
             }
         ]
     },
-    async rewrites() {
-        return [{
-            source: '/about',
-            destination: '/hunter.html'
-        }]
-    },
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 }
 const mdxConfig = {

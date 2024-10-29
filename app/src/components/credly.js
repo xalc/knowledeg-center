@@ -1,5 +1,5 @@
 'use client'
-import { Avatar, theme } from "antd";
+import { Avatar, Statistic } from "antd";
 import { Typography, Flex, Card } from 'antd';
 const { Title, Paragraph, Text, Link } = Typography;
 import CredlySvg from '/public/images/credly/credly.svg'
@@ -8,7 +8,8 @@ import Icon from '@ant-design/icons';
 import Image from "next/image";
 import Badge from "./badge";
 import Profile from "./profile";
-const useStyles = createStyles(({ token }) => ({
+import useNarrowScreen from "../hooks/use-narrow-screen";
+const useStyles = createStyles(({ token, css }) => ({
     profile: {
         background: token.colorBgContainer,
         minHeight: 280,
@@ -16,12 +17,17 @@ const useStyles = createStyles(({ token }) => ({
         borderRadius: token.borderRadiusLG,
     },
     container: {
-        height: '100%'
+        margin: token.margin,
     },
     badgeContainer: {
-        height: '80%',
+        height: 'calc(100vh - 320px)',
         overflow: 'auto'
     },
+    profile: css`
+        justify-content: space-between;
+        align-items: center;
+        margin: ${token.margin}
+    `,
     avatar: {
         borderRadius: '50%'
     }
@@ -29,22 +35,27 @@ const useStyles = createStyles(({ token }) => ({
 
 const CredlyPage = ({ content, badges }) => {
     const { styles } = useStyles();
-
+    const mobile = useNarrowScreen();
     return (
         <div className={styles.container}>
-            <Profile content={content} />
+            <Flex className={styles.profile}>
+
+                <div>    <Image src={CredlySvg} width={64} alt="Credly Icon" />
+                    <p>从<a href='https://info.credly.com/' target='_blank' >Credle</a>获得的技术徽章</p></div>
+                <Statistic title="获得的数量" value={badges.length} />
+                {!mobile && <Profile content={content} />}
+            </Flex>
+
+
             <Flex
                 className={styles.badgeContainer}
                 justify="space-around"
-                gap='middle'
+                align='center'
+                gap='large'
                 wrap>
                 {badges.map(badge => {
-
                     return (<Badge key={badge.id} badge={badge}></Badge>);
                 })}
-
-
-
             </Flex>
 
             {/* <div className={styles.profile} >
@@ -53,7 +64,6 @@ const CredlyPage = ({ content, badges }) => {
                     <Paragraph>
                         Accelerate your organization in the competitive skills-based economy—whether you're issuing digital credentials that add value to learning, or future-proofing your workforce with skills they need.
                     </Paragraph>
-
                 </Typography>
             </div> */}
 

@@ -1,4 +1,3 @@
-
 import CredlyPage from "../src/components/credly";
 
 const getCredly = async (url) => {

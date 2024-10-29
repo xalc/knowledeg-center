@@ -1,19 +1,29 @@
-import { Tabs } from "antd"
-export default function AboutLayout({ children }) {
-    return <>
-        <Tabs
-            defaultActiveKey="1"
-            size='large'
-            centered
-            items={new Array(2).fill(null).map((_, i) => {
-                const id = String(i + 1);
-                return {
-                    label: `Tab ${id}`,
-                    key: id,
-                    children: `Content of Tab Pane ${id}`,
-                };
-            })}
-        >
 
-        </Tabs>{children}</>
+import { Tabs } from "antd"
+
+export default function AboutLayout({ children, wereader, timeline }) {
+
+    const tabItems = [{
+        label: 'Credly',
+        key: 'tab_1',
+        children: children
+    }, {
+        label: '微信读书',
+        key: 'tab_2',
+        children: wereader
+    }, {
+        label: '时光机',
+        key: 'tab_3',
+        children: timeline
+    }]
+    return <Tabs
+        defaultActiveKey="tab_1"
+        size='large'
+        centered
+        items={tabItems}
+    >
+
+    </Tabs>
+
+
 }

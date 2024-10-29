@@ -17,6 +17,8 @@ const useStyles = createStyles(({ css, token }) => {
     return {
         header: css`
             background-color: inherit;
+            align-items: center;
+            display: flex;
         `,
         smallDevice: css`
 
@@ -69,33 +71,33 @@ const ResponseHeader = () => {
                 className={cx({ [styles.menu]: smallDevice })}>
                 <Button
                     onClick={() => redirectToPage('/')}
-                    className={styles.navBtn}
+                    className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
                     color="default"
                     variant="text">
                     主页</Button>
                 <Button
                     onClick={() => redirectToPage('/list')}
-                    className={styles.navBtn}
+                    className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
                     color="default" variant="text">List</Button>
                 <Button
                     onClick={() => redirectToPage('/tech')}
-                    className={styles.navBtn}
+                    className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
-                    color="default" variant="text">技术</Button>
+                    color="default" variant="text">Tech</Button>
                 <Button
                     onClick={() => redirectToPage('/docs')}
-                    className={styles.navBtn}
+                    className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
                     color="default" variant="text">笔记</Button>
                 <Button
                     onClick={() => { redirectToPage('/about') }}
-                    className={styles.navBtn}
+                    className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
                     color="default"
                     variant="text">
-                    痕迹
+                    印记
                 </Button>
             </Flex>
         }
