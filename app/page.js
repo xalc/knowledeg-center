@@ -9,7 +9,7 @@ export default async function Page() {
         const image = await response.json();
         return (
             <div>
-                <h1>Hello, Next.js!</h1>
+                <h1>My personal knowledge graph!</h1>
                 <Image alt={image.title} src={image.url} />
             </div>
         );

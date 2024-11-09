@@ -1,11 +1,12 @@
 
 'use client'
 
-import { Menu } from 'antd';
-import { ArrowRightOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Menu, Layout } from 'antd';
+import { ArrowRightOutlined, NotificationOutlined, UserOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { createStyles } from 'antd-style';
+const { Sider } = Layout;
 const useStyles = createStyles(({ css, token }) => {
     return {
         container: css`
@@ -48,6 +49,11 @@ export default function ListLayout({ children }) {
             key: 'ref',
             icon: <ArrowRightOutlined />,
         },
+        {
+            label: 'Time Wasted',
+            key: 'time',
+            icon: <ArrowRightOutlined />,
+        },
 
     ]
 
@@ -62,9 +68,17 @@ export default function ListLayout({ children }) {
         if (key === 'ref') {
             router.push('/list/ref');
         }
+        if (key === 'time') {
+            router.push('/list/time');
+        }
     };
-    return <div className={styles.container}>
-        <div className={styles.nav}>
+    return <Layout className={styles.container}>
+        <Sider
+            breakpoint='sm'
+            className={styles.nav}
+            collapsedWidth='0'
+            trigger={<div><Button type="primary" shape="circle" icon={<UnorderedListOutlined />} /></div>}
+        >
             <Menu
                 style={{ height: '100%' }}
                 items={items}
@@ -72,11 +86,11 @@ export default function ListLayout({ children }) {
                 onClick={menuClickHandler}
             />
 
-        </div>
+        </Sider>
         <div className={styles.content}>{children}</div>
         {/* <div className={styles.right}>
             right side
         </div> */}
-    </div>
+    </Layout>
 }
 

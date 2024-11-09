@@ -42,7 +42,7 @@ const CredlyPage = ({ content, badges }) => {
 
                 <div>    <Image src={CredlySvg} width={64} alt="Credly Icon" />
                     <p>从<a href='https://info.credly.com/' target='_blank' >Credle</a>获得的技术徽章</p></div>
-                <Statistic title="获得的数量" value={badges.length} />
+                <Statistic title="徽章数量" value={badges.length} />
                 {!mobile && <Profile content={content} />}
             </Flex>
 

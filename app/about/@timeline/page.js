@@ -9,10 +9,6 @@ const Item = ({ title, date, level, type }) => {
 const TimeLinePage = () => {
     const items = [
         {
-            children: <Item title='学习nextjs' type="success" level={5} date={'2024-07-20'}></Item>,
-
-        },
-        {
             children: <Item title='计划搭一个网站，思考技术和功能' type="secondary" level={5} date={'2024-08-25'}></Item>,
 
         },

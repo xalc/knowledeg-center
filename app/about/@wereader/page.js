@@ -1,8 +1,24 @@
+import DBInstance from "@/api/libs/db";
+import WRBooks from "../../src/components/wereaderBooks";
+
+
 const WeReaderPage = async () => {
 
-    return <div>
-        <h1>Wereader page!!!</h1>
+    const dbInstance = DBInstance.getInstance('knowledge', 'books');
 
-    </div>
+    const books = await dbInstance.execute(async (c) => {
+        return await c.find({}).toArray()
+    })
+    const needed = books.map((b) => {
+        return {
+            title: b.title,
+            cover: b.cover,
+            category: b.category,
+            author: b.author,
+            bookid: b.bookId
+        }
+    }).reverse()
+    return <WRBooks books={needed} />
+
 }
 export default WeReaderPage;

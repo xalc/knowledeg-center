@@ -3,3 +3,4 @@ node_modules
 .vscode
 app/api/docs/nextdocs
 public/notes
+.idea

@@ -1,5 +1,5 @@
 
-import NavTree from "@/src/components/navTree";
+import NavTree from "../../src/components/navTree";
 import traversDir from "@/api/libs/mdxparser";
 import traversTree from "@/api/libs/antdTreeData";
 

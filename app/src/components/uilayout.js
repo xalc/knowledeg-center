@@ -5,23 +5,25 @@ import { Button, Layout, Space, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader';
 const { Footer, Content } = Layout;
-const useStyles = createStyles(({ css }) => {
+const useStyles = createStyles(({ css, token }) => {
     return {
         layout: css`
             height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow: hidden
    
         `,
         header: css`
             background-color: inherit;
         `,
         content: css`
-        height: calc(100vh - 130px)
+            height: calc(100vh - 130px)
         `,
         footer: css`
             display: flex;
-            justify-content:center
+            justify-content:center;
+            border-top: 1px solid ${token.colorBorder}
         `
     }
 })
@@ -38,6 +40,7 @@ export default function UILayout({ children }) {
     return (
         <ThemeProvider themeMode={'auto'}
             theme={{
+                cssVar: true,
                 components: {
                     Layout: {
                         headerBg: colorBgContainer

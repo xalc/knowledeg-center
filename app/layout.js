@@ -8,8 +8,8 @@ import UILayout from './src/components/uilayout';
 import './global.scss'
 
 export const metadata = {
-  title: "Next js get started",
-  description: "next js knowledge and learning"
+  title: "Personal knowledge graph",
+  description: "Driven by nextjs and react"
 }
 
 export const viewport = {
