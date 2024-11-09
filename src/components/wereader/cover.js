@@ -1,5 +1,6 @@
 const Cover = ({ url }) => {
     const useBigImage = (url) => {
+        if (!url) return null;
         let arr = url.split('/');
         let len = arr.length;
         arr[len - 1] = arr[len - 1].replace('s_', 't6_');

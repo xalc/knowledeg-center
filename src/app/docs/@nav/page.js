@@ -1,7 +1,7 @@
 
 import NavTree from "@/components/navTree";
-import traversDir from "@/app/api/libs/mdxparser.js";
-import traversTree from "@/app/api/libs/antdTreeData.js";
+import traversDir from "@/libs/mdxparser.js";
+import traversTree from "@/libs/antdTreeData.js";
 
 
 const NavPage = async () => {

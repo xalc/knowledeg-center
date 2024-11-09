@@ -3,7 +3,7 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 import { Suspense } from 'react'
-import { getMDXContent } from '../api/libs/mdxparser.js';
+import { getMDXContent } from '@/libs/mdxparser.js';
 
 import CustomLink from '@/components/customLink';
 import CustomImage from '@/components/customImage';

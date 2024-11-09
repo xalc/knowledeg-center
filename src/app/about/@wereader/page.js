@@ -1,14 +1,17 @@
-import DBInstance from "@/app/api/libs/db.js";
+
 import WRBooks from "@/components/wereaderBooks";
 
+import { getDBReadingBooks } from "@/libs/db-utils";
 
 const WeReaderPage = async () => {
 
-    const dbInstance = DBInstance.getInstance('knowledge', 'books');
+    // const dbInstance = DBInstance.getInstance('knowledge', 'books');
 
-    const books = await dbInstance.execute(async (c) => {
-        return await c.find({}).toArray()
+    const books = await getDBReadingBooks().catch(err => {
+        //TODO Error handle
+        console.error('get book list failed: ' + err)
     })
+
     const needed = books.map((b) => {
         return {
             title: b.title,

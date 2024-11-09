@@ -1,5 +1,5 @@
 
-import client from '../libs/db.js'
+import client from '../../../libs/db.js'
 // Database Name
 const dbName = process.env.MONGO_DATABASE;
 const tableName = 'users'
