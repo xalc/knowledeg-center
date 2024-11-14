@@ -17,7 +17,7 @@ export default function AboutLayout({ children, wereader, timeline }) {
         children: timeline
     }]
     return <Tabs
-        defaultActiveKey="tab_1"
+        defaultActiveKey="tab_2"
         size='large'
         centered
         items={tabItems}

@@ -54,6 +54,11 @@ export default function ListLayout({ children }) {
             key: 'time',
             icon: <ArrowRightOutlined />,
         },
+        {
+            label: 'Utils',
+            key: 'util',
+            icon: <ArrowRightOutlined />,
+        },
 
     ]
 
@@ -70,6 +75,9 @@ export default function ListLayout({ children }) {
         }
         if (key === 'time') {
             router.push('/list/time');
+        }
+        if (key === 'util') {
+            router.push('/list/util');
         }
     };
     return <Layout className={styles.container}>

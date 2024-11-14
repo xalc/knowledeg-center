@@ -1,7 +1,8 @@
 import { Flex, Progress, Skeleton } from 'antd';
 import { useEffect, useState } from 'react';
+import ReadingStatus from './readingStatus';
 const Description = ({ author, category, bookid }) => {
-    const [progress, setProgress] = useState(null);
+    const [readingProgress, setReadingProgress] = useState(null);
     useEffect(() => {
         const getProgress = async (bookid) => {
             const result = await fetch(`/api/wereader/progress/${bookid}`);
@@ -13,7 +14,7 @@ const Description = ({ author, category, bookid }) => {
                 console.log(bookid);
                 console.error(p.error);
             } else {
-                setProgress(p)
+                setReadingProgress(p)
             }
 
         }
@@ -36,14 +37,11 @@ const Description = ({ author, category, bookid }) => {
     }
     return <>
         <Flex >
-            <div style={{ width: '50px' }}>已读:</div>
-            {(progress && progress.progress) && <Progress size='small' percent={progress.progress} />}
-            {progress === null && <Skeleton active paragraph={false} />}
-
+            <ReadingStatus progress={readingProgress?.progress} />
         </Flex>
         <div>
-            {progress?.readingTime && `累计阅读: ${parseReadingTime(progress.readingTime)}`}
-            {progress === null && <Skeleton active paragraph={false} />}
+            {readingProgress?.readingTime && `累计阅读: ${parseReadingTime(readingProgress.readingTime)}`}
+            {readingProgress === null && <Skeleton active paragraph={false} />}
 
         </div>
 

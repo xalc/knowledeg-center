@@ -7,11 +7,16 @@ import ResponseHeader from './responseHeader.js';
 const { Footer, Content } = Layout;
 const useStyles = createStyles(({ css, token }) => {
     return {
+        // flex-direction: column;
+        // overflow: hidden;
+        // background-image: url(https://www.bing.com/th?id=OHR.MoroccoMilkyWay_ZH-CN3544344290_1920x1080.jpg);
+        // width: 100vw;
+        // background-size: cover;
+        // background-position: center;
         layout: css`
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            overflow: hidden
+  
    
         `,
         header: css`

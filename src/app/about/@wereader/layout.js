@@ -8,12 +8,12 @@ export default function WeReaderLayout({ children, summary }) {
         key: 'tab_1',
         children: WrapTabItem(children)
     }, {
-        label: '图表',
+        label: '汇总',
         key: 'tab_2',
         children: WrapTabItem(summary)
     }]
     return <Tabs
-        defaultActiveKey="tab_1"
+        defaultActiveKey="tab_2"
         size='small'
         items={tabItems}
         type='card'

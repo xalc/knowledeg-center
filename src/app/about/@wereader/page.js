@@ -20,7 +20,7 @@ const WeReaderPage = async () => {
             author: b.author,
             bookid: b.bookId
         }
-    }).reverse()
+    })
     return <WRBooks books={needed} />
 
 }
