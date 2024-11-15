@@ -13,7 +13,7 @@ class MongoDBManager {
             this.db = this.client.db(this.dbName);
         } catch (error) {
             console.error('Error connecting to MongoDB:', error);
-            throw (error)
+            throw (error);
         }
     }
     async disconnect() {
@@ -21,7 +21,7 @@ class MongoDBManager {
             await this.client.close();
         } catch (error) {
             console.error('Error disconnecting from MongoDB:', error);
-            throw (error)
+            throw (error);
         }
     }
     async findOne(collectionName, filter) {

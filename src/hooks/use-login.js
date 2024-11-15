@@ -1,5 +1,5 @@
 
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react';
 const useLogin = () => {
@@ -9,7 +9,7 @@ const useLogin = () => {
     const setUserLogin = (isUserLogin) => {
         setLogin(isUserLogin);
         setText(isUserLogin ? "Login out" : "Login in");
-    }
+    };
 
     useEffect(() => {
         fetch('/api/user', {
@@ -21,11 +21,11 @@ const useLogin = () => {
                 user: 'xalc',
                 password: "123456"
             })
-        }).then(resp => resp.json()).then((resp) => setUserLogin(resp.isValid))
-    }, [])
+        }).then(resp => resp.json()).then((resp) => setUserLogin(resp.isValid));
+    }, []);
 
     return [isLogin, text, setUserLogin];
-}
+};
 export default useLogin;
 
 

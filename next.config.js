@@ -1,6 +1,6 @@
 // next.config.js
 import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm';
 import rehypeHighlightLines from "rehype-highlight-code-lines";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -17,11 +17,11 @@ const nextConfig = {
                     { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
                 ]
             }
-        ]
+        ];
     },
     pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx']
 
-}
+};
 const mdxConfig = {
     extension: /\.mdx?$/,
     options: {
@@ -34,7 +34,7 @@ const mdxConfig = {
         // providerImportSource: "@mdx-js/react",
     },
 
-}
-const withMDX = createMDX(mdxConfig)
+};
+const withMDX = createMDX(mdxConfig);
 
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);

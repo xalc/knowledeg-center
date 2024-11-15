@@ -61,7 +61,7 @@ export const loadCsv = async (filename) => {
             complete: (results) => {
                 resolve(parseCsv(results['data']));
             }
-        })
+        });
     });
 };
 
@@ -78,7 +78,7 @@ export class BostonHousingDataset {
     get numFeatures() {
         // If numFeatures is accessed before the data is loaded, raise an error.
         if (this.trainFeatures == null) {
-            throw new Error('\'loadData()\' must be called before numFeatures')
+            throw new Error('\'loadData()\' must be called before numFeatures');
         }
         return this.trainFeatures[0].length;
     }

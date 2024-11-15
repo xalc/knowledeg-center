@@ -15,8 +15,6 @@ const MyInput = forwardRef((props, ref) => {
 export default function Fref() {
     const inputRef = useRef(null);
     return <>
-
-
         <MyInput ref={inputRef} />
     </>
 }

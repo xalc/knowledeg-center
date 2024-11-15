@@ -20,9 +20,9 @@ export const getDBReadingTimes = async () => {
 
     } catch (error) {
         console.error(`Get Reading data failed:  ${error}`);
-        throw (error)
+        throw (error);
     }
-}
+};
 
 
 export const getDBReadingBooks = async () => {
@@ -32,25 +32,25 @@ export const getDBReadingBooks = async () => {
 
     await dbInstance.disconnect();
     return result.sort((doc1, doc2) => doc2.readUpdateTime - doc1.readUpdateTime);
-}
+};
 export const getDBBookProgress = async (bookid) => {
     const dbInstance = new MongoDBManager(getDbString(), WE_READER_DB_NAME);
     await dbInstance.connect();
-    let progress = await dbInstance.findOne(BOOK_PROGRESS_C, { bookId: bookid })
+    let progress = await dbInstance.findOne(BOOK_PROGRESS_C, { bookId: bookid });
     if (progress === null) {
-        progress = {}
+        progress = {};
     }
 
     await dbInstance.disconnect();
     return progress;
 
-}
+};
 export const getAllReadingStatus = async () => {
     const dbInstance = new MongoDBManager(getDbString(), WE_READER_DB_NAME);
     await dbInstance.connect();
-    let status = await dbInstance.findMany(BOOK_PROGRESS_C, {})
+    const status = await dbInstance.findMany(BOOK_PROGRESS_C, {});
 
 
     await dbInstance.disconnect();
     return status;
-}
+};

@@ -1,8 +1,7 @@
 
 import style from './user.module.scss';
-import Avator from '../avatar/index.js'
 const User = ({ user }) => {
-    const { avatar, fisrtName, lastName, email, index } = user;
+    const { fisrtName, lastName, email, index } = user;
     return (
         <div className={style.container}>
             <div className={style.avatar}>

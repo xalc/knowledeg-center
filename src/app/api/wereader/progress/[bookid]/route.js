@@ -1,7 +1,7 @@
 
 
 
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
 import { getDBBookProgress } from "@/libs/db-utils.js";
 export async function GET(request, { params }) {
 

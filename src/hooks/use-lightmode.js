@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useEffect, useState } from "react";
 
@@ -9,14 +9,14 @@ const useLightMode = () => {
         if (!theme.matches) setLight(false);
         const handleChange = (e) => {
             if (e.matches) {
-                setLight(true)
+                setLight(true);
             } else {
-                setLight(false)
+                setLight(false);
             }
-        }
+        };
         theme.addEventListener("change", handleChange);
-        return () => theme.removeEventListener('change', handleChange)
+        return () => theme.removeEventListener('change', handleChange);
     }, []);
     return light;
-}
+};
 export default useLightMode;

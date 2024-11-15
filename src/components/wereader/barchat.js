@@ -9,8 +9,12 @@ export default function ReadingTimeBarChart({ readingRecords }) {
     }
     const dataSources = useMemo(() => {
         const finalResult = [];
+
+        // eslint-disable-next-line no-undef
         const yearMap = new Map();
+        // eslint-disable-next-line no-undef
         const monthMap = new Map();
+        // eslint-disable-next-line no-undef
         const dateMap = new Map();
 
         readingRecords.forEach((record) => {

@@ -15,8 +15,8 @@ const User = () => {
         id, sex, firstName, lastName, email,
         avatar: faker.image.avatar(),
         birthday: faker.date.birthdate(),
-    }
-}
+    };
+};
 
 export function GET(request) {
     try {
@@ -24,7 +24,7 @@ export function GET(request) {
         for (let i = 0; i < 1000; i++) {
             const user = User();
             user.index = i;
-            Users.push(user)
+            Users.push(user);
         }
         return NextResponse.json({ Users });
     } catch (error) {
