@@ -1,22 +1,13 @@
-'use client'
+import { Flex } from "antd";
+import Link from "next/link";
 
-import { useState, useEffect, useRef } from 'react';
-import TfvisCore from './tfvis-react.js';
-// import { BostonHousingDataset, featureDescriptions } from './tfdata';
-import { Button } from 'antd';
-import styles from './tech.modules.scss';
-const TechPage = () => {
+export default function TechPageRoot() {
+    return <>
+        <h1>entry of tech page</h1>
+        <Flex vertical>
+            <Link href='/tech/list'> list page</Link>
+            <Link href='/tech/tensor'> tensor Flow</Link>
+        </Flex>
 
-    // const bostonData = new BostonHousingDataset();
-    // const fetchAllData = async () => {
-    //     await bostonData.loadData();
-    // }
-    return (<div className={styles.container}>
-        <h2>Tech page</h2>
-        <TfvisCore ></TfvisCore>
-
-        {/* <Button onClick={fetchAllData}> fetch data</Button> */}
-
-    </div>);
-}
-export default TechPage;
+    </>
+} 

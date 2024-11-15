@@ -5,7 +5,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import UILayout from '@/components/uilayout';
 
 
-import './global.scss'
+
 
 export const metadata = {
   title: "Personal knowledge graph",

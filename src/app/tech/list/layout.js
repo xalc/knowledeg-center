@@ -65,19 +65,19 @@ export default function ListLayout({ children }) {
     const menuClickHandler = ({ item, key, keyPath, domEvent }) => {
 
         if (key === 'list') {
-            router.push('/list');
+            router.push('/tech/list');
         }
         if (key === 'virtual') {
-            router.push('/list/virtual');
+            router.push('/tech/list/virtual');
         }
         if (key === 'ref') {
-            router.push('/list/ref');
+            router.push('/tech/list/ref');
         }
         if (key === 'time') {
-            router.push('/list/time');
+            router.push('/tech/list/time');
         }
         if (key === 'util') {
-            router.push('/list/util');
+            router.push('/tech/list/util');
         }
     };
     return <Layout className={styles.container}>

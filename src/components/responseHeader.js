@@ -76,16 +76,16 @@ const ResponseHeader = () => {
                     color="default"
                     variant="text">
                     主页</Button>
-                <Button
+                {/* <Button
                     onClick={() => redirectToPage('/list')}
                     className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
-                    color="default" variant="text">List</Button>
+                    color="default" variant="text">List</Button> */}
                 <Button
                     onClick={() => redirectToPage('/tech')}
                     className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
-                    color="default" variant="text">Tech</Button>
+                    color="default" variant="text">有趣</Button>
                 <Button
                     onClick={() => redirectToPage('/docs')}
                     className={cx({ [styles.navBtn]: smallDevice })}
