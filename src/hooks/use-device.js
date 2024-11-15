@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-const WIDTH_CONSTANT = 500;
+import { SMALL_SCREENT_WIDTH } from '@/libs/constants'
 const useDevice = () => {
     const [width, setWidth] = useState(false);
     useEffect(() => {
@@ -12,6 +12,6 @@ const useDevice = () => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize)
     }, []);
-    return width < WIDTH_CONSTANT;
+    return width < SMALL_SCREENT_WIDTH;
 }
 export default useDevice;

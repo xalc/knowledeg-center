@@ -1,5 +1,7 @@
 // next.config.js
-import createMDX from '@next/mdx'
+import createMDX from '@next/mdx';
+import remarkGfm from 'remark-gfm'
+import rehypeHighlightLines from "rehype-highlight-code-lines";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
@@ -17,7 +19,8 @@ const nextConfig = {
             }
         ]
     },
-    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx']
+
 }
 const mdxConfig = {
     extension: /\.mdx?$/,
@@ -25,11 +28,12 @@ const mdxConfig = {
         // If you use remark-gfm, you'll need to use next.config.mjs
         // as the package is ESM only
         // https://github.com/remarkjs/remark-gfm#install
-        remarkPlugins: [],
-        rehypePlugins: [],
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [rehypeHighlightLines],
         // If you use `MDXProvider`, uncomment the following line.
         // providerImportSource: "@mdx-js/react",
     },
+
 }
 const withMDX = createMDX(mdxConfig)
 

@@ -1,12 +1,12 @@
 'use client'
 // the replacement for useDevice by mediaquery
 import { useEffect, useState } from "react";
-const WIDTH_CONSTANT = 500;
+import { SMALL_SCREENT_WIDTH } from '@/libs/constants'
 
 const useNarrowScreen = () => {
     const [narrowScreen, setNarrowScreen] = useState(false);
     useEffect(() => {
-        const mql = window.matchMedia(`(max-width: ${WIDTH_CONSTANT}px)`);
+        const mql = window.matchMedia(`(max-width: ${SMALL_SCREENT_WIDTH}px)`);
         setNarrowScreen(mql.matches);
         const handleResize = (event) => {
             console.log('media query changed')

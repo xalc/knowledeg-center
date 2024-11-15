@@ -84,8 +84,6 @@ export default function ListLayout({ children }) {
         <Sider
             breakpoint='sm'
             className={styles.nav}
-            collapsedWidth='0'
-            trigger={<div><Button type="primary" shape="circle" icon={<UnorderedListOutlined />} /></div>}
         >
             <Menu
                 style={{ height: '100%' }}
