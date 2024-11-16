@@ -55,11 +55,11 @@ async function listFiles(dir, relPath) {
 
 
 
-const writeFile = async () => {
-    const result = await listFiles(getRootPath(), getRootPath());
-    const jsonString = JSON.stringify(result, null, 2);
-    fs.writeFile('./test.json', jsonString, 'utf8');
-};
+// const writeFile = async () => {
+//     const result = await listFiles(getRootPath(), getRootPath());
+//     const jsonString = JSON.stringify(result, null, 2);
+//     fs.writeFile('./test.json', jsonString, 'utf8');
+// };
 // writeFile();
 //持久化文档结构在内存中
 let CONSTANT_TOPICS = await listFiles(getRootPath(), getRootPath());
@@ -79,8 +79,6 @@ export const getMDXContent = async (route) => {
     try {
         mdxContent = await fs.readFile(absRoute, 'utf-8');
     } catch (err) {
-        /*global console*/
-        /*eslint no-undef: "error"*/
         console.error('Error reading file' + err);
     }
     return mdxContent;

@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
-import { Avatar, Flex, Typography } from 'antd';
-const { Title, Text, Paragraph } = Typography;
+import { Flex, Typography } from 'antd';
+const { Title, Text } = Typography;
 const useStyles = createStyles(({ token, css }) => {
     const withTransition = css`
       transition: all ${token.motionDurationSlow} ${token.motionEaseInOutCirc};

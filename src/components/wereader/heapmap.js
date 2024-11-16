@@ -4,7 +4,6 @@ import moment from 'moment';
 import { useMemo, useState } from 'react';
 import { Button, Flex, Tooltip, Alert } from 'antd';
 import { createStyles } from 'antd-style';
-import { Typography } from 'antd';
 
 const useStyles = createStyles(({ token, css }) => {
     return {
@@ -45,8 +44,9 @@ export default function ReadingHeapmap({ readingRecords, updateTime }) {
         <Alert showIcon closable message='每日贴砖' description={`最新同步与 ${moment(updateTime * 1000).format("dddd, MMMM Do YYYY, h:mm:ss a")}`} type="info" />
 
         <Flex justify='start' gap='large' wrap>
-            {years.map(y => {
+            {years.map((y, index) => {
                 return (<Button
+                    key={'button_' + index}
                     color="default"
                     type={year === y ? 'primary' : 'text'}
                     onClick={() => setYear(y)}

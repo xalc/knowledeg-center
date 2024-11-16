@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './login.scss';
 
-const LoginLayout = ({ children }) => {
+const LoginLayout = () => {
   const router = useRouter();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');

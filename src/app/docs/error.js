@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
+
 export default function Error({ error, reset }) {
     //
     const router = useRouter();

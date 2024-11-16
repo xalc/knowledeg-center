@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Flex, Space } from "antd";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const ControlledComp = () => {
 

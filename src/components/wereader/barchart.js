@@ -1,7 +1,7 @@
 'use client';
 
 import ReactECharts from 'echarts-for-react';
-import { useEffect, useMemo, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from "react";
 import { useResponsive } from 'antd-style';
 import moment from 'moment';
 
@@ -130,10 +130,10 @@ export default function ReadingTimeBarChart({ readingRecords }) {
         const chart = chartRef.current.getEchartsInstance();
         chart.setOption(options(), true);
         console.log('screen changed');
-    }, [responsive]);
+    }, [responsive, options]);
 
 
-    const options = () => {
+    const options = useCallback(() => {
         return {
             legend: {},
             tooltip: {},
@@ -178,7 +178,7 @@ export default function ReadingTimeBarChart({ readingRecords }) {
             },
             ]
         };
-    };
+    }, []);
 
     return <>
 

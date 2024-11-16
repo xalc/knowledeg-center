@@ -1,7 +1,7 @@
 const traversTree = (docsTree, level = 0) => {
     const antdTree = [];
-    const { folders, files, path } = docsTree;
-    folders.forEach((folder, index) => {
+    const { folders, files } = docsTree;
+    folders.forEach((folder) => {
         const node = {
             title: folder.path,
             key: folder.absPath,
@@ -10,7 +10,7 @@ const traversTree = (docsTree, level = 0) => {
         node.children = traversTree(folder, level + 1);
         antdTree.push(node);
     });
-    files.forEach((file, index) => {
+    files.forEach((file) => {
         const node = {
             title: file.name,
             isLeaf: true,

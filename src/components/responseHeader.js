@@ -3,10 +3,10 @@ import { useRouter } from 'next/navigation';
 import {
     MenuOutlined
 } from '@ant-design/icons';
-import { Button, Layout, Space, Flex } from 'antd';
+import { Button, Layout, Flex } from 'antd';
 import { createStyles } from 'antd-style';
 import { useState } from 'react';
-import useDevice from '../hooks/use-device.js';
+// import useDevice from '../hooks/use-device.js';
 import useNarrowScreen from '../hooks/use-narrow-screen.js';
 const { Header } = Layout;
 

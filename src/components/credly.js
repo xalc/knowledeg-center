@@ -1,10 +1,10 @@
 'use client';
-import { Avatar, Statistic } from "antd";
-import { Typography, Flex, Card } from 'antd';
-const { Title, Paragraph, Text, Link } = Typography;
+import { Statistic } from "antd";
+import { Flex } from 'antd';
+
 import CredlySvg from '/public/images/credly/credly.svg';
 import { createStyles } from 'antd-style';
-import Icon from '@ant-design/icons';
+
 import Image from "next/image";
 import Badge from "./badge.js";
 import Profile from "./profile.js";
@@ -23,7 +23,7 @@ const useStyles = createStyles(({ token, css }) => ({
         height: 'calc(100vh - 320px)',
         overflow: 'auto'
     },
-    profile: css`
+    profile1: css`
         justify-content: space-between;
         align-items: center;
         margin: ${token.margin}
@@ -41,7 +41,7 @@ const CredlyPage = ({ content, badges }) => {
             <Flex className={styles.profile}>
 
                 <div>    <Image src={CredlySvg} width={64} alt="Credly Icon" />
-                    <p>从<a href='https://info.credly.com/' target='_blank' >Credle</a>获得的技术徽章</p></div>
+                    <p>从<a href='https://info.credly.com/' target='_blank' rel="noreferrer" >Credle</a>获得的技术徽章</p></div>
                 <Statistic title="徽章数量" value={badges.length} />
                 {!mobile && <Profile content={content} />}
             </Flex>
@@ -58,7 +58,7 @@ const CredlyPage = ({ content, badges }) => {
                 })}
             </Flex>
 
-            {/* <div className={styles.profile} >
+            {/* <div className={styles.profile1} >
                 <Typography>
                     <Icon component={() => (<Image src={CredlySvg} alt="Credly Icon" />)} />
                     <Paragraph>

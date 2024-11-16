@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import { Button, Layout, Space, theme } from 'antd';
+import { Layout, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader.js';
 const { Footer, Content } = Layout;
@@ -35,7 +35,7 @@ const useStyles = createStyles(({ css, token }) => {
 export default function UILayout({ children }) {
 
 
-    const { styles, cx } = useStyles();
+    const { styles } = useStyles();
     const {
         token: { colorBgContainer },
     } = theme.useToken();
@@ -59,7 +59,7 @@ export default function UILayout({ children }) {
                     {children}
                 </Content>
                 <Footer className={styles.footer}>
-                    HunterX ©2024 developed in Xi'an
+                    HunterX ©2024 developed in Xi&apos;an
                 </Footer>
             </Layout>
         </ThemeProvider >

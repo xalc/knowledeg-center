@@ -1,7 +1,7 @@
 'use client';
 
 import moment from 'moment';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { createStyles } from 'antd-style';
 import { Line } from '@ant-design/plots';
 const useStyles = createStyles(({ token, css }) => {
@@ -13,7 +13,6 @@ const useStyles = createStyles(({ token, css }) => {
     };
 });
 export default function LineChart({ readingRecords }) {
-    const [year, setYear] = useState(2024);
     const data = useMemo(() => {
         const yearsMap = new Map();
         readingRecords.forEach((record) => {

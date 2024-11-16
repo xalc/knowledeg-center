@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createStyles } from 'antd-style';
 import User from '@/components/user';
-const useStyles = createStyles(({ css, token }) => {
+const useStyles = createStyles(({ css }) => {
     return {
         container: css`
             height: calc(100% - 69px);
@@ -12,7 +12,7 @@ const useStyles = createStyles(({ css, token }) => {
 });
 const AllList = () => {
     const [userList, setUserList] = useState([]);
-    const { styles, cx } = useStyles();
+    const { styles } = useStyles();
     useEffect(() => {
         fetch('/api/list')
             .then(resp => resp.json())

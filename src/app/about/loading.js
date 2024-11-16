@@ -2,7 +2,7 @@
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
-const useStyles = createStyles(({ token, css }) => {
+const useStyles = createStyles(({ css }) => {
     return {
         spinContainer: css`
             display: flex;

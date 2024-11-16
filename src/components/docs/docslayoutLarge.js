@@ -1,6 +1,6 @@
 import { Splitter } from 'antd';
 import { createStyles } from 'antd-style';
-const useStyles = createStyles(({ css, token }) => {
+const useStyles = createStyles(({ css }) => {
     return {
         splitter: css`
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

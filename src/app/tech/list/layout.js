@@ -1,8 +1,8 @@
 
 'use client';
 
-import { Button, Menu, Layout } from 'antd';
-import { ArrowRightOutlined, NotificationOutlined, UserOutlined, UnorderedListOutlined } from '@ant-design/icons';
+import { Menu, Layout } from 'antd';
+import { ArrowRightOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { createStyles } from 'antd-style';
@@ -62,7 +62,7 @@ export default function ListLayout({ children }) {
 
     ];
 
-    const menuClickHandler = ({ item, key, keyPath, domEvent }) => {
+    const menuClickHandler = ({ key }) => {
 
         if (key === 'list') {
             router.push('/tech/list');

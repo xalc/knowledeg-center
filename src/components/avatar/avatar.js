@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const Avatar = ({ url, id }) => {
     const [useDefault, setDefault] = useState(false);
-    const onError = (event) => {
+    const onError = () => {
         setDefault(true);
     };
     const onLoad = (event) => {

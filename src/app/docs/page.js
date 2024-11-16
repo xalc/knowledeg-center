@@ -3,10 +3,10 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { Suspense } from 'react';
-import { serialize } from 'next-mdx-remote/serialize';
+// import { serialize } from 'next-mdx-remote/serialize';
 
 import Title from 'antd/es/typography/Title';
-import Text from 'antd/es/typography/Text';
+
 import { getMDXContent } from '@/libs/mdxparser.js';
 
 import CustomLink from '@/components/customLink';

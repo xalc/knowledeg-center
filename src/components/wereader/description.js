@@ -1,4 +1,4 @@
-import { Flex, Progress, Skeleton } from 'antd';
+import { Flex, Skeleton } from 'antd';
 import { useEffect, useState } from 'react';
 import ReadingStatus from './readingStatus';
 const Description = ({ author, category, bookid }) => {

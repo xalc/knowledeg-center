@@ -18,16 +18,14 @@ const User = () => {
     };
 };
 
-export function GET(request) {
-    try {
-        const Users = [];
-        for (let i = 0; i < 1000; i++) {
-            const user = User();
-            user.index = i;
-            Users.push(user);
-        }
-        return NextResponse.json({ Users });
-    } catch (error) {
-        throw error;
+export function GET() {
+
+    const Users = [];
+    for (let i = 0; i < 1000; i++) {
+        const user = User();
+        user.index = i;
+        Users.push(user);
     }
+    return NextResponse.json({ Users });
+
 }

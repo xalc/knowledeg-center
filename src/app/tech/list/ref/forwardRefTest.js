@@ -9,8 +9,11 @@ import { useRef, forwardRef } from "react";
 //     );
 // }
 const MyInput = forwardRef((props, ref) => {
+
     return <input {...props} ref={ref}></input>;
 });
+
+MyInput.displayName = 'Hello';
 
 export default function Fref() {
     const inputRef = useRef(null);

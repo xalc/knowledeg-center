@@ -5,7 +5,7 @@ import moment from 'moment';
 import { createStyles } from 'antd-style';
 const { Title } = Typography;
 import { useState, useEffect } from 'react';
-const useStyles = createStyles(({ css, token }) => {
+const useStyles = createStyles(() => {
     return {
         number: {
             fontSize: '24px',

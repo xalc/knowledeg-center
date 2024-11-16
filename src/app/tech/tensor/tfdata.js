@@ -15,7 +15,7 @@
  * =============================================================================
  */
 
-const Papa = require('papaparse');
+import Papa from 'papaparse';
 
 
 // Boston Housing data constants:
@@ -123,4 +123,4 @@ function shuffle(data, target) {
         target[counter] = target[index];
         target[index] = temp;
     }
-};
+}

@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+
 import TfvisCore from './tfvis-react.js';
 // import { BostonHousingDataset, featureDescriptions } from './tfdata';
-import { Button } from 'antd';
+
 import styles from './tech.modules.scss';
 const TechPage = () => {
 

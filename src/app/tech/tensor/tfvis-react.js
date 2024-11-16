@@ -50,5 +50,5 @@ class TfvisCore extends Component {
             </Button>
         );
     }
-};
+}
 export default TfvisCore;

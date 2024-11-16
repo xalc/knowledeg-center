@@ -1,5 +1,5 @@
-import { Flex, Avatar, Typography } from "antd";
-const { Title, Text, Paragraph } = Typography;
+import { Flex, Typography } from "antd";
+const { Text, Paragraph } = Typography;
 export default function Profile({ content }) {
     return (<Flex
         gap='large'
