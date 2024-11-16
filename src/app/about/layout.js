@@ -1,5 +1,5 @@
 
-import { Tabs } from "antd"
+import { Tabs } from "antd";
 
 export default function AboutLayout({ children, wereader, timeline }) {
 
@@ -15,7 +15,7 @@ export default function AboutLayout({ children, wereader, timeline }) {
         label: '时光机',
         key: 'tab_3',
         children: timeline
-    }]
+    }];
     return <Tabs
         defaultActiveKey="tab_2"
         size='large'
@@ -23,7 +23,7 @@ export default function AboutLayout({ children, wereader, timeline }) {
         items={tabItems}
     >
 
-    </Tabs>
+    </Tabs>;
 
 
 }

@@ -1,5 +1,5 @@
 
-'use client'
+'use client';
 
 import { Button, Menu, Layout } from 'antd';
 import { ArrowRightOutlined, NotificationOutlined, UserOutlined, UnorderedListOutlined } from '@ant-design/icons';
@@ -26,11 +26,11 @@ const useStyles = createStyles(({ css, token }) => {
             padding: ${token.paddingMD}px
 
         `
-    }
+    };
 });
 export default function ListLayout({ children }) {
     const { styles } = useStyles();
-    const router = useRouter()
+    const router = useRouter();
     const items = [
 
 
@@ -60,7 +60,7 @@ export default function ListLayout({ children }) {
             icon: <ArrowRightOutlined />,
         },
 
-    ]
+    ];
 
     const menuClickHandler = ({ item, key, keyPath, domEvent }) => {
 
@@ -97,6 +97,6 @@ export default function ListLayout({ children }) {
         {/* <div className={styles.right}>
             right side
         </div> */}
-    </Layout>
+    </Layout>;
 }
 

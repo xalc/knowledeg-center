@@ -14,10 +14,10 @@ const Description = ({ author, category, bookid }) => {
                 console.log(bookid);
                 console.error(p.error);
             } else {
-                setReadingProgress(p)
+                setReadingProgress(p);
             }
 
-        }
+        };
         getProgress(bookid);
     }, [bookid]);
 
@@ -30,11 +30,11 @@ const Description = ({ author, category, bookid }) => {
             return Math.floor(second / 60) + '分钟';
         }
         if (second / 60 < 1) {
-            return '1分钟'
+            return '1分钟';
         }
 
 
-    }
+    };
     return <>
         <Flex >
             <ReadingStatus progress={readingProgress?.progress} />
@@ -47,6 +47,6 @@ const Description = ({ author, category, bookid }) => {
 
         {author} {category ? '| ' + category : ''}
 
-    </>
-}
+    </>;
+};
 export default Description;

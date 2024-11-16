@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect, useRef } from 'react';
 import TfvisCore from './tfvis-react.js';
@@ -18,5 +18,5 @@ const TechPage = () => {
         {/* <Button onClick={fetchAllData}> fetch data</Button> */}
 
     </div>);
-}
+};
 export default TechPage;

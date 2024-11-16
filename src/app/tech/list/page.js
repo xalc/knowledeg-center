@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { createStyles } from 'antd-style';
 import User from '@/components/user';
 const useStyles = createStyles(({ css, token }) => {
@@ -8,7 +8,7 @@ const useStyles = createStyles(({ css, token }) => {
         container: css`
             height: calc(100% - 69px);
         `
-    }
+    };
 });
 const AllList = () => {
     const [userList, setUserList] = useState([]);
@@ -28,5 +28,5 @@ const AllList = () => {
         </div>
 
     </div>);
-}
+};
 export default AllList;

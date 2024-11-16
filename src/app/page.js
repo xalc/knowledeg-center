@@ -17,11 +17,11 @@ export default async function Page() {
             );
         }
     } catch (error) {
-        console.error('fetch bing image error' + error)
+        console.error('fetch bing image error' + error);
         return <Alert message="Error"
             description={error.message}
             type="error"
-            showIcon />
+            showIcon />;
     }
 
 

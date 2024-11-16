@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React from 'react';
 
 import { Button, Layout, Space, theme } from 'antd';
@@ -30,8 +30,8 @@ const useStyles = createStyles(({ css, token }) => {
             justify-content:center;
             border-top: 1px solid ${token.colorBorder}
         `
-    }
-})
+    };
+});
 export default function UILayout({ children }) {
 
 
@@ -63,5 +63,5 @@ export default function UILayout({ children }) {
                 </Footer>
             </Layout>
         </ThemeProvider >
-    )
+    );
 }

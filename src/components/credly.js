@@ -1,8 +1,8 @@
-'use client'
+'use client';
 import { Avatar, Statistic } from "antd";
 import { Typography, Flex, Card } from 'antd';
 const { Title, Paragraph, Text, Link } = Typography;
-import CredlySvg from '/public/images/credly/credly.svg'
+import CredlySvg from '/public/images/credly/credly.svg';
 import { createStyles } from 'antd-style';
 import Icon from '@ant-design/icons';
 import Image from "next/image";
@@ -71,5 +71,5 @@ const CredlyPage = ({ content, badges }) => {
         </div>
 
     );
-}
+};
 export default CredlyPage;

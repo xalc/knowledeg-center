@@ -6,13 +6,13 @@ const getCredly = async (url) => {
         headers: {
             Accept: 'application/json'
         }
-    }
+    };
     const response = await fetch(url, options);
     if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
     }
     return await response.json();
-}
+};
 
 export default async function AboutPage() {
 
@@ -23,6 +23,6 @@ export default async function AboutPage() {
     const badges = await getCredly(badgesUrl);
 
 
-    return <CredlyPage content={user.data} badges={badges.data} />
+    return <CredlyPage content={user.data} badges={badges.data} />;
 
 }

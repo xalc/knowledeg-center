@@ -1,5 +1,5 @@
 
-import { Tabs } from "antd"
+import { Tabs } from "antd";
 
 export default function WeReaderLayout({ children, summary }) {
 
@@ -11,7 +11,7 @@ export default function WeReaderLayout({ children, summary }) {
         label: '汇总',
         key: 'tab_2',
         children: WrapTabItem(summary)
-    }]
+    }];
     return <Tabs
         defaultActiveKey="tab_2"
         size='small'
@@ -19,7 +19,7 @@ export default function WeReaderLayout({ children, summary }) {
         type='card'
     >
 
-    </Tabs>
+    </Tabs>;
 
 
 }
@@ -30,5 +30,5 @@ const WrapTabItem = (comp) => {
         padding: '16px'
     }}>
         {comp}
-    </div>
-}
+    </div>;
+};

@@ -12,30 +12,11 @@ body {
   margin: 0;
   /* background-color: #3f3f3f; */
 }
-
-.app {
-  width: 90%;
-  max-width: 43rem;
-  padding: 1rem;
-  border-radius: 12px;
-  background-color: white;
-  margin: 3rem auto;
+::-webkit-scrollbar{
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+  background-color: transparent;
+  border-radius: 8px;
 }
 
-.layout {
-  justify-content: space-between;
-  height: 100vh;
-
-  .header {
-    display: 'flex';
-    align-items: 'center';
-  }
-
-  .content {
-    padding: 50px;
-  }
-
-  .footer {
-    text-align: center;
-  }
-}

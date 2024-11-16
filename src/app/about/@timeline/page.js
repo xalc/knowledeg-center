@@ -1,10 +1,10 @@
-'use client'
+'use client';
 import { ClockCircleOutlined, LoadingOutlined } from '@ant-design/icons';
 import { Timeline, Typography } from 'antd';
 const { Title, Text } = Typography;
 const Item = ({ title, date, level, type }) => {
-    return <><Title type={type} level={level}>{title}</Title><Text italic>{date}</Text></>
-}
+    return <><Title type={type} level={level}>{title}</Title><Text italic>{date}</Text></>;
+};
 
 const TimeLinePage = () => {
     const items = [
@@ -61,5 +61,5 @@ const TimeLinePage = () => {
                 items={items}
             /></div >
     );
-}
+};
 export default TimeLinePage;

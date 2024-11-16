@@ -9,5 +9,5 @@ export default function TechPageRoot() {
             <Link href='/tech/tensor'> tensor Flow</Link>
         </Flex>
 
-    </>
+    </>;
 } 

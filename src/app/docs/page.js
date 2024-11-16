@@ -1,9 +1,9 @@
 
 
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { Suspense } from 'react';
-import { serialize } from 'next-mdx-remote/serialize'
+import { serialize } from 'next-mdx-remote/serialize';
 
 import Title from 'antd/es/typography/Title';
 import Text from 'antd/es/typography/Text';
@@ -19,7 +19,7 @@ const components = {
     h2: (props) => <Title level={2} {...props} />,
     h3: (props) => <Title level={3} {...props} />
 
-}
+};
 
 const MdxComponent = async ({ searchParams }) => {
     const key = searchParams.page || 'notes/index.md';
@@ -27,6 +27,6 @@ const MdxComponent = async ({ searchParams }) => {
     // const mdxSource = await serialize(content)
     return <Suspense fallback={<p>Loading feed...</p>}>
         <MDXRemote source={content} components={components} />
-    </Suspense>
-}
+    </Suspense>;
+};
 export default MdxComponent;

@@ -1,5 +1,5 @@
 
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -11,10 +11,10 @@ const LoginLayout = ({ children }) => {
   const [password, setPassword] = useState('');
   const onSubmitBtnClick = () => {
     if (name === '') {
-      console.log('name should not null')
+      console.log('name should not null');
     }
     if (password === '') {
-      console.log('password should not null')
+      console.log('password should not null');
     }
     fetch('/api/user', {
       method: 'POST',
@@ -31,14 +31,14 @@ const LoginLayout = ({ children }) => {
         localStorage.setItem('user', JSON.stringify({
           name,
           time: Date.now()
-        }))
+        }));
         localStorage.setItem('isLogin', true);
-        router.push('/')
+        router.push('/');
       } else {
-        alert('failed')
+        alert('failed');
       }
-    })
-  }
+    });
+  };
   return (
 
     <main>
@@ -64,7 +64,7 @@ const LoginLayout = ({ children }) => {
 
     </main>);
 
-}
+};
 
 export default LoginLayout;
 

@@ -1,4 +1,4 @@
-import { Button } from "antd"
+import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import useLogin from "../../hooks/use-login.js";
 const LoginButton = () => {
@@ -7,16 +7,16 @@ const LoginButton = () => {
 
     const router = useRouter();
     const loginButtonClickHandler = () => {
-        console.log(isLogin)
+        console.log(isLogin);
         if (isLogin) {
             router.push('/');
-            setUserLogin(!isLogin)
+            setUserLogin(!isLogin);
         } else {
             router.push('/login');
-            setUserLogin(!isLogin)
+            setUserLogin(!isLogin);
         }
-    }
+    };
 
-    return <Button type='primary' onClick={loginButtonClickHandler}>{text}</Button>
-}
+    return <Button type='primary' onClick={loginButtonClickHandler}>{text}</Button>;
+};
 export default LoginButton;

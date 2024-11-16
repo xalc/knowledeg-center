@@ -1,7 +1,7 @@
-'use client'
+'use client';
 import User from '@/components/user';
 import styles from './styles.module.scss';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
 const ROW_HEIGHT = 50;
 const VirtualList = () => {
@@ -13,10 +13,10 @@ const VirtualList = () => {
     const scrollHandler = (event) => {
         const { scrollTop } = event.currentTarget;
 
-        console.log(`scroll to : ${scrollTop}`)
+        console.log(`scroll to : ${scrollTop}`);
         setScrollOffset(scrollTop);
 
-    }
+    };
     useEffect(() => {
         fetch('/api/list')
             .then(resp => resp.json())
@@ -30,7 +30,7 @@ const VirtualList = () => {
 
     const totalHeight = userList.length * ROW_HEIGHT;
     const renderUserList = () => {
-        let startIndex = Math.floor(scrollerOffset / ROW_HEIGHT);
+        const startIndex = Math.floor(scrollerOffset / ROW_HEIGHT);
         const endIndex = startIndex + 20;
         let items = [];
         items = userList.slice(startIndex, endIndex);
@@ -49,9 +49,9 @@ const VirtualList = () => {
 
                 <User key={i} user={oneUser} />
             </div>
-        )
+        );
 
-    }
+    };
     return <>
         <h2> virtual render v1</h2>
         <div id="visualArea" className={styles.container} onScroll={scrollHandler}>
@@ -61,6 +61,6 @@ const VirtualList = () => {
                 }
             </div>
         </div>
-    </>
-}
+    </>;
+};
 export default VirtualList;

@@ -40,10 +40,10 @@ const Badge = ({ badge }) => {
     const { badge_template, issuer, id } = badge;
     const openExtental = (id) => {
         //https://www.credly.com/badges/0d9886eb-a660-4e41-af85-edb84be24b6d
-        const domail = 'https://www.credly.com/badges'
-        const url = `${domail}/${id}`
-        window.open(url, '_blank')
-    }
+        const domail = 'https://www.credly.com/badges';
+        const url = `${domail}/${id}`;
+        window.open(url, '_blank');
+    };
     return <Flex gap='small' align='center' justify='space-between' className={styles.container} onClick={() => openExtental(id)}>
 
         {/* <Avatar shape='square' src={badge.image_url} size={128} /> */}
@@ -59,7 +59,7 @@ const Badge = ({ badge }) => {
                     {badge_template?.description}
                 </Paragraph> */}
         </div>
-    </Flex>
+    </Flex>;
 
-}
+};
 export default Badge;

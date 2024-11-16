@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Button, Flex, Space } from "antd";
 import { useState, useRef } from "react";
@@ -36,6 +36,6 @@ const SaveValue = () => {
         <Space>
             <p>Time passed: {secondsPassed.toFixed(3)}</p>
         </Space>
-    </Flex>
-}
+    </Flex>;
+};
 export default SaveValue;

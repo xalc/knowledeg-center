@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FileMarkdownOutlined, FolderOutlined } from '@ant-design/icons';
@@ -12,7 +12,7 @@ const NavTree = ({ treeData }) => {
     const onSelect = (keys, info) => {
         console.log('Trigger Select', keys, info);
         if (info.node.isLeaf) {
-            router.push(`/docs?page=${info.node.key}`)
+            router.push(`/docs?page=${info.node.key}`);
         }
 
     };
@@ -21,11 +21,11 @@ const NavTree = ({ treeData }) => {
     const key = decodeURI(searchParams.get('page'));
     useEffect(() => {
         if (treeRef.current) {
-            console.log('tree auto scrollto ' + key)
-            treeRef.current.scrollTo({ key })
+            console.log('tree auto scrollto ' + key);
+            treeRef.current.scrollTo({ key });
         }
 
-    }, [key])
+    }, [key]);
 
 
     return (
@@ -38,7 +38,7 @@ const NavTree = ({ treeData }) => {
             onSelect={onSelect}
             treeData={treeData}
             icon={({ isLeaf }) => {
-                return isLeaf ? <FileMarkdownOutlined /> : <FolderOutlined />
+                return isLeaf ? <FileMarkdownOutlined /> : <FolderOutlined />;
             }}
             showIcon={true}
         // titleRender={({ key, children, title, ...rest }) => {

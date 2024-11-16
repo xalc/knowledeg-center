@@ -9,8 +9,8 @@ const WeReaderPage = async () => {
 
     const books = await getDBReadingBooks().catch(err => {
         //TODO Error handle
-        console.error('get book list failed: ' + err)
-    })
+        console.error('get book list failed: ' + err);
+    });
 
     const needed = books.map((b) => {
         return {
@@ -19,9 +19,9 @@ const WeReaderPage = async () => {
             category: b.category,
             author: b.author,
             bookid: b.bookId
-        }
-    })
-    return <WRBooks books={needed} />
+        };
+    });
+    return <WRBooks books={needed} />;
 
-}
+};
 export default WeReaderPage;

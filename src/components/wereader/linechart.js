@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import moment from 'moment';
 import { useMemo, useState } from 'react';
@@ -10,8 +10,8 @@ const useStyles = createStyles(({ token, css }) => {
             background-color: ${token.backgroundColor};
             color: ${token.colorText} !impontant
         `
-    }
-})
+    };
+});
 export default function LineChart({ readingRecords }) {
     const [year, setYear] = useState(2024);
     const data = useMemo(() => {
@@ -21,20 +21,20 @@ export default function LineChart({ readingRecords }) {
             const currentYear = m.year();
             if (yearsMap.has(currentYear)) {
                 const count = yearsMap.get(currentYear);
-                yearsMap.set(currentYear, (count + record.readingSeconds))
+                yearsMap.set(currentYear, (count + record.readingSeconds));
             } else {
-                yearsMap.set(currentYear, record.readingSeconds)
+                yearsMap.set(currentYear, record.readingSeconds);
             }
         });
         const dataArray = Array.from(yearsMap.keys(), (key) => {
             return {
                 year: key,
                 value: (yearsMap.get(key) / 3600)
-            }
-        })
-        const finalArr = dataArray.sort((a, b) => a.year - b.year)
+            };
+        });
+        const finalArr = dataArray.sort((a, b) => a.year - b.year);
         return finalArr;
-    }, [readingRecords])
+    }, [readingRecords]);
 
     const { styles } = useStyles();
     return <>
@@ -58,6 +58,6 @@ export default function LineChart({ readingRecords }) {
 
         />
 
-    </>
+    </>;
 
 }

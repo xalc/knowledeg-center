@@ -1,5 +1,5 @@
 
-'use client'
+'use client';
 import { Typography, Row, Col, Progress, Radio } from "antd";
 import moment from 'moment';
 import { createStyles } from 'antd-style';
@@ -16,7 +16,7 @@ const useStyles = createStyles(({ css, token }) => {
         container: {
             textAlign: 'center'
         }
-    }
+    };
 });
 const TimePage = () => {
     const { styles } = useStyles();
@@ -35,12 +35,12 @@ const TimePage = () => {
         label: 'Dashboard',
         value: 'dashboard',
     }
-    ]
+    ];
     useEffect(() => {
-        let timer = setInterval(() => {
-            setNow(moment())
-        }, 1000)
-        return () => clearInterval(timer)
+        const timer = setInterval(() => {
+            setNow(moment());
+        }, 1000);
+        return () => clearInterval(timer);
     }, []);
     return <>
         <Title>Time wasted!</Title>
@@ -54,7 +54,7 @@ const TimePage = () => {
             optionType="button"
             buttonStyle="solid"
             onChange={(e) => {
-                setType(e.target.value)
+                setType(e.target.value);
             }}
         />
         <Row suppressHydrationWarning gutter={[{ xs: 8, sm: 16, md: 24 }, { xs: 8, sm: 16, md: 24 }]}>
@@ -118,6 +118,6 @@ const TimePage = () => {
             </Col>
         </Row>
 
-    </>
-}
+    </>;
+};
 export default TimePage;

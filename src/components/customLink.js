@@ -1,10 +1,10 @@
 
-'use client'
+'use client';
 import Link from 'next/link';
-import { Button } from 'antd'
-import { ExportOutlined } from '@ant-design/icons'
+import { Button } from 'antd';
+import { ExportOutlined } from '@ant-design/icons';
 export default function CustomLink({ href, ...otherProps }) {
-    let isOuter = href.startsWith('http');
+    const isOuter = href.startsWith('http');
     const newlink = isOuter ? href : `/docs?page=${href}`;
     if (isOuter) {
         return <a href={href} target="_blank" >
@@ -12,7 +12,7 @@ export default function CustomLink({ href, ...otherProps }) {
                 iconPosition='end'
                 icon={<ExportOutlined />}
                 {...otherProps} />
-        </a>
+        </a>;
     }
     return (
         <Link href={newlink}>

@@ -1,11 +1,9 @@
 
 import { getDBReadingTimes } from "@/libs/db-utils";
 import ReadingHeapmap from "@/components/wereader/heapmap";
-import ReadingLineChart from "@/components/wereader/linechart";
 import { Row, Col, Divider } from "antd";
 import ChartWrap from "@/components/wereader/chartWrap";
-import ReadingTimeBarChart from "@/components/wereader/barchat";
-
+import ReadingTimeBarChart from "@/components/wereader/barchart";
 
 export default async function SumaryPage() {
 
@@ -23,18 +21,19 @@ export default async function SumaryPage() {
                 <ReadingHeapmap readingRecords={readingTimes} updateTime={lastSynced}></ReadingHeapmap>
             </Col>
         </Row>
-        <Divider orientation="center">Antd charts</Divider>
+        <Divider orientation="center">React Echarts</Divider>
         <Row gutter={16}>
             {/* <Col sm={24} md={12} lg={12} xl={8}>
                 <ReadingLineChart readingRecords={readingTimes}></ReadingLineChart>
             </Col> */}
-            <Col sm={24} md={12} lg={12} xl={8}>
-                <ChartWrap />
-            </Col>
-            <Col sm={24} md={12} lg={12} xl={8}>
+            <Col xs={24} sm={24} >
                 <ReadingTimeBarChart readingRecords={readingTimes} />
             </Col>
+            <Col xs={24} sm={24}  >
+                <ChartWrap />
+            </Col>
+
         </Row>
 
-    </>
+    </>;
 }

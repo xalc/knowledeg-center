@@ -1,11 +1,11 @@
 const Cover = ({ url }) => {
     const useBigImage = (url) => {
         if (!url) return null;
-        let arr = url.split('/');
-        let len = arr.length;
+        const arr = url.split('/');
+        const len = arr.length;
         arr[len - 1] = arr[len - 1].replace('s_', 't6_');
         return arr.join('/');
-    }
+    };
 
     return <img src={useBigImage(url)}
         style={{
@@ -14,6 +14,6 @@ const Cover = ({ url }) => {
             marginLeft: "30px",
             maxHeight: '260px'
         }}
-    ></img >
-}
+    ></img >;
+};
 export default Cover;

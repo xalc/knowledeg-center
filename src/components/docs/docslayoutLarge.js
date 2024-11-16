@@ -11,8 +11,8 @@ const useStyles = createStyles(({ css, token }) => {
             width: 70%;
         `
 
-    }
-})
+    };
+});
 const LargeDoc = ({ children, nav }) => {
     const { styles } = useStyles();
     return (
@@ -26,6 +26,6 @@ const LargeDoc = ({ children, nav }) => {
                 </div>
             </Splitter.Panel>
         </Splitter>);
-}
+};
 
 export default LargeDoc;

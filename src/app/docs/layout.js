@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import useNarrowScreen from '@/hooks/use-narrow-screen';
 import LargeDoc from '@/components/docs/docslayoutLarge';
@@ -8,7 +8,7 @@ export default function DocsLayout({ children, nav }) {
 
     return mobile
         ? <SmallDoc nav={nav}>{children}</SmallDoc>
-        : <LargeDoc nav={nav}> {children}</LargeDoc>
+        : <LargeDoc nav={nav}> {children}</LargeDoc>;
 
 
 

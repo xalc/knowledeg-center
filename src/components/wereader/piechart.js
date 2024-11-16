@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import ReactECharts from 'echarts-for-react';
 import { useMemo } from "react";
@@ -15,13 +15,13 @@ export default function ReadingPieChart({ data }) {
         bookMap.set(READ_NOT_START, 0);
         for (const book of data) {
             if (book.progress === 100) {
-                let currentCount = bookMap.get(READ_FINISH_KEY);
+                const currentCount = bookMap.get(READ_FINISH_KEY);
                 bookMap.set(READ_FINISH_KEY, currentCount + 1);
             } else if (book.progress < 100 && book.progress > 0) {
-                let currentCount = bookMap.get(READ_IN_PROGRESS_KEY);
+                const currentCount = bookMap.get(READ_IN_PROGRESS_KEY);
                 bookMap.set(READ_IN_PROGRESS_KEY, currentCount + 1);
             } else {
-                let currentCount = bookMap.get(READ_NOT_START);
+                const currentCount = bookMap.get(READ_NOT_START);
                 bookMap.set(READ_NOT_START, currentCount + 1);
             }
         }
@@ -39,11 +39,11 @@ export default function ReadingPieChart({ data }) {
                     value: value,
                     lebel
                 }
-            )
+            );
         });
         return dataArray;
 
-    }, [data])
+    }, [data]);
 
 
 
@@ -87,14 +87,14 @@ export default function ReadingPieChart({ data }) {
                 }
             },
         ]
-    }
+    };
 
     return <ReactECharts
         option={options}
         styles={{ height: 'inherit' }}
         opts={{ renderer: 'svg' }}
         style={{ height: '500px', width: 'auto' }}
-    />
+    />;
 
 
 }

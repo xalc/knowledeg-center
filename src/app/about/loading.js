@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
@@ -11,7 +11,7 @@ const useStyles = createStyles(({ token, css }) => {
             justify-content: center;
             height: 300px;
         `
-    }
+    };
 });
 export default function ListLoading() {
     const { styles } = useStyles();

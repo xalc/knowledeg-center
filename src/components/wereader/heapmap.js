@@ -1,11 +1,10 @@
-'use client'
+'use client';
 import HeatMap from '@uiw/react-heat-map';
 import moment from 'moment';
 import { useMemo, useState } from 'react';
 import { Button, Flex, Tooltip, Alert } from 'antd';
 import { createStyles } from 'antd-style';
 import { Typography } from 'antd';
-const { Text } = Typography;
 
 const useStyles = createStyles(({ token, css }) => {
     return {
@@ -15,23 +14,23 @@ const useStyles = createStyles(({ token, css }) => {
             margin-top: ${token.marginLG}px;
             height: 200px;
         `
-    }
+    };
 
-})
+});
 export default function ReadingHeapmap({ readingRecords, updateTime }) {
     const values = useMemo(() => {
         return readingRecords.map((record) => {
             return {
                 date: moment(record._id * 1000).format('YYYY/MM/DD'),
                 count: (record.readingSeconds / 60 / 10).toFixed(2)
-            }
-        })
-    }, [readingRecords])
+            };
+        });
+    }, [readingRecords]);
     const darkColor = { 0: 'rgb(255 255 255 / 25%)', 8: '#7BC96F', 4: '#C6E48B', 12: '#239A3B', 32: '#ff7b00' };
     const { styles, theme } = useStyles();
 
     const lightMode = theme.appearance === 'light';
-    const years = []
+    const years = [];
     const now = moment();
     const currentYear = now.year();
     let startYear = 2022;
@@ -53,7 +52,7 @@ export default function ReadingHeapmap({ readingRecords, updateTime }) {
                     onClick={() => setYear(y)}
                 >
                     {y}年
-                </Button>)
+                </Button>);
             })}
 
         </Flex >
@@ -72,15 +71,15 @@ export default function ReadingHeapmap({ readingRecords, updateTime }) {
                 rectProps={{
                     rx: 5
                 }}
-                legendRender={(props) => <rect {...props} y={props.y + 20} rx={5} />}
-                rectRender={(props, value) => {
+                legendRender={({ key, y, ...rest }) => <rect key={key} {...rest} y={y + 20} rx={5} />}
+                rectRender={({ key, ...rest }, value) => {
 
                     const today = moment(value.date).format("M[月]D[日]");
 
                     const minutes = value.count ? (value.count * 10).toFixed(2) : 0;
                     return (
                         <Tooltip title={`${today}阅读时长: ${minutes}分钟`}>
-                            <rect {...props} />
+                            <rect key={key} {...rest} />
                         </Tooltip>
 
                     );
@@ -89,7 +88,7 @@ export default function ReadingHeapmap({ readingRecords, updateTime }) {
             />
         </Flex>
 
-    </>
+    </>;
 
 
 }

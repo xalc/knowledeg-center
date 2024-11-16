@@ -1,23 +1,22 @@
-'use client'
+'use client';
 import { Card } from 'antd';
 import Cover from './cover.js';
 import Description from './description.js';
 const { Meta } = Card;
 export default function WrCard({ book }) {
-    return (
-        <Card
-            style={{
-                width: '240px',
-                height: '400px'
-            }}
+    return (<Card
+        style={{
+            width: '240px',
+            height: '400px'
+        }}
 
-            hoverable
-            cover={<Cover url={book.cover}></Cover>}>
-            <Meta title={book.title}
-                description={<Description
-                    bookid={book.bookid}
-                    author={book.author}
-                    category={book.category} />} />
-        </Card>
+        hoverable
+        cover={<Cover url={book.cover}></Cover>}>
+        <Meta title={book.title}
+            description={<Description
+                bookid={book.bookid}
+                author={book.author}
+                category={book.category} />} />
+    </Card>
     );
 }

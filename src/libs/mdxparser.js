@@ -79,6 +79,8 @@ export const getMDXContent = async (route) => {
     try {
         mdxContent = await fs.readFile(absRoute, 'utf-8');
     } catch (err) {
+        /*global console*/
+        /*eslint no-undef: "error"*/
         console.error('Error reading file' + err);
     }
     return mdxContent;

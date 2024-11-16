@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useRouter } from 'next/navigation';
 import {
     MenuOutlined
@@ -41,7 +41,7 @@ const useStyles = createStyles(({ css, token }) => {
         navBtn: css`
             height: 64px;
         `
-    }
+    };
 });
 const ResponseHeader = () => {
     const router = useRouter();
@@ -59,7 +59,7 @@ const ResponseHeader = () => {
     const redirectToPage = (target) => {
         router.push(target);
         setCollapsed(true);
-    }
+    };
 
     return <Header className={cx(smallDevice ? styles.smallDevice : styles.header)}>
         {smallDevice && <div className={styles.menuIcon}>
@@ -92,7 +92,7 @@ const ResponseHeader = () => {
                     block={smallDevice}
                     color="default" variant="text">笔记</Button>
                 <Button
-                    onClick={() => { redirectToPage('/about') }}
+                    onClick={() => { redirectToPage('/about'); }}
                     className={cx({ [styles.navBtn]: smallDevice })}
                     block={smallDevice}
                     color="default"
@@ -101,11 +101,11 @@ const ResponseHeader = () => {
                 </Button>
             </Flex>
         }
-    </Header>
+    </Header>;
 
 
 
 
-}
+};
 
 export default ResponseHeader;

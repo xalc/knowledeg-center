@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { createStyles } from 'antd-style';
 import { Button, Drawer, Affix } from 'antd';
 import { DoubleRightOutlined } from '@ant-design/icons';
@@ -17,7 +17,7 @@ const useStyles = createStyles(({ css }) => {
             height: calc(100vh - 132px);
             overflow: auto
         `
-    }
+    };
 });
 const SmallDoc = ({ nav, children }) => {
     const { styles } = useStyles();
@@ -50,5 +50,5 @@ const SmallDoc = ({ nav, children }) => {
                 icon={<DoubleRightOutlined />} />
         </Affix>
     </div>);
-}
+};
 export default SmallDoc;
