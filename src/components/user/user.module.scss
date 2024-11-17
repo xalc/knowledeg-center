@@ -1,26 +1,24 @@
 .container {
-    display: flex;
-    height: 50px;
-    width: 100%;
-    border: 1px solid gray;
-    flex-direction: row;
-    padding: 8px;
+	display: flex;
+	height: 50px;
+	width: 100%;
+	border: 1px solid gray;
+	flex-direction: row;
+	padding: 8px;
 
+	img {
+		width: 36px;
+	}
 
-    img {
-        width: 36px;
-    }
+	.content {
+		padding-left: 16px;
 
-    .content {
-        padding-left: 16px;
+		.name {
+			font-size: 16px;
+		}
 
-        .name {
-            font-size: 16px;
-        }
-
-        .email {
-            color: blue
-        }
-    }
-
+		.email {
+			color: blue;
+		}
+	}
 }

@@ -1,198 +1,203 @@
 'use client';
 
 import ReactECharts from 'echarts-for-react';
-import { useEffect, useMemo, useState, useRef, useCallback } from "react";
+import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
 import { useResponsive } from 'antd-style';
 import moment from 'moment';
 
 const gridLayout = {
-    mobile: [{ top: 10, bottom: '67%', width: "90%" },
-    { top: '33%', bottom: '34%', width: "90%" },
-    { top: '66%', bottom: 30, width: "90%" }],
-    tablet: [{ left: 10, bottom: '50%', width: "45%" },
-    { left: '50%', bottom: '50%', width: "45%" },
-    { top: '50%', bottom: 30, width: "90%" }],
-    laptop: [{ left: 10, width: "30%", bottom: 30 },
-    { left: '34%', width: "30%", bottom: 30 },
-    { left: '67%', width: "30%", bottom: 30 }],
+	mobile: [
+		{ top: 10, bottom: '67%', width: '90%' },
+		{ top: '33%', bottom: '34%', width: '90%' },
+		{ top: '66%', bottom: 30, width: '90%' },
+	],
+	tablet: [
+		{ left: 10, bottom: '50%', width: '45%' },
+		{ left: '50%', bottom: '50%', width: '45%' },
+		{ top: '50%', bottom: 30, width: '90%' },
+	],
+	laptop: [
+		{ left: 10, width: '30%', bottom: 30 },
+		{ left: '34%', width: '30%', bottom: 30 },
+		{ left: '67%', width: '30%', bottom: 30 },
+	],
 };
 const containerHeight = {
-    mobile: 1500,
-    tablet: 1000,
-    laptop: 500
+	mobile: 1500,
+	tablet: 1000,
+	laptop: 500,
 };
 export default function ReadingTimeBarChart({ readingRecords }) {
-    const responsive = useResponsive();
-    const { tablet, laptop } = responsive;
-    const device = laptop ? 'laptop' : (tablet ? 'tablet' : 'mobile');
-    const usedLayout = gridLayout[device];
-    const chartRef = useRef(null);
+	const responsive = useResponsive();
+	const { tablet, laptop } = responsive;
+	const device = laptop ? 'laptop' : tablet ? 'tablet' : 'mobile';
+	const usedLayout = gridLayout[device];
+	const chartRef = useRef(null);
 
+	const transferMinutes = seconds => {
+		return (seconds / 60).toFixed(2);
+	};
+	const now = moment();
 
-    const transferMinutes = (seconds) => {
-        return (seconds / 60).toFixed(2);
-    };
-    const now = moment();
+	const [thisYear, setThisYear] = useState(now.year());
+	const [thisMonth, setThisMonth] = useState(now.month());
 
-    const [thisYear, setThisYear] = useState(now.year());
-    const [thisMonth, setThisMonth] = useState(now.month());
+	const yearData = useMemo(() => {
+		const yearMap = new Map();
+		readingRecords.forEach(record => {
+			const date = moment(record._id * 1000);
+			const year = date.year();
+			const readingTime = record.readingSeconds;
+			if (yearMap.has(year)) {
+				const count = yearMap.get(year);
+				yearMap.set(year, count + readingTime);
+			} else {
+				yearMap.set(year, readingTime);
+			}
+		});
+		return Array.from(yearMap.keys(), key => {
+			return {
+				year: key,
+				value: transferMinutes(yearMap.get(key)),
+			};
+		}).sort((a, b) => a.year - b.year);
+	}, [readingRecords]);
 
-    const yearData = useMemo(() => {
-        const yearMap = new Map();
-        readingRecords.forEach((record) => {
-            const date = moment(record._id * 1000);
-            const year = date.year();
-            const readingTime = record.readingSeconds;
-            if (yearMap.has(year)) {
-                const count = yearMap.get(year);
-                yearMap.set(year, count + readingTime);
-            } else {
-                yearMap.set(year, readingTime);
-            }
-        });
-        return Array.from(yearMap.keys(), (key) => {
-            return {
-                year: key,
-                value: transferMinutes(yearMap.get(key))
-            };
-        }).sort((a, b) => a.year - b.year);
-    }, [readingRecords]);
+	const monthData = useMemo(() => {
+		const monthMap = new Map();
+		readingRecords.forEach(record => {
+			const date = moment(record._id * 1000);
+			const year = date.year();
+			if (year !== thisYear) return;
+			const month = date.month() + 1;
+			const readingTime = record.readingSeconds;
+			if (monthMap.has(month)) {
+				const count = monthMap.get(month);
+				monthMap.set(month, count + readingTime);
+			} else {
+				monthMap.set(month, readingTime);
+			}
+		});
 
-    const monthData = useMemo(() => {
-        const monthMap = new Map();
-        readingRecords.forEach((record) => {
-            const date = moment(record._id * 1000);
-            const year = date.year();
-            if (year !== thisYear) return;
-            const month = date.month() + 1;
-            const readingTime = record.readingSeconds;
-            if (monthMap.has(month)) {
-                const count = monthMap.get(month);
-                monthMap.set(month, count + readingTime);
-            } else {
-                monthMap.set(month, readingTime);
-            }
-        });
+		return Array.from(monthMap.keys(), key => {
+			return {
+				month: key,
+				value: transferMinutes(monthMap.get(key)),
+			};
+		}).sort((a, b) => a.month - b.month);
+	}, [readingRecords, thisYear]);
 
-        return Array.from(monthMap.keys(), (key) => {
-            return {
-                month: key,
-                value: transferMinutes(monthMap.get(key))
-            };
-        }).sort((a, b) => a.month - b.month);
+	const DateData = useMemo(() => {
+		const dateMap = new Map();
+		readingRecords.forEach(record => {
+			const date = moment(record._id * 1000);
+			const year = date.year();
+			const month = date.month() + 1;
+			const dateOfMonth = date.date();
+			const readingTime = record.readingSeconds;
 
-    }, [readingRecords, thisYear]);
+			//TODO first 2024/10
+			if (year === thisYear && month === thisMonth) {
+				if (dateMap.has(dateOfMonth)) {
+					const count = dateMap.get(dateOfMonth);
+					dateMap.set(dateOfMonth, count + readingTime);
+				} else {
+					dateMap.set(dateOfMonth, readingTime);
+				}
+			}
+		});
 
-    const DateData = useMemo(() => {
+		return Array.from(dateMap.keys(), key => {
+			return {
+				date: key,
+				value: transferMinutes(dateMap.get(key)),
+			};
+		}).sort((a, b) => a.date - b.date);
+	}, [readingRecords, thisYear, thisMonth]);
+	useEffect(() => {
+		let echartInstance = null;
+		if (chartRef.current) {
+			echartInstance = chartRef.current.getEchartsInstance();
+			echartInstance.on('click', paras => {
+				if (paras.seriesId === 'year_key') {
+					setThisYear(paras.value.year);
+				} else if (paras.seriesId === 'month_key') {
+					setThisMonth(paras.value.month);
+				}
+				console.log(paras.date);
+			});
+		}
+		return () => echartInstance?.off('click');
+	}, [chartRef]);
+	useEffect(() => {
+		const chart = chartRef.current.getEchartsInstance();
+		chart.setOption(options(), true);
+		console.log('screen changed');
+	}, [responsive, options]);
 
-        const dateMap = new Map();
-        readingRecords.forEach((record) => {
-            const date = moment(record._id * 1000);
-            const year = date.year();
-            const month = date.month() + 1;
-            const dateOfMonth = date.date();
-            const readingTime = record.readingSeconds;
+	const options = useCallback(() => {
+		return {
+			legend: {},
+			tooltip: {},
+			dataset: [
+				{ source: yearData },
+				{ source: monthData },
+				{ source: DateData },
+			],
+			xAxis: [
+				{ type: 'category', gridIndex: 0 },
+				{ type: 'category', gridIndex: 1 },
+				{ type: 'category', gridIndex: 2 },
+			],
+			yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }, { gridIndex: 2 }],
+			grid: usedLayout,
+			series: [
+				{
+					type: 'bar',
+					id: 'year_key',
+					datasetIndex: 0,
+					encode: {
+						x: 'year',
+						y: 'value',
+					},
+				},
+				{
+					type: 'bar',
+					id: 'month_key',
+					datasetIndex: 1,
+					xAxisIndex: 1,
+					yAxisIndex: 1,
+					encode: {
+						x: 'month',
+						y: 'value',
+					},
+				},
+				{
+					type: 'bar',
+					datasetIndex: 2,
+					xAxisIndex: 2,
+					yAxisIndex: 2,
+					encode: {
+						x: 'date',
+						y: 'value',
+					},
+				},
+			],
+		};
+	}, []);
 
-            //TODO first 2024/10
-            if (year === thisYear && month === thisMonth) {
-                if (dateMap.has(dateOfMonth)) {
-                    const count = dateMap.get(dateOfMonth);
-                    dateMap.set(dateOfMonth, count + readingTime);
-                } else {
-                    dateMap.set(dateOfMonth, readingTime);
-                }
-            }
-        });
-
-        return Array.from(dateMap.keys(), (key) => {
-            return {
-                date: key,
-                value: transferMinutes(dateMap.get(key))
-            };
-        }).sort((a, b) => a.date - b.date);
-    }, [readingRecords, thisYear, thisMonth]);
-    useEffect(() => {
-        let echartInstance = null;
-        if (chartRef.current) {
-            echartInstance = chartRef.current.getEchartsInstance();
-            echartInstance.on('click', (paras) => {
-                if (paras.seriesId === 'year_key') {
-                    setThisYear(paras.value.year);
-                } else if (paras.seriesId === 'month_key') {
-                    setThisMonth(paras.value.month);
-                }
-                console.log(paras.date);
-            });
-        }
-        return () => echartInstance?.off('click');
-    }, [chartRef]);
-    useEffect(() => {
-        const chart = chartRef.current.getEchartsInstance();
-        chart.setOption(options(), true);
-        console.log('screen changed');
-    }, [responsive, options]);
-
-
-    const options = useCallback(() => {
-        return {
-            legend: {},
-            tooltip: {},
-            dataset: [{ source: yearData }, { source: monthData }, { source: DateData }],
-            xAxis: [{ type: 'category', gridIndex: 0 },
-            { type: 'category', gridIndex: 1 },
-            { type: 'category', gridIndex: 2 }],
-            yAxis: [{ gridIndex: 0 }, { gridIndex: 1 }, { gridIndex: 2 }],
-            grid: usedLayout,
-            series: [{
-                type: 'bar',
-                id: 'year_key',
-                datasetIndex: 0,
-                encode: {
-                    x: 'year',
-                    y: 'value'
-                },
-
-            },
-            {
-                type: 'bar',
-                id: 'month_key',
-                datasetIndex: 1,
-                xAxisIndex: 1,
-                yAxisIndex: 1,
-                encode: {
-                    x: 'month',
-                    y: 'value'
-                },
-
-            },
-            {
-                type: 'bar',
-                datasetIndex: 2,
-                xAxisIndex: 2,
-                yAxisIndex: 2,
-                encode: {
-                    x: 'date',
-                    y: 'value'
-                },
-
-            },
-            ]
-        };
-    }, []);
-
-    return <>
-
-        <p>{`year: ${thisYear} month: ${thisMonth}`}</p>
-        <ReactECharts
-            ref={chartRef}
-            option={options()}
-            styles={{ height: 'inherit' }}
-            opts={{ renderer: 'svg' }}
-            autoResize
-            lazyUpdate={true}
-            style={{ height: `${containerHeight[device]}px`, width: 'auto' }}
-        />
-
-    </>;
-
+	return (
+		<>
+			<p>{`year: ${thisYear} month: ${thisMonth}`}</p>
+			<ReactECharts
+				ref={chartRef}
+				option={options()}
+				styles={{ height: 'inherit' }}
+				opts={{ renderer: 'svg' }}
+				autoResize
+				lazyUpdate={true}
+				style={{ height: `${containerHeight[device]}px`, width: 'auto' }}
+			/>
+		</>
+	);
 }
