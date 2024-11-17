@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { MenuOutlined } from '@ant-design/icons';
 import { Button, Layout, Flex } from 'antd';
 import { createStyles } from 'antd-style';
@@ -38,6 +38,7 @@ const useStyles = createStyles(({ css, token }) => {
 });
 const ResponseHeader = () => {
 	const router = useRouter();
+	const pathname = usePathname()
 	const { styles, cx } = useStyles();
 	const [collapsed, setCollapsed] = useState(true);
 	// both hook below implements same features
@@ -52,6 +53,7 @@ const ResponseHeader = () => {
 		router.push(target);
 		setCollapsed(true);
 	};
+	const getIconColor = (name) => name === pathname ? 'primary' : 'default';
 
 	return (
 		<Header className={cx(smallDevice ? styles.smallDevice : styles.header)}>
@@ -71,7 +73,7 @@ const ResponseHeader = () => {
 						onClick={() => redirectToPage('/')}
 						className={cx({ [styles.navBtn]: smallDevice })}
 						block={smallDevice}
-						color="default"
+						color={getIconColor('/')}
 						variant="text">
 						主页
 					</Button>
@@ -84,7 +86,7 @@ const ResponseHeader = () => {
 						onClick={() => redirectToPage('/tech')}
 						className={cx({ [styles.navBtn]: smallDevice })}
 						block={smallDevice}
-						color="default"
+						color={getIconColor('/tech')}
 						variant="text">
 						有趣
 					</Button>
@@ -92,9 +94,17 @@ const ResponseHeader = () => {
 						onClick={() => redirectToPage('/docs')}
 						className={cx({ [styles.navBtn]: smallDevice })}
 						block={smallDevice}
-						color="default"
+						color={getIconColor('/docs')}
 						variant="text">
 						笔记
+					</Button>
+					<Button
+						onClick={() => redirectToPage('/blog')}
+						className={cx({ [styles.navBtn]: smallDevice })}
+						block={smallDevice}
+						color={getIconColor('/blog')}
+						variant="text">
+						文章
 					</Button>
 					<Button
 						onClick={() => {
@@ -102,7 +112,7 @@ const ResponseHeader = () => {
 						}}
 						className={cx({ [styles.navBtn]: smallDevice })}
 						block={smallDevice}
-						color="default"
+						color={getIconColor('/about')}
 						variant="text">
 						印记
 					</Button>

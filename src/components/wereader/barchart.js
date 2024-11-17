@@ -114,27 +114,6 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 			};
 		}).sort((a, b) => a.date - b.date);
 	}, [readingRecords, thisYear, thisMonth]);
-	useEffect(() => {
-		let echartInstance = null;
-		if (chartRef.current) {
-			echartInstance = chartRef.current.getEchartsInstance();
-			echartInstance.on('click', paras => {
-				if (paras.seriesId === 'year_key') {
-					setThisYear(paras.value.year);
-				} else if (paras.seriesId === 'month_key') {
-					setThisMonth(paras.value.month);
-				}
-				console.log(paras.date);
-			});
-		}
-		return () => echartInstance?.off('click');
-	}, [chartRef]);
-	useEffect(() => {
-		const chart = chartRef.current.getEchartsInstance();
-		chart.setOption(options(), true);
-		console.log('screen changed');
-	}, [responsive, options]);
-
 	const options = useCallback(() => {
 		return {
 			legend: {},
@@ -184,7 +163,29 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 				},
 			],
 		};
-	}, []);
+	}, [DateData, monthData, usedLayout, yearData]);
+
+	useEffect(() => {
+		let echartInstance = null;
+		if (chartRef.current) {
+			echartInstance = chartRef.current.getEchartsInstance();
+			echartInstance.on('click', paras => {
+				if (paras.seriesId === 'year_key') {
+					setThisYear(paras.value.year);
+				} else if (paras.seriesId === 'month_key') {
+					setThisMonth(paras.value.month);
+				}
+				console.log(paras.date);
+			});
+		}
+		return () => echartInstance?.off('click');
+	}, [chartRef]);
+	useEffect(() => {
+		const chart = chartRef.current.getEchartsInstance();
+		chart.setOption(options(), true);
+		console.log('screen changed');
+	}, [responsive, options]);
+
 
 	return (
 		<>

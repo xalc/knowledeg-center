@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FileMarkdownOutlined, FolderOutlined } from '@ant-design/icons';
 import DirectoryTree from 'antd/es/tree/DirectoryTree';
+import { ConfigProvider } from 'antd';
 import { useEffect, useRef } from 'react';
 
 const NavTree = ({ treeData }) => {
@@ -25,22 +26,35 @@ const NavTree = ({ treeData }) => {
 	}, [key]);
 
 	return (
-		<DirectoryTree
-			ref={treeRef}
-			defaultExpandParent
-			selectedKeys={[key]}
-			rootStyle={{ minHeight: '100%' }}
-			multiple
-			onSelect={onSelect}
-			treeData={treeData}
-			icon={({ isLeaf }) => {
-				return isLeaf ? <FileMarkdownOutlined /> : <FolderOutlined />;
+		<ConfigProvider
+			theme={{
+				components: {
+					Tree: {
+						indentSize: 0,//not working
+						titleHeight: 36,
+					},
+				},
 			}}
-			showIcon={true}
-			// titleRender={({ key, children, title, ...rest }) => {
-			//     return <span key={key} style={{ lineHeight: '30px' }} {...rest}>{title}</span>
+		>
+			<DirectoryTree
+				ref={treeRef}
+				defaultExpandParent
+				selectedKeys={[key]}
+				rootStyle={{ minHeight: '100%' }}
+				multiple
+				onSelect={onSelect}
+				treeData={treeData}
+				icon={({ isLeaf }) => {
+					return isLeaf ? <FileMarkdownOutlined /> : <FolderOutlined />;
+				}}
+				showIcon={true}
+			// titleRender={({ key, title, ...rest }) => {
+			// 	return <span key={key} style={{ lineHeight: '50px' }} {...rest}>{title}</span>
 			// }}
-		/>
+			/>
+
+		</ConfigProvider>
+
 	);
 };
 

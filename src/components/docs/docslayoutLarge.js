@@ -16,10 +16,10 @@ const LargeDoc = ({ children, nav }) => {
 	const { styles } = useStyles();
 	return (
 		<Splitter rootClassName={styles.splitter}>
-			<Splitter.Panel defaultSize="300" min="200" max="500">
+			<Splitter.Panel min="200" max="500" defaultSize="300">
 				{nav}
 			</Splitter.Panel>
-			<Splitter.Panel>
+			<Splitter.Panel >
 				<div className={styles.content}>{children}</div>
 			</Splitter.Panel>
 		</Splitter>
