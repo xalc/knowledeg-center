@@ -1,37 +1,23 @@
-import { getDBReadingTimes } from '@/libs/db-utils';
-import ReadingHeapmap from '@/components/wereader/heapmap';
-import { Row, Col, Divider } from 'antd';
-import ChartWrap from '@/components/wereader/chartWrap';
-import ReadingTimeBarChart from '@/components/wereader/barchart';
+import ChartContainer from '@/components/wereader/chartContainer';
+import { getDBReadingTimes, getAllReadingStatus } from '@/libs/db-utils';
 
 export default async function SumaryPage() {
 	const result = await getDBReadingTimes().catch(err => {
 		console.log(err);
 		// TODO error handler
 	});
+
+	const readingStatus = await getAllReadingStatus().catch(err => {
+		console.log('err occured when fetch reading status' + err);
+	});
+
 	const { readingTimes, lastSynced } = result;
 
 	return (
-		<>
-			<Row gutter={16}>
-				<Col sm={24} md={24} lg={24} xl={24}>
-					<ReadingHeapmap
-						readingRecords={readingTimes}
-						updateTime={lastSynced}></ReadingHeapmap>
-				</Col>
-			</Row>
-			<Divider orientation="center">React Echarts</Divider>
-			<Row gutter={16}>
-				{/* <Col sm={24} md={12} lg={12} xl={8}>
-                <ReadingLineChart readingRecords={readingTimes}></ReadingLineChart>
-            </Col> */}
-				<Col xs={24} sm={24}>
-					<ReadingTimeBarChart readingRecords={readingTimes} />
-				</Col>
-				<Col xs={24} sm={24}>
-					<ChartWrap />
-				</Col>
-			</Row>
-		</>
+		<ChartContainer
+			readingTimes={readingTimes}
+			syncdTime={lastSynced}
+			readingStatus={readingStatus}
+		/>
 	);
 }

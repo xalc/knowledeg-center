@@ -96,7 +96,7 @@ const ResponseHeader = () => {
 						block={smallDevice}
 						color={getIconColor('/docs')}
 						variant="text">
-						笔记
+						备忘录/笔记
 					</Button>
 					<Button
 						onClick={() => redirectToPage('/blog')}

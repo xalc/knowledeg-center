@@ -38,7 +38,7 @@ const CredlyPage = ({ content, badges }) => {
 	const mobile = useNarrowScreen();
 	return (
 		<div className={styles.container}>
-			<Flex className={styles.profile}>
+			<Flex className={styles.profile1}>
 				<div>
 					{' '}
 					<Image src={CredlySvg} width={64} alt="Credly Icon" />
@@ -65,7 +65,7 @@ const CredlyPage = ({ content, badges }) => {
 				})}
 			</Flex>
 
-			{/* <div className={styles.profile1} >
+			{/* <div className={styles.profile} >
                 <Typography>
                     <Icon component={() => (<Image src={CredlySvg} alt="Credly Icon" />)} />
                     <Paragraph>

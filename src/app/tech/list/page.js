@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createStyles } from 'antd-style';
 import User from '@/components/user';
+import { Switch } from 'antd';
 const useStyles = createStyles(({ css }) => {
 	return {
 		container: css`
@@ -12,6 +13,7 @@ const useStyles = createStyles(({ css }) => {
 });
 const AllList = () => {
 	const [userList, setUserList] = useState([]);
+	const [toggleHeaderIcon, setToggle] = useState(false);
 	const { styles } = useStyles();
 	useEffect(() => {
 		fetch('/api/list')
@@ -21,10 +23,13 @@ const AllList = () => {
 
 	return (
 		<div className={styles.container}>
-			<h2>All lists in dom</h2>
+			<h2>All lists in dom
+
+			</h2>
+			<h3>	是否显示头像<Switch onChange={() => setToggle(!toggleHeaderIcon)} /></h3>
 			<div>
 				{userList.map(oneUser => (
-					<User key={oneUser.id} user={oneUser} />
+					<User key={oneUser.id} user={oneUser} showIcon={toggleHeaderIcon} />
 				))}
 			</div>
 		</div>

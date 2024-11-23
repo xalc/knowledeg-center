@@ -79,6 +79,15 @@ const TimeLinePage = () => {
 			),
 		},
 		{
+			children: (
+				<Item
+					title="准备部署到云端"
+					type="secondary"
+					level={5}
+					date={'2024-11-23'}></Item>
+			),
+		},
+		{
 			dot: (
 				<LoadingOutlined
 					style={{

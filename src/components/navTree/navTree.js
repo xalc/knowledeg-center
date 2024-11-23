@@ -31,7 +31,7 @@ const NavTree = ({ treeData }) => {
 				components: {
 					Tree: {
 						indentSize: 0,//not working
-						titleHeight: 36,
+						titleHeight: 30,
 					},
 				},
 			}}

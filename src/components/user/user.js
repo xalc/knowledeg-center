@@ -1,10 +1,11 @@
 import style from './user.module.scss';
-const User = ({ user }) => {
-	const { fisrtName, lastName, email, index } = user;
+import Avatar from '../avatar';
+const User = ({ user, showIcon }) => {
+	const { fisrtName, lastName, email, index, avatar } = user;
 	return (
 		<div className={style.container}>
 			<div className={style.avatar}>
-				{/* <Avator url={avatar} id={index}></Avator> */}
+				{showIcon && <Avatar url={avatar} id={index}></Avatar>}
 			</div>
 			<div className={style.content}>
 				<div className={style.name}>

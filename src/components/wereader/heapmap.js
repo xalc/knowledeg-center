@@ -1,8 +1,8 @@
 'use client';
 import HeatMap from '@uiw/react-heat-map';
 import moment from 'moment';
-import { useMemo, useState } from 'react';
-import { Button, Flex, Tooltip, Alert } from 'antd';
+import { useMemo } from 'react';
+import { Flex, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token, css }) => {
@@ -15,7 +15,7 @@ const useStyles = createStyles(({ token, css }) => {
 		`,
 	};
 });
-export default function ReadingHeapmap({ readingRecords, updateTime }) {
+export default function ReadingHeapmap({ readingRecords, year }) {
 	const values = useMemo(() => {
 		return readingRecords.map(record => {
 			return {
@@ -34,71 +34,54 @@ export default function ReadingHeapmap({ readingRecords, updateTime }) {
 	const { styles, theme } = useStyles();
 
 	const lightMode = theme.appearance === 'light';
-	const years = [];
+
 	const now = moment();
 	const currentYear = now.year();
-	let startYear = 2022;
-	while (startYear <= currentYear) {
-		years.push(startYear);
-		startYear++;
-	}
-	const [year, setYear] = useState(currentYear);
 	const endDay =
 		year === currentYear ? now.toDate() : moment(`${year}/12/31`).toDate();
 
 	return (
-		<>
-			<Alert
-				showIcon
-				closable
-				message="每日贴砖"
-				description={`最新同步与 ${moment(updateTime * 1000).format('dddd, MMMM Do YYYY, h:mm:ss a')}`}
-				type="info"
-			/>
 
-			<Flex justify="start" gap="large" wrap>
-				{years.map((y, index) => {
+
+		<Flex justify="center">
+			<HeatMap
+				className={styles.heatMap}
+				value={values}
+				weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
+				startDate={moment(`${year}/01/01`).toDate()}
+				endDate={endDay}
+				width={1000}
+				rectSize={14}
+				legendCellSize={14}
+				panelColors={lightMode ? undefined : darkColor}
+				space={4}
+				rectProps={{
+					rx: 5,
+				}}
+				legendRender={({ key, y, ...rest }) => (
+					<rect key={key} {...rest} y={y + 20} rx={5} />
+				)}
+				rectRender={({ key, ...rest }, value) => {
+					const today = moment(value.date).format('M[月]D[日]');
+
+					const minutes = value.count ? (value.count * 10).toFixed(2) : 0;
 					return (
-						<Button
-							key={'button_' + index}
-							color="default"
-							type={year === y ? 'primary' : 'text'}
-							onClick={() => setYear(y)}>
-							{y}年
-						</Button>
+						<Tooltip title={`${today}阅读时长: ${minutes}分钟`}>
+							<rect key={key} {...rest} />
+						</Tooltip>
 					);
-				})}
-			</Flex>
-			<Flex justify="center">
-				<HeatMap
-					className={styles.heatMap}
-					value={values}
-					weekLabels={['', 'Mon', '', 'Wed', '', 'Fri', '']}
-					startDate={moment(`${year}/01/01`).toDate()}
-					endDate={endDay}
-					width={1000}
-					rectSize={14}
-					legendCellSize={14}
-					panelColors={lightMode ? undefined : darkColor}
-					space={4}
-					rectProps={{
-						rx: 5,
-					}}
-					legendRender={({ key, y, ...rest }) => (
-						<rect key={key} {...rest} y={y + 20} rx={5} />
-					)}
-					rectRender={({ key, ...rest }, value) => {
-						const today = moment(value.date).format('M[月]D[日]');
+				}}
+			/>
+		</Flex>
 
-						const minutes = value.count ? (value.count * 10).toFixed(2) : 0;
-						return (
-							<Tooltip title={`${today}阅读时长: ${minutes}分钟`}>
-								<rect key={key} {...rest} />
-							</Tooltip>
-						);
-					}}
-				/>
-			</Flex>
-		</>
 	);
 }
+
+
+
+
+
+
+
+
+'rgb(255 255 255 / 25%)', '#7BC96F', '#C6E48B', '#239A3B', '#ff7b00'

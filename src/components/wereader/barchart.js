@@ -1,7 +1,7 @@
 'use client';
 
 import ReactECharts from 'echarts-for-react';
-import { useEffect, useMemo, useState, useRef, useCallback } from 'react';
+import { useEffect, useMemo, useRef, useCallback } from 'react';
 import { useResponsive } from 'antd-style';
 import moment from 'moment';
 
@@ -22,25 +22,38 @@ const gridLayout = {
 		{ left: '67%', width: '30%', bottom: 30 },
 	],
 };
+const titleLayout = {
+	mobile: [
+		{ left: '50%', top: 0 },
+		{ left: '34%', top: '34%' },
+		{ left: '67%', top: '74%' },
+	],
+	tablet: [
+		{ left: '30%', top: 0 },
+		{ left: '70%', top: 0 },
+		{ top: '50%', left: '50%' },
+	],
+	laptop: [
+		{ left: '25%' },
+		{ left: '50%' },
+		{ left: '75%' },
+	],
+}
 const containerHeight = {
-	mobile: 1500,
-	tablet: 1000,
-	laptop: 500,
+	mobile: 900,
+	tablet: 600,
+	laptop: 300,
 };
-export default function ReadingTimeBarChart({ readingRecords }) {
+export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, month, chooseMonth }) {
 	const responsive = useResponsive();
 	const { tablet, laptop } = responsive;
 	const device = laptop ? 'laptop' : tablet ? 'tablet' : 'mobile';
-	const usedLayout = gridLayout[device];
+
 	const chartRef = useRef(null);
 
 	const transferMinutes = seconds => {
 		return (seconds / 60).toFixed(2);
 	};
-	const now = moment();
-
-	const [thisYear, setThisYear] = useState(now.year());
-	const [thisMonth, setThisMonth] = useState(now.month());
 
 	const yearData = useMemo(() => {
 		const yearMap = new Map();
@@ -67,8 +80,8 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 		const monthMap = new Map();
 		readingRecords.forEach(record => {
 			const date = moment(record._id * 1000);
-			const year = date.year();
-			if (year !== thisYear) return;
+			const dateYear = date.year();
+			if (year !== dateYear) return;
 			const month = date.month() + 1;
 			const readingTime = record.readingSeconds;
 			if (monthMap.has(month)) {
@@ -85,19 +98,19 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 				value: transferMinutes(monthMap.get(key)),
 			};
 		}).sort((a, b) => a.month - b.month);
-	}, [readingRecords, thisYear]);
+	}, [readingRecords, year]);
 
 	const DateData = useMemo(() => {
 		const dateMap = new Map();
 		readingRecords.forEach(record => {
 			const date = moment(record._id * 1000);
-			const year = date.year();
-			const month = date.month() + 1;
+			const dateYear = date.year();
+			const dateMonth = date.month() + 1;
 			const dateOfMonth = date.date();
 			const readingTime = record.readingSeconds;
 
 			//TODO first 2024/10
-			if (year === thisYear && month === thisMonth) {
+			if (year === dateYear && month === dateMonth) {
 				if (dateMap.has(dateOfMonth)) {
 					const count = dateMap.get(dateOfMonth);
 					dateMap.set(dateOfMonth, count + readingTime);
@@ -113,11 +126,30 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 				value: transferMinutes(dateMap.get(key)),
 			};
 		}).sort((a, b) => a.date - b.date);
-	}, [readingRecords, thisYear, thisMonth]);
+	}, [readingRecords, year, month]);
 	const options = useCallback(() => {
+		const { tablet, laptop } = responsive;
+		const device = laptop ? 'laptop' : tablet ? 'tablet' : 'mobile';
+		const usedLayout = gridLayout[device];
 		return {
 			legend: {},
 			tooltip: {},
+			title: [{
+				text: '总共阅读量',
+				subtext: 'xx小时',
+				...titleLayout[device][0]
+
+			}, {
+				text: '当年阅读量',
+				subtext: 'xx小时',
+				...titleLayout[device][1]
+
+			}, {
+				text: '当月阅读量',
+				subtext: 'xx小时',
+				...titleLayout[device][2]
+
+			}],
 			dataset: [
 				{ source: yearData },
 				{ source: monthData },
@@ -153,6 +185,9 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 				},
 				{
 					type: 'bar',
+					emphasis: {
+						focus: 'self',
+					},
 					datasetIndex: 2,
 					xAxisIndex: 2,
 					yAxisIndex: 2,
@@ -163,7 +198,7 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 				},
 			],
 		};
-	}, [DateData, monthData, usedLayout, yearData]);
+	}, [DateData, monthData, responsive, yearData]);
 
 	useEffect(() => {
 		let echartInstance = null;
@@ -171,34 +206,35 @@ export default function ReadingTimeBarChart({ readingRecords }) {
 			echartInstance = chartRef.current.getEchartsInstance();
 			echartInstance.on('click', paras => {
 				if (paras.seriesId === 'year_key') {
-					setThisYear(paras.value.year);
+					chooseYear(paras.value.year)
 				} else if (paras.seriesId === 'month_key') {
-					setThisMonth(paras.value.month);
+					chooseMonth(paras.value.month);
 				}
 				console.log(paras.date);
 			});
 		}
 		return () => echartInstance?.off('click');
-	}, [chartRef]);
+	}, [chartRef, chooseYear, chooseMonth]);
 	useEffect(() => {
 		const chart = chartRef.current.getEchartsInstance();
 		chart.setOption(options(), true);
 		console.log('screen changed');
-	}, [responsive, options]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [responsive]);
 
 
 	return (
-		<>
-			<p>{`year: ${thisYear} month: ${thisMonth}`}</p>
-			<ReactECharts
-				ref={chartRef}
-				option={options()}
-				styles={{ height: 'inherit' }}
-				opts={{ renderer: 'svg' }}
-				autoResize
-				lazyUpdate={true}
-				style={{ height: `${containerHeight[device]}px`, width: 'auto' }}
-			/>
-		</>
+
+
+		<ReactECharts
+			ref={chartRef}
+			option={options()}
+			styles={{ height: 'inherit' }}
+			opts={{ renderer: 'svg' }}
+			autoResize
+			lazyUpdate={true}
+			style={{ height: `${containerHeight[device]}px`, width: 'auto' }}
+		/>
+
 	);
 }

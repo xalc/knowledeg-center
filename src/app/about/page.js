@@ -15,8 +15,9 @@ const getCredly = async url => {
 };
 
 export default async function AboutPage() {
-	const userUrl = 'https://www.credly.com/users/xalc';
-	const badgesUrl = 'https://www.credly.com/users/xalc/badges';
+	const userName = process.env.CREDLY_USER;
+	const userUrl = `https://www.credly.com/users/${userName}`;
+	const badgesUrl = `https://www.credly.com/users/${userName}/badges`;
 	const user = await getCredly(userUrl);
 
 	const badges = await getCredly(badgesUrl);

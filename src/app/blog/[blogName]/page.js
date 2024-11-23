@@ -7,11 +7,6 @@ const BlogItem = async ({ params }) => {
   const blogName = decodeURI(blogNameURL);
   const MDX = dynamic(() => import(`@/blogs/${blogName}.mdx`))
 
-  return <>
-
-    <MDX />
-
-  </>
-
+  return <MDX />
 }
 export default BlogItem;

@@ -2,13 +2,13 @@
 import User from '@/components/user';
 import styles from './styles.module.scss';
 import { useState, useEffect } from 'react';
-
+import { Switch } from 'antd';
 const ROW_HEIGHT = 50;
 const VirtualList = () => {
 	const [userList, setUserList] = useState([]);
 	// const [renderedUser, setRenderUser] = useState([]);
 	const [scrollerOffset, setScrollOffset] = useState(0);
-
+	const [toggleHeaderIcon, setToggle] = useState(false);
 	const scrollHandler = event => {
 		const { scrollTop } = event.currentTarget;
 
@@ -41,13 +41,14 @@ const VirtualList = () => {
 					width: '100%',
 				}}
 				key={oneUser?.index}>
-				<User key={i} user={oneUser} />
+				<User key={i} user={oneUser} showIcon={toggleHeaderIcon} />
 			</div>
 		));
 	};
 	return (
 		<>
 			<h2> virtual render v1</h2>
+			<h3>	是否显示头像<Switch onChange={() => setToggle(!toggleHeaderIcon)} /></h3>
 			<div
 				id="visualArea"
 				className={styles.container}
