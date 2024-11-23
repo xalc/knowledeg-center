@@ -1,6 +1,6 @@
 {
 	"dependencies": {
-		"@ant-design/cssinjs": "^1.16.2",
+		"@ant-design/cssinjs": "1.16.2",
 		"@ant-design/nextjs-registry": "^1.0.1",
 		"@kbox-labs/react-echarts": "^1.4.0",
 		"@mdx-js/loader": "^3.0.1",
