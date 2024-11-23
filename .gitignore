@@ -1,8 +1,6 @@
 node_modules
 .next
 .vscode
-src/app/api/docs/nextdocs
-public/notes
 .idea
 scripts
 .env
