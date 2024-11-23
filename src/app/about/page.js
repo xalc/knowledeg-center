@@ -1,4 +1,5 @@
 import CredlyPage from '@/components/credly';
+import { Suspense } from 'react';
 
 const getCredly = async url => {
 	const options = {
@@ -18,9 +19,14 @@ export default async function AboutPage() {
 	const userName = process.env.CREDLY_USER;
 	const userUrl = `https://www.credly.com/users/${userName}`;
 	const badgesUrl = `https://www.credly.com/users/${userName}/badges`;
+
 	const user = await getCredly(userUrl);
 
 	const badges = await getCredly(badgesUrl);
 
-	return <CredlyPage content={user.data} badges={badges.data} />;
+	return <Suspense fallback={'loading...'}>
+		<CredlyPage content={user.data} badges={badges.data} />
+	</Suspense>;
+
+
 }
