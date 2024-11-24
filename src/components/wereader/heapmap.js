@@ -31,6 +31,13 @@ export default function ReadingHeapmap({ readingRecords, year }) {
 		12: '#239A3B',
 		32: '#ff7b00',
 	};
+	const lightColor = {
+		0: '#EBEDF0',
+		4: '#C6E48B',
+		8: '#7BC96F',
+		12: '#239A3B',
+		32: '#196127',
+	}
 	const { styles, theme } = useStyles();
 
 	const lightMode = theme.appearance === 'light';
@@ -53,7 +60,7 @@ export default function ReadingHeapmap({ readingRecords, year }) {
 				width={1000}
 				rectSize={14}
 				legendCellSize={14}
-				panelColors={lightMode ? undefined : darkColor}
+				panelColors={lightMode ? lightColor : darkColor}
 				space={4}
 				rectProps={{
 					rx: 5,
