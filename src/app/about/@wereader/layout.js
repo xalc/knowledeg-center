@@ -15,7 +15,7 @@ export default function WeReaderLayout({ children, summary }) {
 	];
 	return (
 		<Tabs
-			defaultActiveKey="tab_2"
+			defaultActiveKey="tab_1"
 			size="small"
 			items={tabItems}
 			type="card"></Tabs>
