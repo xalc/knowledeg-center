@@ -26,8 +26,8 @@ export default function ReadingHeapmap({ readingRecords, year }) {
 	}, [readingRecords]);
 	const darkColor = {
 		0: 'rgb(255 255 255 / 25%)',
-		8: '#7BC96F',
 		4: '#C6E48B',
+		8: '#7BC96F',
 		12: '#239A3B',
 		32: '#ff7b00',
 	};

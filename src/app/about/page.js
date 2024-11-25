@@ -21,7 +21,6 @@ export default async function AboutPage() {
 	const badgesUrl = `https://www.credly.com/users/${userName}/badges`;
 
 	const user = await getCredly(userUrl);
-
 	const badges = await getCredly(badgesUrl);
 
 	return <Suspense fallback={'loading...'}>

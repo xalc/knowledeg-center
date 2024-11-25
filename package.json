@@ -10,6 +10,7 @@
 		"@tensorflow/tfjs-vis": "^1.5.1",
 		"@types/mdx": "^2.0.13",
 		"@uiw/react-heat-map": "^2.2.2",
+		"@vercel/analytics": "^1.4.1",
 		"antd": "^5.21.0",
 		"antd-style": "^3.7.0",
 		"axios": "^1.4.0",
