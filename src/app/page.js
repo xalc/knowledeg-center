@@ -8,10 +8,8 @@ export default async function Page() {
 		if (response.ok) {
 			const image = await response.json();
 			return (
-				<div>
-					<h1>My personal knowledge graph!</h1>
-					<Image alt={image.title} src={image.url} />
-				</div>
+				<Image style={{ maxHeight: "960px" }} preview={false} alt={image.title} src={image.url} />
+
 			);
 		}
 	} catch (error) {

@@ -12,11 +12,14 @@ const cluster = process.env.ATLAS_CLUSTER;
 
 
 export const getDbString = () => {
+	let dbaddr = '';
 
 	if (onlineDB) {
-		return `mongodb+srv://${atlasName}:${atlasPD}@${cluster}?retryWrites=true&w=majority&appName=Cluster0`
+		dbaddr = `mongodb+srv://${atlasName}:${atlasPD}@${cluster}?retryWrites=true&w=majority&appName=Cluster0`
 	}
 
-	return `mongodb://${userName}:${pwd}@${address}:${port}`;
+	dbaddr = `mongodb://${userName}:${pwd}@${address}:${port}`;
+
+	return dbaddr;
 
 };

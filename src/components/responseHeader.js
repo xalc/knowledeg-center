@@ -86,6 +86,7 @@ const ResponseHeader = () => {
 						onClick={() => redirectToPage('/tech')}
 						className={cx({ [styles.navBtn]: smallDevice })}
 						block={smallDevice}
+						disabled
 						color={getIconColor('/tech')}
 						variant="text">
 						有趣
@@ -96,7 +97,7 @@ const ResponseHeader = () => {
 						block={smallDevice}
 						color={getIconColor('/docs')}
 						variant="text">
-						备忘录/笔记
+						备忘录
 					</Button>
 					<Button
 						onClick={() => redirectToPage('/blog')}
