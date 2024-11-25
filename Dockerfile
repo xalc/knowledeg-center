@@ -5,18 +5,16 @@ WORKDIR /app
 
 
 COPY package.json yarn.lock ./
-RUN yarn --frozen-lockfile;
+RUN yarn install;
 COPY . .
-EXPOSE 27017
+
 RUN yarn run build
 
 
 FROM node:20-bullseye-slim
 WORKDIR /app
-
 COPY --from=builder /app/next.config.js .
 COPY --from=builder /app/public ./public
-
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 
