@@ -16,9 +16,11 @@ export const getDbString = () => {
 
 	if (onlineDB) {
 		dbaddr = `mongodb+srv://${atlasName}:${atlasPD}@${cluster}?retryWrites=true&w=majority&appName=Cluster0`
+	} else {
+		dbaddr = `mongodb://${userName}:${pwd}@${address}:${port}`;
+
 	}
 
-	dbaddr = `mongodb://${userName}:${pwd}@${address}:${port}`;
 
 	return dbaddr;
 
