@@ -8,7 +8,10 @@ export default async function Page() {
 		if (response.ok) {
 			const image = await response.json();
 			return (
-				<Image style={{ maxHeight: "960px" }} preview={false} alt={image.title} src={image.url} />
+				<div style={{ display: 'flex', justifyContent: "center" }}>
+					<Image style={{ maxHeight: "960px" }} preview={false} alt={image.title} src={image.url} />
+				</div>
+
 
 			);
 		}
