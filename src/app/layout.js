@@ -1,7 +1,5 @@
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-
 import UILayout from '@/components/uilayout';
-import { Analytics } from "@vercel/analytics/react"
 import './global.scss';
 
 export const metadata = {
@@ -21,7 +19,6 @@ export default function RootLayout({ children }) {
 			<body>
 				<AntdRegistry>
 					<UILayout>{children}</UILayout>
-					<Analytics />
 				</AntdRegistry>
 			</body>
 		</html>

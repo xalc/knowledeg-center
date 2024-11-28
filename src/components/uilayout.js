@@ -1,22 +1,17 @@
 'use client';
 import React from 'react';
-
+import { usePathname } from 'next/navigation'
 import { Layout, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader.js';
 const { Footer, Content } = Layout;
 const useStyles = createStyles(({ css, token }) => {
 	return {
-		// flex-direction: column;
-		// overflow: hidden;
-		// background-image: url(https://www.bing.com/th?id=OHR.MoroccoMilkyWay_ZH-CN3544344290_1920x1080.jpg);
-		// width: 100vw;
-		// background-size: cover;
-		// background-position: center;
 		layout: css`
 			height: 100vh;
 			display: flex;
 		`,
+
 		header: css`
 			background-color: inherit;
 		`,
@@ -35,7 +30,21 @@ export default function UILayout({ children }) {
 	const {
 		token: { colorBgContainer },
 	} = theme.useToken();
+	const pathname = usePathname()
+	const landingPage = pathname === '/';
 
+	const MainLayout = ({ children, landingPage }) => {
+		if (landingPage) {
+			return <>{children}</>
+		}
+		return <>
+			<ResponseHeader />
+			<Content className={styles.content}>{children}</Content>
+			<Footer className={styles.footer}>
+				HunterX ©2024 developed in Xi&apos;an
+			</Footer>
+		</>
+	}
 	return (
 		<ThemeProvider
 			themeMode={'auto'}
@@ -48,11 +57,9 @@ export default function UILayout({ children }) {
 				},
 			}}>
 			<Layout className={styles.layout}>
-				<ResponseHeader />
-				<Content className={styles.content}>{children}</Content>
-				<Footer className={styles.footer}>
-					HunterX ©2024 developed in Xi&apos;an
-				</Footer>
+				<MainLayout landingPage={landingPage}>
+					{children}
+				</MainLayout>
 			</Layout>
 		</ThemeProvider>
 	);
