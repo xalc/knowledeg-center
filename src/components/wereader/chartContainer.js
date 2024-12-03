@@ -91,7 +91,7 @@ export default function ChartContainer({ readingTimes, syncdTime, readingStatus 
       </Col>
     </Row>
     <Divider orientation="center">React Echarts</Divider>
-    <Row gutter={[16, 32]}>
+    <Row justify='center' gutter={[16, 32]}>
       <Col xs={24} sm={24}>
         <Space>
           <Button

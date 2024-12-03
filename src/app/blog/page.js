@@ -13,7 +13,7 @@ const useStyles = createStyles(({ css, token }) => ({
     padding: ${token.paddingLG}px;
     min-width:400px;
     max-width: 1200px;
-    width: 60%
+
 
   `,
 
@@ -30,11 +30,10 @@ const BlogPage = () => {
 
 
     <div className={styles.item}>
-      <Link href='/blog/我的 第一篇文章'>
-        <Title level={4} className={styles.link} underline italic>我的 第一篇文章</Title>
+      <Link href='/blog/这个博客网站为什么会存在'>
+        <Title level={4} className={styles.link} underline italic>这个博客网站为什么会存在</Title>
       </Link>
-      <Text> 总结
-        选择合适的 JSON 数据库取决于你的具体需求，包括数据规模、性能要求、扩展性和易用性等因素。以下是几种数据库的简要对比：</Text>
+      <Text> 这是本博客的第一篇文章，思考开启博客的由来契机以及一些规划</Text>
     </div>
     <div className={styles.item}>
       <Link href='/blog/我的 第一篇文章'>

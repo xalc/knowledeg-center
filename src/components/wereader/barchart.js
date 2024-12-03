@@ -7,14 +7,14 @@ import moment from 'moment';
 
 const gridLayout = {
 	mobile: [
-		{ top: 10, bottom: '67%', width: '90%' },
-		{ top: '33%', bottom: '34%', width: '90%' },
-		{ top: '66%', bottom: 30, width: '90%' },
+		{ top: '5%', height: '25%', width: '90%' },
+		{ top: '40%', height: '25%', width: '90%' },
+		{ top: '75%', height: '25%', width: '90%' },
 	],
 	tablet: [
-		{ left: 10, bottom: '50%', width: '45%' },
-		{ left: '50%', bottom: '50%', width: '45%' },
-		{ top: '50%', bottom: 30, width: '90%' },
+		{ left: 10, bottom: '55%', width: '45%' },
+		{ left: '50%', bottom: '55%', width: '45%' },
+		{ left: 10, top: '65%', bottom: 30, width: '95%' },
 	],
 	laptop: [
 		{ left: 10, width: '30%', bottom: 30 },
@@ -24,9 +24,9 @@ const gridLayout = {
 };
 const titleLayout = {
 	mobile: [
-		{ left: '50%', top: 0 },
-		{ left: '34%', top: '34%' },
-		{ left: '67%', top: '74%' },
+		{ left: '45%', top: 0 },
+		{ left: '45%', top: '35%' },
+		{ left: '45%', top: '70%' },
 	],
 	tablet: [
 		{ left: '30%', top: 0 },
@@ -34,13 +34,13 @@ const titleLayout = {
 		{ top: '50%', left: '50%' },
 	],
 	laptop: [
-		{ left: '25%' },
+		{ left: '15%' },
 		{ left: '50%' },
 		{ left: '75%' },
 	],
 }
 const containerHeight = {
-	mobile: 900,
+	mobile: 1200,
 	tablet: 600,
 	laptop: 300,
 };
@@ -131,22 +131,39 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 		const { tablet, laptop } = responsive;
 		const device = laptop ? 'laptop' : tablet ? 'tablet' : 'mobile';
 		const usedLayout = gridLayout[device];
+		const totleReadingHoures = (yearData.reduce((acc, year) => acc + parseInt(year.value), 0) / 60).toFixed(1);
+		const yearReadingHoures = (monthData.reduce((acc, month) => acc + parseInt(month.value), 0) / 60).toFixed(1);
+		const monthReadingHoures = (DateData.reduce((acc, date) => acc + parseInt(date.value), 0) / 60).toFixed(1);
 		return {
 			legend: {},
-			tooltip: {},
+			tooltip: {
+				formatter: ({ data, seriesId, dimensionNames }) => {
+					const name = dimensionNames[0];
+					if (seriesId === 'year_key') {
+						return data[name] + '年: 阅读' + (data["value"] / 60).toFixed(2) + '小时'
+					}
+					if (seriesId === 'month_key') {
+						return data[name] + '月: 阅读' + (data["value"] / 60).toFixed(2) + '小时'
+					}
+					if (seriesId === 'date_key') {
+						return data[name] + '日: 阅读' + parseInt(data.value).toFixed(2) + '分钟'
+					}
+
+				}
+			},
 			title: [{
 				text: '总共阅读量',
-				subtext: 'xx小时',
+				subtext: `${totleReadingHoures} 小时`,
 				...titleLayout[device][0]
 
 			}, {
 				text: '当年阅读量',
-				subtext: 'xx小时',
+				subtext: `${yearReadingHoures}小时`,
 				...titleLayout[device][1]
 
 			}, {
 				text: '当月阅读量',
-				subtext: 'xx小时',
+				subtext: `${monthReadingHoures}小时`,
 				...titleLayout[device][2]
 
 			}],
@@ -171,6 +188,7 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 						x: 'year',
 						y: 'value',
 					},
+
 				},
 				{
 					type: 'bar',
@@ -185,6 +203,7 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 				},
 				{
 					type: 'bar',
+					id: 'date_key',
 					emphasis: {
 						focus: 'self',
 					},

@@ -75,7 +75,7 @@ const ResponseHeader = () => {
 						block={smallDevice}
 						color={getIconColor('/')}
 						variant="text">
-						主页
+						WELCOME
 					</Button>
 					{/* <Button
                     onClick={() => redirectToPage('/list')}
