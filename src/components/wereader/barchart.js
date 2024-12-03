@@ -136,7 +136,21 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 		const monthReadingHoures = (DateData.reduce((acc, date) => acc + parseInt(date.value), 0) / 60).toFixed(1);
 		return {
 			legend: {},
-			tooltip: {},
+			tooltip: {
+				formatter: ({ data, seriesId, dimensionNames }) => {
+					const name = dimensionNames[0];
+					if (seriesId === 'year_key') {
+						return data[name] + '年: 阅读' + (data["value"] / 60).toFixed(2) + '小时'
+					}
+					if (seriesId === 'month_key') {
+						return data[name] + '月: 阅读' + (data["value"] / 60).toFixed(2) + '小时'
+					}
+					if (seriesId === 'date_key') {
+						return data[name] + '日: 阅读' + parseInt(data.value).toFixed(2) + '分钟'
+					}
+
+				}
+			},
 			title: [{
 				text: '总共阅读量',
 				subtext: `${totleReadingHoures} 小时`,
@@ -174,6 +188,7 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 						x: 'year',
 						y: 'value',
 					},
+
 				},
 				{
 					type: 'bar',
@@ -188,6 +203,7 @@ export default function ReadingTimeBarChart({ readingRecords, chooseYear, year, 
 				},
 				{
 					type: 'bar',
+					id: 'date_key',
 					emphasis: {
 						focus: 'self',
 					},

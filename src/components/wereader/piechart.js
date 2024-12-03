@@ -43,6 +43,7 @@ export default function ReadingPieChart({ data }) {
 	const options = {
 		title: {
 			text: '阅读情况',
+			left: 'center'
 		},
 
 		tooltip: {
@@ -50,7 +51,7 @@ export default function ReadingPieChart({ data }) {
 		},
 		legend: {
 			orient: 'vertical',
-			left: 'right',
+			left: 'left',
 		},
 		dataset: {
 			source: datas,
@@ -69,8 +70,11 @@ export default function ReadingPieChart({ data }) {
 					itemName: 'lebel',
 				},
 				label: {
-					formatter: '{d}%',
+					formatter: '{b}: {d}%',
 					position: 'inside',
+					fontStyle: 'oblique',
+					fontWeight: 'bolder'
+
 				},
 				tooltip: {
 					valueFormatter: value => value + '本',

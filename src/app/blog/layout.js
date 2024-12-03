@@ -10,6 +10,9 @@ const useStyles = createStyles(({ css }) => ({
   `,
   container: css`
     width: 60%;
+    overflow: auto;
+    height: 600px;
+    min-width:400px
   
   `,
   image: css`
@@ -26,7 +29,10 @@ export default function BlogContainerLayout({ children }) {
       <img className={styles.image} src='/images/blog_cover.png'></img>
     </div>
     <Flex vertical align='center'>
-      {children}
+      <div className={styles.container}>
+        {children}
+      </div>
+
     </Flex>
 
 

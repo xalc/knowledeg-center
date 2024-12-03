@@ -9,7 +9,7 @@
 
 ### 偏差分析
 
-[https://www.bjhengjia.net/fabu/News/202042111289.html](notes/PMP/https:/www.bjhengjia.net/fabu/News/202042111289.html)
+[https://www.bjhengjia.net/fabu/News/202042111289.html](https://www.bjhengjia.net/fabu/News/202042111289.html)
 
 > 
 > 

@@ -1,5 +1,6 @@
 import { Splitter } from 'antd';
 import { createStyles } from 'antd-style';
+import Claim from '../claim';
 const useStyles = createStyles(({ css }) => {
 	return {
 		splitter: css`
@@ -20,7 +21,7 @@ const LargeDoc = ({ children, nav }) => {
 				{nav}
 			</Splitter.Panel>
 			<Splitter.Panel >
-				<div className={styles.content}>{children}</div>
+				<div className={styles.content}>{children} <Claim /></div>
 			</Splitter.Panel>
 		</Splitter>
 	);

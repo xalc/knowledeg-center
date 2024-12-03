@@ -4,6 +4,7 @@ import { Button, Drawer, Affix } from 'antd';
 import { DoubleRightOutlined } from '@ant-design/icons';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Claim from '../claim';
 const useStyles = createStyles(({ css }) => {
 	return {
 		content: css`
@@ -29,7 +30,7 @@ const SmallDoc = ({ nav, children }) => {
 
 	return (
 		<div className={styles.mobile}>
-			<div className={styles.content}>{children}</div>
+			<div className={styles.content}>{children} <Claim /></div>
 			<Drawer
 				title="Menu"
 				placement={'left'}
