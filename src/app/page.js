@@ -9,7 +9,6 @@ const useStyles = createStyles(({ css, token }) => {
 		container: css`
 			display: flex;
 			justify-content: center;
-			flex-direction: column;
 			height: 100vh;
 			align-items: center;
 			padding-bottom: ${token.paddingSM}rem
@@ -26,11 +25,12 @@ const useStyles = createStyles(({ css, token }) => {
 			width: 16rem
 		`,
 		title: css`
-					transform: translate(-50%, -50%);
 					font-size: 24px;
 					font-weight: bold;
-				
 					filter:brightness(120%) saturate(150%);
+					display: flex;
+					flex-direction: column;
+					align-items: center
 					`
 	};
 
@@ -70,7 +70,7 @@ export default function Page() {
 		<div className={styles.landing}>
 			<div className={styles.container} onMouseMove={() => throttle(() => setShow(true), 500)} onClick={() => setShow(!show)}>
 				{show && <div id='logo' className={styles.title}>
-					<Title level={1}>HuntX&apos第二大脑</Title>
+					<Title level={1}>HuntX&rsquo;第二大脑</Title>
 					<Title level={5}>博客/备忘录/以及有趣的东西</Title>
 					<Button className={styles.btn} type='primary' size="large" onClick={() => route.push('/docs')}>去看看</Button>
 				</div>}
