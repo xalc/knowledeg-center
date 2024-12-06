@@ -13,7 +13,8 @@ const useStyles = createStyles(({ css }) => ({
     width: 80%;
     overflow: auto;
     height: calc(100vh - 400px);
-    min-width:400px
+    min-width:400px;
+    margin: 32px;
   
   `,
   image: css`

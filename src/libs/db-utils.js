@@ -7,7 +7,10 @@ import {
 	READING_TIME_SYNC_KEY,
 	SYNC_HISTORY_COLLECTION,
 	BOOKS_C,
+	BLOG_C,
+	KNOWLEDGE_DB_NAME
 } from './constants.js';
+
 
 export const getDBReadingTimes = async () => {
 	try {
@@ -56,4 +59,18 @@ export const getAllReadingStatus = async () => {
 
 	await dbInstance.disconnect();
 	return status;
+};
+
+
+export const getBlogsFromDb = async () => {
+	try {
+		const dbInstance = new MongoDBManager(getDbString(), KNOWLEDGE_DB_NAME);
+		await dbInstance.connect();
+		const result = await dbInstance.findMany(BLOG_C, {}, { projection: { title: 1, author: 1, description: 1, slug: 1 } });
+		await dbInstance.disconnect();
+		return result;
+	} catch (error) {
+		console.error(`Get Reading data failed:  ${error}`);
+		throw error;
+	}
 };

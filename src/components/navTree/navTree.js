@@ -10,9 +10,9 @@ const NavTree = ({ treeData }) => {
 	const router = useRouter();
 	const treeRef = useRef();
 	const onSelect = (keys, info) => {
-		console.log('Trigger Select', keys, info);
+		// console.log('Trigger Select', keys, info);
 		if (info.node.isLeaf) {
-			router.push(`/docs?page=${info.node.key}`);
+			router.push(`/docs?page=${encodeURIComponent(info.node.key)}`);
 		}
 	};
 

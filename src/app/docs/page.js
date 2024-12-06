@@ -23,7 +23,7 @@ const components = {
 
 const MdxComponent = async ({ searchParams }) => {
 	const key = searchParams.page || 'notes/index.md';
-	const content = await getMDXContent(decodeURI(key));
+	const content = await getMDXContent(key);
 	// const mdxSource = await serialize(content)
 	return (
 		<Suspense fallback={<p>Loading feed...</p>}>
