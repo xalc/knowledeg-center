@@ -2,6 +2,8 @@ import ControlledComp from './controlledComp.js';
 import SaveValue from './saveValue.js';
 import FRef from './forwardRefTest.js';
 
+import CustomLink from '@/components/customLink';
+
 # Using react ref note
 
 ## Let's focus on the controlled component
@@ -37,7 +39,7 @@ function Video() {
 }
 ```
 
-## 使用forwardRef 转发ref
+## ~~使用forwardRef 转发ref~~
 
 <FRef />
 ```jsx
@@ -46,4 +48,30 @@ const MyInput = forwardRef((props, ref) => {
 })
 ```
 
-- [ ] task list
+### Deprecated(2024/12/7)
+#### ***In React 19, forwardRef is no longer necessary. Pass ref as a prop instead.***
+
+#### ***forwardRef will deprecated in a future release. Learn more here.***
+
+For example:
+```jsx
+const MyInput = ({props}) => {
+      {props.}
+    const { ref, label, ...rest } = props;
+    return (
+    <label>
+      {label}
+      <input ref={ref} ...rest />
+    </label>
+    )
+
+}
+<MyInput ref={ref}>
+```
+
+
+ps: 突然之间还当了个粉丝，追了个新，官方文档十二月五日才更新。
+
+查看原文<CustomLink  href='https://react.dev/blog/2024/12/05/react-19#ref-as-a-prop' />
+
+

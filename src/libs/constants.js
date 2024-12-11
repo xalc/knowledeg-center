@@ -6,6 +6,9 @@ export const READING_TIMES_COLLECTION = 'readtimes';
 export const SYNC_HISTORY_COLLECTION = 'sync_history';
 export const BOOK_PROGRESS_C = 'bookProgress';
 export const BOOKS_C = 'books';
+//blogs
+export const BLOG_C = 'blogs';
+
 
 // for database keys
 export const READING_TIME_SYNC_KEY = 'readingTime';

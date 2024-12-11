@@ -72,7 +72,7 @@ export default function Page() {
 				{show && <div id='logo' className={styles.title}>
 					<Title level={1}>HuntX&rsquo;第二大脑</Title>
 					<Title level={5}>博客/备忘录/以及有趣的东西</Title>
-					<Button className={styles.btn} type='primary' size="large" onClick={() => route.push('/docs')}>去看看</Button>
+					<Button className={styles.btn} type='primary' size="large" onClick={() => route.push('/blog/这个博客网站为什么会存在')}>去看看</Button>
 				</div>}
 
 			</div>

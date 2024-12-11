@@ -33,10 +33,10 @@ class MongoDBManager {
 			throw error;
 		}
 	}
-	async findMany(collectionName, filter) {
+	async findMany(collectionName, filter, conditions = {}) {
 		try {
 			const collection = this.db.collection(collectionName);
-			const cursor = collection.find(filter);
+			const cursor = collection.find(filter, conditions);
 			return await cursor.toArray();
 		} catch (error) {
 			console.error('Error finding documents:', error);
