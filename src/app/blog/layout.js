@@ -5,7 +5,7 @@ import { ThemeProvider } from 'antd-style';
 import { Flex } from 'antd';
 const useStyles = createStyles(({ css }) => ({
   cover: css`
-    height: 25%;
+    height: 200px;
     width: 100vw;
     overflow: hidden;
   `,
