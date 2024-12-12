@@ -49,8 +49,8 @@ jobs:
           tar -xzf build_artifacts.tar.gz 
           cp .next public node_modules /root/Documents/knowledeg-center -rf
           cd /root/Documents/knowledeg-center
-          export NVM_DIR=\"$HOME/.nvm\" && [ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"
+          source ~/.bashrc
           nvm use 20
           node --version
-          pm2 restart all
+          pm2 restart knowledge
         EOF
