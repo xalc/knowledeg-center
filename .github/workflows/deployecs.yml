@@ -1,0 +1,40 @@
+name: Deploy to aliyun ECS
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        yarn install --legacy-peer-deps
+        yarn run build
+        
+    - name: Archive build artifacts
+      run: |
+        tar -czf build_artifacts.tar.gz .next public node_modules package.json
+    - name: Deploy to ECS
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_PRIVATE_KEY }}
+        ECS_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
+        ECS_USER: ${{ secrets.ALIYUN_ECS_USER }}
+
+      run: |
+        echo "$SSH_PRIVATE_KEY" > id_rsa
+        chmod 600 id_rsa
+        scp -o StrictHostKeyChecking=no -i id_rsa build_artifacts.tar.gz $ECS_USER@$ECS_HOST:/root/Documents/deployment
+        ssh -o StrictHostKeyChecking=no -i id_rsa $ECS_USER@$ECS_HOST << 'EOF'
+          cd /root/Documents/deployment
+          tar -xzf build_artifacts.tar.gz 
+          cp .next public node_modules /root/Documents/knowledeg-center -rf
+          cd /root/Documents/knowledeg-center
+          pm2 restart all
+        EOF
