@@ -1,9 +1,5 @@
 name: Deploy to aliyun ECS
-
-
-
 on:
-  
   push:
     branches:
       - production
@@ -11,7 +7,7 @@ on:
 env:
   ATLAS_CLUSTER: ${{ vars.ATLAS_CLUSTER }}
   ATLAS_NAME: ${{ vars.ATLAS_NAME }}
-  ATLAS_PD: ${{ vars.ATLAS_PD }}
+  ATLAS_PD: ${{ secrets.ATLAS_PD }}
   CREDLY_USER: ${{ vars.CREDLY_USER }}
   MONGO_DATABASE: ${{ vars.MONGO_DATABASE }}
   USE_ATLAS_DATABASE: ${{ vars.USE_ATLAS_DATABASE }}
@@ -22,7 +18,7 @@ jobs:
     steps:
     - name: check env
       run: |
-        echo "**** ${{ env.MONGO_DATABASE }} ${{ vars.MONGO_DATABASE }}. Today is ${{ secrets.ALIYUN_ECS_USER  }}!"
+        echo "**** ${{ env.MONGO_DATABASE }} ${{ vars.MONGO_DATABASE }} ${{ secrets.ALIYUN_ECS_USER  }}!"
     
     - name: Checkout code
       uses: actions/checkout@v3
@@ -47,7 +43,7 @@ jobs:
         ECS_USER: ${{ secrets.ALIYUN_ECS_USER }}
 
       run: |
-        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz root@8.137.115.86:/root/Documents/deployment
+        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz $ECS_USER@$ECS_HOST:/root/Documents/deployment
         ssh -o StrictHostKeyChecking=no  $ECS_USER@$ECS_HOST << 'EOF'
           cd /root/Documents/deployment
           tar -xzf build_artifacts.tar.gz 
