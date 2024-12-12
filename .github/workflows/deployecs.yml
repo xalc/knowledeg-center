@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: check env
+      run: |
+        echo "**** ${{ env.MONGO_DATABASE }} ${{ vars.MONGO_DATABASE }}. Today is ${{ secrets.ALIYUN_ECS_USER  }}!"
+    
     - name: Checkout code
       uses: actions/checkout@v3
     
