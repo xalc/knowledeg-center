@@ -8,7 +8,13 @@ on:
     branches:
       - production
   workflow_dispatch: 
-
+env:
+  ATLAS_CLUSTER: ${{ vars.ATLAS_CLUSTER }}
+  ATLAS_NAME: ${{ vars.ATLAS_NAME }}
+  ATLAS_PD: ${{ vars.ATLAS_PD }}
+  CREDLY_USER: ${{ vars.CREDLY_USER }}
+  MONGO_DATABASE: ${{ vars.MONGO_DATABASE }}
+  USE_ATLAS_DATABASE: ${{ vars.USE_ATLAS_DATABASE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
