@@ -18,9 +18,11 @@ const useStyles = createStyles(({ token, css }) => ({
 	},
 	container: {
 		margin: token.margin,
+		height: 'inherit',
+		overflow: 'auto'
 	},
 	badgeContainer: {
-		height: 'calc(100vh - 320px)',
+
 		overflow: 'auto',
 	},
 	profile1: css`

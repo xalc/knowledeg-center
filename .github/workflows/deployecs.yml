@@ -1,0 +1,60 @@
+name: Deploy to aliyun ECS
+on:
+  push:
+    branches:
+      - production
+  workflow_dispatch: 
+env:
+  ATLAS_CLUSTER: ${{ vars.ATLAS_CLUSTER }}
+  ATLAS_NAME: ${{ vars.ATLAS_NAME }}
+  ATLAS_PD: ${{ secrets.ATLAS_PD }}
+  CREDLY_USER: ${{ vars.CREDLY_USER }}
+  MONGO_DATABASE: ${{ vars.MONGO_DATABASE }}
+  USE_ATLAS_DATABASE: ${{ vars.USE_ATLAS_DATABASE }}
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'ecs' }}
+    steps:
+    - name: check env
+      run: |
+        echo "**** ${{ env.MONGO_DATABASE }} ${{ vars.MONGO_DATABASE }} ${{ secrets.ALIYUN_ECS_USER  }}!"
+    
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        yarn install --legacy-peer-deps
+        yarn run build
+        
+    - name: Archive build artifacts
+      run: |
+        tar -czf build_artifacts.tar.gz .next public node_modules package.json
+
+    - name: Setup SSH Key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+          ssh-private-key: ${{ secrets.ALIYUN_SERVER_PRIVATE_KEY }}
+          
+    - name: Deploy to ECS
+      env:
+        ECS_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
+        ECS_USER: ${{ secrets.ALIYUN_ECS_USER }}
+
+      run: |
+        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz $ECS_USER@$ECS_HOST:/root/Documents/deployment
+        ssh -o StrictHostKeyChecking=no  $ECS_USER@$ECS_HOST << 'EOF'
+          cd /root/Documents/deployment
+          tar -xzf build_artifacts.tar.gz 
+          cp .next public node_modules /root/Documents/knowledeg-center -rf
+          cd /root/Documents/knowledeg-center
+          echo $PATH
+          source ~/.bashrc
+          export NVM_DIR="$HOME/.nvm" && \
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+          nvm use 20
+          node --version
+          pm2 restart knowledge
+        EOF
