@@ -35,17 +35,20 @@ jobs:
     - name: Archive build artifacts
       run: |
         tar -czf build_artifacts.tar.gz .next public node_modules package.json
+
+    - name: Setup SSH Key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+          ssh-private-key: ${{ secrets.ALIYUN_SERVER_PRIVATE_KEY }}
+          
     - name: Deploy to ECS
       env:
-        SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_PRIVATE_KEY }}
         ECS_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
         ECS_USER: ${{ secrets.ALIYUN_ECS_USER }}
 
       run: |
-        echo "$SSH_PRIVATE_KEY" > id_rsa
-        chmod 600 id_rsa
-        scp -o StrictHostKeyChecking=no -i id_rsa build_artifacts.tar.gz $ECS_USER@$ECS_HOST:/root/Documents/deployment
-        ssh -o StrictHostKeyChecking=no -i id_rsa $ECS_USER@$ECS_HOST << 'EOF'
+        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz $ECS_USER@$ECS_HOST:/root/Documents/deployment
+        ssh -o StrictHostKeyChecking=no  $ECS_USER@$ECS_HOST << 'EOF'
           cd /root/Documents/deployment
           tar -xzf build_artifacts.tar.gz 
           cp .next public node_modules /root/Documents/knowledeg-center -rf
