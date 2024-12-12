@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Layout, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader.js';
-const { Footer, Content } = Layout;
+const { Content } = Layout;
 const useStyles = createStyles(({ css, token }) => {
 	return {
 		layout: css`
