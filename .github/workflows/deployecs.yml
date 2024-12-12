@@ -24,17 +24,7 @@ jobs:
       run: |
         echo "**** ${{ env.MONGO_DATABASE }} ${{ vars.MONGO_DATABASE }}. Today is ${{ secrets.ALIYUN_ECS_USER  }}!"
     
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Install dependencies
-      run: |
-        yarn install --legacy-peer-deps
-        yarn run build
-        
-    - name: Archive build artifacts
-      run: |
-        tar -czf build_artifacts.tar.gz .next public node_modules package.json
+
 
     - name: Setup SSH Key
       uses: webfactory/ssh-agent@v0.5.3
@@ -47,7 +37,7 @@ jobs:
         ECS_USER: ${{ secrets.ALIYUN_ECS_USER }}
 
       run: |
-        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz root@$8.137.115.86:/root/Documents/deployment
+        scp -o StrictHostKeyChecking=no  build_artifacts.tar.gz root@8.137.115.86:/root/Documents/deployment
         ssh -o StrictHostKeyChecking=no  $ECS_USER@$ECS_HOST << 'EOF'
           cd /root/Documents/deployment
           tar -xzf build_artifacts.tar.gz 
