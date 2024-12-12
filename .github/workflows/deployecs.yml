@@ -1,11 +1,13 @@
 name: Deploy to aliyun ECS
 
 
-on: workflow_dispatch
+
 on:
+  
   push:
     branches:
       - production
+  workflow_dispatch: 
 
 jobs:
   deploy:
