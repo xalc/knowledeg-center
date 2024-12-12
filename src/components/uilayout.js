@@ -16,7 +16,10 @@ const useStyles = createStyles(({ css, token }) => {
 			background-color: inherit;
 		`,
 		content: css`
-			height: calc(100vh - 130px);
+			flex: 1 1 0;
+			display: flex;
+			justify-content: center;
+
 		`,
 		footer: css`
 			display: flex;
@@ -40,9 +43,9 @@ export default function UILayout({ children }) {
 		return <>
 			<ResponseHeader />
 			<Content className={styles.content}>{children}</Content>
-			<Footer className={styles.footer}>
+			{/* <Footer className={styles.footer}>
 				HunterX ©2024 developed in Xi&apos;an
-			</Footer>
+			</Footer> */}
 		</>
 	}
 	return (
