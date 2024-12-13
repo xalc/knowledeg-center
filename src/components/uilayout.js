@@ -50,7 +50,7 @@ export default function UILayout({ children }) {
 	}
 	return (
 		<ThemeProvider
-			themeMode={'auto'}
+			defaultThemeMode={'auto'}
 			theme={{
 				cssVar: true,
 				components: {
