@@ -19,6 +19,7 @@ const components = {
 	h3: props => <Title level={3} {...props} />,
 	p: props => <Paragraph {...props} />,
 	pre: Code,
+	code: props => <code style={{ color: 'red', fontWeight: 600 }} {...props} />
 };
 
 const MdxComponent = async (props) => {

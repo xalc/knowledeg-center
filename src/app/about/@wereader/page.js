@@ -1,11 +1,15 @@
 import WRBooks from '@/components/wereaderBooks';
 
-import { getDBReadingBooks } from '@/libs/db-utils';
+import { getDBReadingBooks, getAllReadingStatus } from '@/libs/db-utils';
 
 const WeReaderPage = async () => {
 	// const dbInstance = DBInstance.getInstance('knowledge', 'books');
 
 	const books = await getDBReadingBooks().catch(err => {
+		//TODO Error handle
+		console.error('get book list failed: ' + err);
+	});
+	const statuses = await getAllReadingStatus().catch(err => {
 		//TODO Error handle
 		console.error('get book list failed: ' + err);
 	});
@@ -16,9 +20,9 @@ const WeReaderPage = async () => {
 			cover: b.cover,
 			category: b.category,
 			author: b.author,
-			bookid: b.bookId,
+			bookId: b.bookId,
 		};
 	});
-	return <WRBooks books={needed} />;
+	return <WRBooks books={needed} statuses={statuses} />;
 };
 export default WeReaderPage;

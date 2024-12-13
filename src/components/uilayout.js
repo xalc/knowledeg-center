@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Layout, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader.js';
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 const useStyles = createStyles(({ css, token }) => {
 	return {
 		layout: css`
@@ -43,14 +43,14 @@ export default function UILayout({ children }) {
 		return <>
 			<ResponseHeader />
 			<Content className={styles.content}>{children}</Content>
-			{/* <Footer className={styles.footer}>
+			<Footer className={styles.footer}>
 				HunterX ©2024 developed in Xi&apos;an
-			</Footer> */}
+			</Footer>
 		</>
 	}
 	return (
 		<ThemeProvider
-			themeMode={'auto'}
+			defaultThemeMode={'auto'}
 			theme={{
 				cssVar: true,
 				components: {

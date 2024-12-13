@@ -1,24 +1,7 @@
 import { Flex, Skeleton } from 'antd';
-import { useEffect, useState } from 'react';
+
 import ReadingStatus from './readingStatus';
-const Description = ({ author, category, bookid }) => {
-	const [readingProgress, setReadingProgress] = useState(null);
-	useEffect(() => {
-		const getProgress = async bookid => {
-			const result = await fetch(`/api/wereader/progress/${bookid}`);
-			if (!result.ok) {
-				console.error('connect failed ' + result.statusText);
-			}
-			const p = await result.json();
-			if (p.error) {
-				console.log(bookid);
-				console.error(p.error);
-			} else {
-				setReadingProgress(p);
-			}
-		};
-		getProgress(bookid);
-	}, [bookid]);
+const Description = ({ author, category, status }) => {
 
 	const parseReadingTime = second => {
 		if (second / 60 / 60 > 1) {
@@ -40,12 +23,12 @@ const Description = ({ author, category, bookid }) => {
 	return (
 		<>
 			<Flex>
-				<ReadingStatus progress={readingProgress?.progress} />
+				<ReadingStatus progress={status?.progress} />
 			</Flex>
 			<div>
-				{readingProgress?.readingTime &&
-					`累计阅读: ${parseReadingTime(readingProgress.readingTime)}`}
-				{readingProgress === null && <Skeleton active paragraph={false} />}
+				{status?.readingTime &&
+					`累计阅读: ${parseReadingTime(status.readingTime)}`}
+				{status === null && <Skeleton active paragraph={false} />}
 			</div>
 			{author} {category ? '| ' + category : ''}
 		</>
