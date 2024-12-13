@@ -2,6 +2,7 @@
 import dynamic from 'next/dynamic'
 import Title from 'antd/es/typography/Title';
 // import BlogPost, { metadata } from '@/blogs/这个博客网站为什么会存在.mdx'
+//TODO： https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration
 export async function generateStaticParams() {
   return [{ blogName: '这个博客网站为什么会存在' }, { blogName: '我的 第一篇文章' }]
 }

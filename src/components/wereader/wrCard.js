@@ -3,7 +3,7 @@ import { Card } from 'antd';
 import Cover from './cover.js';
 import Description from './description.js';
 const { Meta } = Card;
-export default function WrCard({ book }) {
+export default function WrCard({ book, status }) {
 	return (
 		<Card
 			style={{
@@ -16,7 +16,7 @@ export default function WrCard({ book }) {
 				title={book.title}
 				description={
 					<Description
-						bookid={book.bookid}
+						status={status}
 						author={book.author}
 						category={book.category}
 					/>

@@ -28,6 +28,7 @@ const WrapTabItem = comp => {
 				height: 'calc(100vh - 280px)',
 				overflow: 'auto',
 				padding: '16px',
+				width: '100vw'
 			}}>
 			{comp}
 		</div>
