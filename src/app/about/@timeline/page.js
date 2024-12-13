@@ -106,6 +106,7 @@ const TimeLinePage = () => {
 				marginTop: '16px',
 				height: 'calc(100vh - 220px)',
 				overflow: 'auto',
+				width: '600px'
 			}}>
 			<Timeline reverse mode="alternate" items={items} />
 		</div>
