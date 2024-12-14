@@ -13,8 +13,6 @@ const useStyles = createStyles(({ css, token }) => ({
     padding: ${token.paddingLG}px;
     min-width:400px;
     max-width: 1200px;
-
-
   `,
 
   link: css`

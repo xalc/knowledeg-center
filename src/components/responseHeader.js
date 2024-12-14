@@ -52,7 +52,7 @@ const ResponseHeader = () => {
 		setCollapsed(true);
 	};
 	const getIconColor = (name) => name === pathname ? 'primary' : 'default';
-	const { setThemeMode } = useThemeMode();
+	const { isDarkMode, setThemeMode } = useThemeMode();
 
 	const onChange = (checked) => {
 		if (checked) {
@@ -121,7 +121,7 @@ const ResponseHeader = () => {
 						</Button>
 					</Flex>
 					<Flex>
-						<Switch defaultChecked onChange={onChange} checkedChildren='暗色' unCheckedChildren='亮色' />
+						<Switch defaultChecked={!isDarkMode} onChange={onChange} checkedChildren='暗色' unCheckedChildren='亮色' />
 					</Flex>
 
 				</Flex>
