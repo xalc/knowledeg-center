@@ -2,6 +2,7 @@
 
 import { createStyles } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+import { useThemeMode } from 'antd-style';
 const useStyles = createStyles(({ css }) => ({
   layout: css`
     display: flex;
@@ -27,18 +28,20 @@ const useStyles = createStyles(({ css }) => ({
 }));
 export default function BlogContainerLayout({ children }) {
   const { styles } = useStyles();
-
+  const { isDarkMode } = useThemeMode();
   return <div className={styles.layout}>
     <div className={styles.cover}>
       <img className={styles.image} src='https://images.unsplash.com/photo-1521587760476-6c12a4b040da?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=6000'></img>
     </div>
 
-    <ThemeProvider theme={{
-      token: {
-        fontSize: 16,
-        lineHeight: 1.75
-      },
-    }}>
+    <ThemeProvider
+      themeMode={isDarkMode ? 'dark' : 'light'}
+      theme={{
+        token: {
+          fontSize: 16,
+          lineHeight: 1.75
+        },
+      }}>
       <div className={styles.container}>
         {children}
       </div>
