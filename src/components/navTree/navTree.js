@@ -17,7 +17,7 @@ const NavTree = ({ treeData }) => {
 	};
 
 	const searchParams = useSearchParams();
-	const key = decodeURI(searchParams.get('page'));
+	const key = encodeURIComponent(searchParams.get('page'));
 	useEffect(() => {
 		if (treeRef.current) {
 			console.log('tree auto scrollto ' + key);
