@@ -1,7 +1,7 @@
 
 import BlogItem from "@/components/blogs/BlogItem";
 import { getBlogsFromDb } from "@/libs/db-utils";
-
+export const revalidate = 60 * 60;
 const BlogPage = async () => {
   const blogs = await getBlogsFromDb().catch(err => {
     console.log(err);

@@ -1,7 +1,7 @@
 import WRBooks from '@/components/wereaderBooks';
 
 import { getDBReadingBooks, getAllReadingStatus } from '@/libs/db-utils';
-
+export const revalidate = 60 * 60;
 const WeReaderPage = async () => {
 	// const dbInstance = DBInstance.getInstance('knowledge', 'books');
 
