@@ -11,5 +11,6 @@ export function useMDXComponents(components) {
 		h3: props => <Title level={3} {...props} />,
 		p: props => <Paragraph {...props} />,
 		pre: Code,
+		blockquote: props => <Paragraph><blockquote {...props} /></Paragraph>
 	};
 }

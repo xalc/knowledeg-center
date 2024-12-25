@@ -4,7 +4,9 @@ import { Button } from 'antd';
 import { ExportOutlined } from '@ant-design/icons';
 export default function CustomLink({ href, ...otherProps }) {
 	const isOuter = href.startsWith('http');
-	const newlink = isOuter ? href : `/docs?page=${href}`;
+	const isAnchor = href.startsWith('#');
+
+	const newlink = (isOuter || isAnchor) ? href : `/docs?page=${href}`;
 	if (isOuter) {
 		return (
 			<a href={href} target="_blank" rel="noreferrer">

@@ -20,7 +20,7 @@ const useStyles = createStyles(({ css, token }) => {
 			padding-right: ${token.paddingMD}px;
 		`,
 		menuIcon: css`
-			float: left;
+			float: right;
 		`,
 		menu: css`
 			position: absolute;
@@ -51,7 +51,7 @@ const ResponseHeader = () => {
 		router.push(target);
 		setCollapsed(true);
 	};
-	const getIconColor = (name) => name === pathname ? 'primary' : 'default';
+	const getIconColor = (name) => pathname.startsWith(name) ? 'primary' : 'default';
 	const { isDarkMode, setThemeMode } = useThemeMode();
 
 	const onChange = (checked) => {

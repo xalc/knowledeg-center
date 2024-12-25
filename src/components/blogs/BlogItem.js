@@ -25,7 +25,7 @@ export default function BlogItem({ title, description, slug }) {
   const { styles } = useStyles();
 
   return <div className={styles.item}>
-    <Link href={`/blog/${slug}`}>
+    <Link href={`/blog/${encodeURIComponent(slug)}`}>
       <Title level={4} className={styles.link} underline italic>{title}</Title>
     </Link>
     <Text> {description}</Text>

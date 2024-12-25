@@ -1,6 +1,6 @@
 import ChartContainer from '@/components/wereader/chartContainer';
 import { getDBReadingTimes, getAllReadingStatus } from '@/libs/db-utils';
-
+export const revalidate = 60 * 60;
 export default async function SumaryPage() {
 	const result = await getDBReadingTimes().catch(err => {
 		console.log(err);
