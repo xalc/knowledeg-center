@@ -1,19 +1,19 @@
 import WRBooks from '@/components/wereaderBooks';
 import { unstable_cache } from 'next/cache'
 import { getDBReadingBooks, getAllReadingStatus } from '@/libs/db-utils';
-export const revalidate = 60 * 60;
+export const revalidate = 60;
 
 
 const getBooks = unstable_cache(async () => await getDBReadingBooks().catch(err => {
 	//TODO Error handle
 	console.error('get book list failed: ' + err);
 }), ['posts'],
-	{ revalidate: 3600, tags: ['posts'] });
+	{ revalidate: revalidate, tags: ['posts'] });
 const getBookStatus = unstable_cache(async () => await getAllReadingStatus().catch(err => {
 	//TODO Error handle
 	console.error('get book list failed: ' + err);
 }), ['posts'],
-	{ revalidate: 3600, tags: ['posts'] });
+	{ revalidate: revalidate, tags: ['posts'] });
 const WeReaderPage = async () => {
 	// const dbInstance = DBInstance.getInstance('knowledge', 'books');
 

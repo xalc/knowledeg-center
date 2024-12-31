@@ -25,6 +25,12 @@ const useStyles = createStyles(({ css, token }) => {
 			display: flex;
 			justify-content: center;
 			border-top: 1px solid ${token.colorBorder};
+			height: 70px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+			p {
+			margin: 5px;}
 		`,
 	};
 });
@@ -44,7 +50,14 @@ export default function UILayout({ children }) {
 			<ResponseHeader />
 			<Content className={styles.content}>{children}</Content>
 			<Footer className={styles.footer}>
-				HunterX ©2024 developed in Xi&apos;an
+
+				<div>
+					<p>HunterX  -	陕ICP备2024057216号-1</p>
+					<p>
+						<a href="mailto:huntxalc@gmail.com">Contact me</a>
+					</p>
+				</div>
+
 			</Footer>
 		</>
 	}
