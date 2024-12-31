@@ -28,6 +28,7 @@ const useStyles = createStyles(({ css, token }) => {
 			height: 70px;
 			padding-top: 10px;
 			padding-bottom: 10px;
+			text-align: center;
 			p {
 			margin: 5px;}
 		`,
