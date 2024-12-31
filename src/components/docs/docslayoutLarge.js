@@ -10,6 +10,13 @@ const useStyles = createStyles(({ css }) => {
 		content: css`
 			margin: auto;
 			width: 70%;
+			.md-toc {
+				padding: 0;
+				font-size: 12px;
+			}
+			.md-li {
+					list-style-type: none;
+					}
 		`,
 	};
 });

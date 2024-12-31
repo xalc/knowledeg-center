@@ -28,7 +28,7 @@ const MdxComponent = async (props) => {
 	const searchParams = await props.searchParams;
 	const key = searchParams.page ?? 'notes/index.md';
 	const source = await getMDXContent(decodeURIComponent(key));
-	const { content, frontmatter } = await compileMDX({
+	const { content } = await compileMDX({
 		source,
 		options: {
 			parseFrontmatter: true,
@@ -40,7 +40,10 @@ const MdxComponent = async (props) => {
 					[rehypeToc, {
 						// position: 'after', // 将 TOC 放在内容之后
 						// heading: '目录', // 自定义目录标题
-						// className: 'my-toc', // 添加自定义 class
+						cssClasses: {
+							toc: 'md-toc',
+							listItem: 'md-li',
+						}
 					}]
 				]
 			}
@@ -50,10 +53,12 @@ const MdxComponent = async (props) => {
 
 	return (
 		<Suspense fallback={<p>Loading feed...</p>}>
-			<h1>{frontmatter.Author}</h1>
+			{/* <h1>{frontmatter.Author}</h1> */}
 			{/* <MDXRemote source={source} components={components} /> */}
 			{/* <MDXRemote {...content} components={{}} /> */}
 			{content}
+
+
 
 		</Suspense >
 	);
