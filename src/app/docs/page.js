@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm'
 import Title from 'antd/es/typography/Title';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeToc from 'rehype-toc';
+// import rehypeToc from 'rehype-toc';
 import { getMDXContent } from '@/libs/mdxparser.js';
 
 import CustomLink from '@/components/customLink';
@@ -37,14 +37,14 @@ const MdxComponent = async (props) => {
 				rehypePlugins: [
 					rehypeSlug,
 					rehypeAutolinkHeadings,
-					[rehypeToc, {
-						// position: 'after', // 将 TOC 放在内容之后
-						// heading: '目录', // 自定义目录标题
-						cssClasses: {
-							toc: 'md-toc',
-							listItem: 'md-li',
-						}
-					}]
+					// [rehypeToc, {
+					// 	// position: 'after', // 将 TOC 放在内容之后
+					// 	// heading: '目录', // 自定义目录标题
+					// 	cssClasses: {
+					// 		toc: 'md-toc',
+					// 		listItem: 'md-li',
+					// 	}
+					// }]
 				]
 			}
 		},
