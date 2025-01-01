@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation'
 import { Layout, theme } from 'antd';
 import { createStyles, ThemeProvider } from 'antd-style';
 import ResponseHeader from './responseHeader.js';
+import FooterContent from './footer.js';
 const { Content, Footer } = Layout;
 const useStyles = createStyles(({ css, token }) => {
 	return {
@@ -29,8 +30,7 @@ const useStyles = createStyles(({ css, token }) => {
 			padding-top: 10px;
 			padding-bottom: 10px;
 			text-align: center;
-			p {
-			margin: 5px;}
+			box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
 		`,
 	};
 });
@@ -50,13 +50,7 @@ export default function UILayout({ children }) {
 			<ResponseHeader />
 			<Content className={styles.content}>{children}</Content>
 			<Footer className={styles.footer}>
-
-				<div>
-					<p>HunterX  -	陕ICP备2024057216号-1</p>
-					<p>
-						<a href="mailto:huntxalc@gmail.com">Contact me</a>
-					</p>
-				</div>
+				<FooterContent />
 
 			</Footer>
 		</>
