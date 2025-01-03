@@ -18,7 +18,7 @@ const useStyles = createStyles(({ css }) => ({
     align-self: center;
     overflow: auto;
     width: 80%;
-    min-width: 400px;
+
     max-width: 1000px;
   `,
   image: css`
