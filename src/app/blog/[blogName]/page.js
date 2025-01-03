@@ -16,8 +16,9 @@ const BlogItem = async ({ params }) => {
 
   return <>
     <Title level={1}>{blogName}</Title>
+    <Link href='/blog' style={{ lineHeight: "48px" }}><ArrowLeftOutlined /> Back</Link>
     <MDX />
-    <Link href='/blog'><ArrowLeftOutlined /> Back</Link>
+
   </>
 }
 export default BlogItem;
