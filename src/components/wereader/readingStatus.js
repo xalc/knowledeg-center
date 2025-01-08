@@ -1,5 +1,8 @@
 import { Tag, Progress, Skeleton } from 'antd';
-export default function ReadingStatus({ progress }) {
+export default function ReadingStatus({ progress, finishReading }) {
+	if (finishReading === 1) {
+		return <Tag color="blue">读完</Tag>;
+	}
 	if (progress === null) {
 		return <Skeleton active paragraph={false} />;
 	}

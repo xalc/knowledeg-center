@@ -16,6 +16,7 @@ export default function WrCard({ book, status }) {
 				title={book.title}
 				description={
 					<Description
+						finishReading={book.finishReading}
 						status={status}
 						author={book.author}
 						category={book.category}

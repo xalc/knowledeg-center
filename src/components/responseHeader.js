@@ -85,10 +85,9 @@ const ResponseHeader = () => {
 							WELCOME
 						</Button>
 						<Button
-							onClick={() => redirectToPage('/tech')}
+							onClick={() => redirectToPage('/tech/list/time')}
 							className={cx({ [styles.navBtn]: smallDevice })}
 							block={smallDevice}
-							disabled
 							color={getIconColor('/tech')}
 							variant="text">
 							有趣

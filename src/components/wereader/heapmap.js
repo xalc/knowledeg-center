@@ -83,12 +83,3 @@ export default function ReadingHeapmap({ readingRecords, year }) {
 
 	);
 }
-
-
-
-
-
-
-
-
-'rgb(255 255 255 / 25%)', '#7BC96F', '#C6E48B', '#239A3B', '#ff7b00'

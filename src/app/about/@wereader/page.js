@@ -27,6 +27,7 @@ const WeReaderPage = async () => {
 			category: b.category,
 			author: b.author,
 			bookId: b.bookId,
+			finishReading: b.finishReading
 		};
 	});
 	return <WRBooks books={needed} statuses={statuses} />;

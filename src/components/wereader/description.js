@@ -1,7 +1,7 @@
 import { Flex, Skeleton } from 'antd';
 
 import ReadingStatus from './readingStatus';
-const Description = ({ author, category, status }) => {
+const Description = ({ author, category, status, finishReading }) => {
 
 	const parseReadingTime = second => {
 		if (second / 60 / 60 > 1) {
@@ -23,7 +23,7 @@ const Description = ({ author, category, status }) => {
 	return (
 		<>
 			<Flex>
-				<ReadingStatus progress={status?.progress} />
+				<ReadingStatus progress={status?.progress} finishReading={finishReading} />
 			</Flex>
 			<div>
 				{status?.readingTime &&
